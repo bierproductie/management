@@ -8,12 +8,11 @@ provide a better overview of the project completion status.
 - The members of the group are each responsible for keeping up with the content
 of the other semester subjects.
 - The supervisor meeting is scheduled for each Friday, however the time of each
-meeting can vary and are therefor is the time agreed upon on the previous
-meeting.
+meeting can vary and is therefore agreed upon on the previous meeting.
 - The supervisor is responsible for bringing up deadline uncertainties to
 maximize the possibility of a successful project.
 - If the group members are dissatisfied with the level of involvement of the 
 supervisor, it will be discussed on the weekly meeting.
-- If the group is in breach with group contract, then the supervisor will help
+- If the group is in breach with group contract, the supervisor will help
 with guidance.
 
