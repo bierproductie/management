@@ -41,7 +41,7 @@ later talk to instructor.
 TODO; Ordstyrer bliver valgt udfra om mødet foregår online eller fysisk.
 Ved fysisk møde, skal ordstyren være en af de fremmødte.
 ```
-- Kepet19 is responsible for writing summaries of meetings with jakra19 as alternate.
+- Kepet19 is responsible for writing summaries of meetings with Jakra19 as alternate.
 - All deadlines and internal agreements must be kept, and if not possible, logged.
 - Meeting agenda and eventual problems must be logged.
 
