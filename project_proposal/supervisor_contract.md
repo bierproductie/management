@@ -1,23 +1,18 @@
-# Vejlederaftale
-- Der skal laves en gennemgang og dagsorden til hvert vejledermøde. Det skal 
-sendes til vejleder senest onsdag kl. 23.59.
-- Vejleder læser alle dokumenter og materialer igennen, vi sender, og dette 
-skal gøres før vejledermødet.
+# Supervisor agreement
+- For each supervisor meeting an agenda should be written and made available
+to the supervisor before 23:59 on Wednesday. 
+- It's assumed that the supervisor reads through the sent material before each
+meeting.
+- The supervisor will get access to our project management tool ZenHub, to
+provide a better overview of the project completion status.
+- The members of the group are each responsible for keeping up with the content
+of the other semester subjects.
+- The supervisor meeting is scheduled for each Friday, however the time of each
+meeting can vary and is therefore agreed upon on the previous meeting.
+- The supervisor is responsible for bringing up deadline uncertainties to
+maximize the possibility of a successful project.
+- If the group members are dissatisfied with the level of involvement of the 
+supervisor, it will be discussed on the weekly meeting.
+- If the group is in breach with group contract, the supervisor will help
+with guidance.
 
-```
-TODO; decide if supervisor should have access to ZenHub or if we should send
-him screenshots of burndown chart and project board.
-```
-
-- Vejleder får adgang til vores projektstyringsværktøj for at lettere at kunne
-danne sig et overblik.
-- Vejleder modtager screenshots af burndown chart samt project board.
-- Vi tager ansvar for eget studie, og står selv for fremmøde til undervisning.
-- Vejledermøde er som udgangspunkt hver fredag kl. 10.30.
-	- Hvis tidspunktet skal ændres aftales det via e-mail.
-- Vejleder gør gruppen opmærksom på om gruppearbejdet er på afveje, samt at
-eventuelle deadlines ikke overholdes, så gruppen kan nå i mål uden konflikter.
-- Hvis gruppen skulle blive utilfreds med vejleders indsats, diskuteres
-problemstillinger med vejleder.
-- Hvis gruppen kommer på afveje i forhold til samarbejdsaftalen, skal vejleder
-være i stand til at vejlede gruppen gennem eventuelle konflikter.
