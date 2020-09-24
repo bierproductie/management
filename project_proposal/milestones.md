@@ -9,7 +9,7 @@ Milestones: What are the key milestones throughout the project?
 | Group meeting            | 11-09-20  | 38   |
 | Group meeting            | 18-09-20  | 39   |
 | Group meeting            | 25-09-20  | 40   |
-| Team leader meeting      | xx-xx-20  | 40   |
+| Team leader meeting      | 25-09-20  | 40   |
 | Project draft            | 02-10-20  | 40   |
 | Peer feedback start      | 05-10-20  | 41   |
 | Peer feedback due date   | 09-10-20  | 41   |
@@ -19,7 +19,7 @@ Milestones: What are the key milestones throughout the project?
 | Team leader meeting      | 09-10-20  | 43   |
 | Project week             | $$-10-20  | 43   |
 | Group meeting            | 30-10-20  | 44   |
-| Code review              | xx-10-20  | 44   |
+| Code review              | 30-10-20  | 44   |
 | Group meeting            | 06-11-20  | 45   |
 |                          |           | 46   |
 | Group meeting            | 21-11-20  | 47   |
