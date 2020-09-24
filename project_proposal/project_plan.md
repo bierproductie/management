@@ -1,6 +1,6 @@
-*Project Plan*
-To keep track of the _overall time schedule (fucking offshore jysk)_, a project
-plan has been made with inspiration from the
+### Project Plan
+To be sure that it is feasible to complete the project within the designated
+timeframe a project plan has been made with inspiration from the
 [project plan supplied by the supervisor.](https://docs.google.com/spreadsheets/d/1mZXxgDiwWwWpSyaQmMcafTjvXa2lQriszwTyt-Pf5BA/edit#gid=0)
 
 ![project plan](images/roadmap.png)
