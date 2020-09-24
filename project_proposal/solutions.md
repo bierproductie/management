@@ -3,7 +3,7 @@ Our distributed system consists of five sub-systems, where we are writing three
 of them.
 
 
-#### OPC Client
+#### OPC-UA Client
 The OPC client is responsible for communicating with the brewing machine via
 the OPC server. This is needed in order to send and receive data via commands.
 
