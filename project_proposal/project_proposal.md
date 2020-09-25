@@ -1,8 +1,8 @@
 ### Aim
-This project aims to offer an interactive web interface for monitoring, 
+This project aims to offer an interactive web interface for monitoring,
 controlling and adjusting the brewery machine. This is done by having the web
-interface interacting with an API that connects to a client that controls the
-machine through an OPC-UA server connection and stores relevant data in a 
+interface interacting with a REST API that connects to a client that controls
+the machine through an OPC-UA server connection and stores relevant data in a 
 database.
 
 ### Stakeholders
@@ -16,10 +16,10 @@ Kjako19 to fulfill this role.
 
 
 ### Objectives
-The group wants to host the REST API and Website on a Linux based webserver on
-a fully-qualified domain name using the container technology Docker which should
-be configured via Docker Compose. Futhermore the group aims to setup a
-continous integration pipeline for development and continous delivery via 
+The group wants to host the REST API and Website on a Linux based server on a
+fully-qualified domain name using the container technology Docker which should
+be configured via Docker Compose. Furthermore the group aims to setup a
+continuous integration pipeline for development and continuous delivery via 
 Watchtower.
 
 
@@ -46,7 +46,7 @@ something that speaks HTTP and preferably delivers data in JSON.
 
 ### Project Plan
 To be sure that it is feasible to complete the project within the designated
-timeframe a project plan has been made with inspiration from the
+time frame a project plan has been made with inspiration from the
 [project plan supplied by the supervisor.](https://docs.google.com/spreadsheets/d/1mZXxgDiwWwWpSyaQmMcafTjvXa2lQriszwTyt-Pf5BA/edit#gid=0)
 
 ![project plan](images/roadmap.png)
@@ -73,6 +73,36 @@ Product Owner, so he oversees the “what”, with a focus on value, time to mar
 etc. Kechr19 was chosen to be Scrum Master, so he must ensure that the Scrum
 framework is understood and is used correctly throughout this project. Like the
 rest of the group, they are also a part of the Development Team.
+
+### Risks
+The group foresees three risks with varying impact levels.
+
+#### Covid-19
+| Assessment | Impact | Critical? |
+| ---       | ---    | ---       |
+| High      | High   | Yes       |
+
+With regulations concerning social distancing and the risk of being infected
+with Covid-19, most work will take place from home. To avoid complications,
+expectations to finish delegated work to each group member will be raised. Each
+member is also expected to follow the lectures. The supervisor will be available
+for contact via e-mail, if questions should arise.
+
+#### Schedule
+| Assessment | Impact | Critical? |
+| ---       | ---    | ---       |
+| High      | High   | Yes       |
+
+If the group falls behind schedule, the delegated work tasks will be evaluated.
+
+#### Lost team member
+| Assessment | Impact | Critical? |
+| ---       | ---    | ---       |
+| Medium    | Low    | Yes       |
+
+Since the group has already lost a member, the group is currently undermanned.
+To stay on top of the semester project, expectations to finish delegated work to
+each member will be raised. Each member is also expected to follow the lectures.
 
 ### Tentative outline
 I. Cover(title, information, signatures)  
