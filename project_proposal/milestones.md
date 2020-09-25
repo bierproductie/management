@@ -1,34 +1,35 @@
 # Milestones
-Milestones: What are the key milestones throughout the project? 
 
+#### These are the aktivites for the group
 
-| activities               | dates     | week |
-| --                       | --        | --   |
-| kickoff                  | 01-09-20  | 36   |
-| Group meeting            | 04-09-20  | 37   |
-| Group meeting            | 11-09-20  | 38   |
-| Group meeting            | 18-09-20  | 39   |
-| Group meeting            | 25-09-20  | 40   |
-| Team leader meeting      | 25-09-20  | 40   |
-| Project draft            | 02-10-20  | 40   |
-| Peer feedback start      | 05-10-20  | 41   |
-| Peer feedback due date   | 09-10-20  | 41   |
-| Group meeting            | 09-10-20  | 41   |
-| Final project foundation | 18-10-20  | 42   |
-| Group meeting            | 23-10-20  | 43   |
-| Team leader meeting      | 09-10-20  | 43   |
-| Project week             | $$-10-20  | 43   |
-| Group meeting            | 30-10-20  | 44   |
-| Code review              | 30-10-20  | 44   |
-| Group meeting            | 06-11-20  | 45   |
-|                          |           | 46   |
-| Group meeting            | 21-11-20  | 47   |
-|                          |           | 48   |
-| Group meeting            | 05-12-20  | 49   |
-|                          |           | 50   |
-| Group meeting            | 18-11-20  | 51   |
-| Final report             | 02-12-20  | 51   |
+| Activities               | start date | end date | week |
+| --                       | --         | --       | --   |
+| Scrum planning (1)       | 28-08-20   |          | 35   |
+| kickoff                  | 01-09-20   |          | 36   |
+| Scrum meeting            | 04-09-20   |          | 37   |
+| Scrum planning (2)       | 11-09-20   |          | 38   |
+| Scrum meeting            | 18-09-20   |          | 39   |
+| Scrum planning (3)       | 25-09-20   |          | 40   |
+| Team leader meeting      | 25-09-20   |          | 40   |
+| Project draft            | 02-10-20   |          | 40   |
+| Peer feedback start      | 05-10-20   | 09-10-20 | 41   |
+| Scrum planning (4)       | 09-10-20   |          | 41   |
+| Final project foundation | 18-10-20   |          | 42   |
+| Scrum planning (5)       | 23-10-20   |          | 43   |
+| Team leader meeting      | 09-10-20   |          | 43   |
+| Project week             | 18-10-20   | 24-10-20 | 43   |
+| Scrum meeting            | 30-10-20   |          | 44   |
+| Code review              | 30-10-20   |          | 44   |
+| Scrum planning (6)       | 06-11-20   |          | 45   |
+| Scrum meeting            | 13-11-20   |          | 46   |
+| Scrum planning (7)       | 20-11-20   |          | 47   |
+| Scrum meeting            | 27-11-20   |          | 48   |
+| Scrum planning (8)       | 04-12-20   |          | 49   |
+| Scrum meeting            | 11-12-20   |          | 50   |
+| Scrum meeting            | 18-11-20   |          | 51   |
+| Final report             | 02-12-20   |          | 51   |
 
+#### Here are the overall project milestones
 
 | Project              | start date | end date | weeks |
 | --                   | --         | --       | --    |
