@@ -25,7 +25,7 @@ Milestone shows the different phases we are going through.
 |                      | Team leader meeting      | 09-10-20   |          |      |
 |                      | Project week             | 18-10-20   | 24-10-20 |      |
 | Resolve issues       | Scrum meeting            | 30-10-20   |          | 44   |
-|                      | Code review              | 30-10-20   |          | 44   |
+|                      | Code review              | 30-10-20   |          |      |
 |                      | Scrum planning (6)       | 06-11-20   |          | 45   |
 |                      | Scrum meeting            | 13-11-20   |          | 46   |
 | Merge to production  | Scrum planning (7)       | 20-11-20   |          | 47   |
