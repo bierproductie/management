@@ -1,6 +1,12 @@
 # Milestones
 
-#### About milesstones
+#### About milestones
+This is our milestones and activities.  
+**Activities** will include scrum planning and meeting.
+It will also show some key activities from the school, that are mandatory
+and at last it will also show when the project is need to be handed in.  
+**Milestones** is the overall structure of the project.
+Milestone shows the different phases we are going through.
 
 | Phase                | Activities               | start date | end date | week |
 | ---                  | --                       | --         | --       | --   |
