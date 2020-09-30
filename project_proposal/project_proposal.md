@@ -1,17 +1,3 @@
-```
-NOTE: Rækkefølge
-0. Motivation todo
-1. Aim
-2. Solutions
-3. Objectives
-4. Initial Requirements TODO
-5. Stakeholders
-6. Project organisation
-7. Project Plan
-8. Kevin's Milestones TODO
-9. Risks
-9. Tentative outline
-```
 ### Motivation
 
 ### Aim
@@ -43,13 +29,17 @@ front-end to receive data via fetch calls in JavaScript it needs to talk with
 something that speaks HTTP and preferably delivers data in JSON.
 
 ### Objectives
+The group wants to create a dashboard solution, that gets the necessary
+information from the brewery machine to display information about current - and
+previous batches.
+
 The group wants to host the REST API and Website on a Linux based server on a
 fully-qualified domain name using the container technology Docker which should
 be configured via Docker Compose. Furthermore the group aims to setup a
-continuous integration pipeline for development and continuous delivery via 
-Watchtower.
+continuous integration pipeline for development via GitHub Actions and
+continuous delivery via Watchtower.
 
-#### Initial Requirement Analysis
+### Initial Requirement Analysis
 
 #### Summary of requirements
 The groups proposed solution will adhere to the requirements given by the brewery Refslevbæk Bryghus A/S.
