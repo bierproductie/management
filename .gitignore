@@ -1,0 +1,6 @@
+# this is latex generation clutter
+*.log
+*.aux
+*.out
+*.bbl
+*.blg
