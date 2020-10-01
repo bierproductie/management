@@ -31,11 +31,11 @@ The OPC-UA client is responsible for communicating with the brewing machine via
 the OPC-UA server. This is needed in order to send and receive data via
 commands.
 
-\section{Website}
+\subsection{Website}
 The website user interface is where the client will be able to interface with
 our system.
 
-\section{REST API}
+\subsection{REST API}
 The REST API functions primarily as a gateway in this design, in order for the
 front-end to receive data via fetch calls in JavaScript it needs to talk with
 something that speaks HTTP and preferably delivers data in JSON.
@@ -67,7 +67,7 @@ After a finished batch production, the MES must be able to produce a batch repor
 The report must contain the following. \\
 
 \begin{itemize}
-    \item this Batch ID
+    \item This Batch ID
     \item Product type
     \item Amount of products (total, defect and acceptable)
     \item Amount of time used in the different states
@@ -76,7 +76,10 @@ The report must contain the following. \\
 \end{itemize}
 
 The MES/SCADA system must be able to monitor the production and display live relevant data from the machine.
-The documentation of the system must contain an illustration that defines the different components in the setup, in relation to the ISA88^1213 Part 1 Physical Hierarchy model. The system must have a visualization that can be accessed and used to display the production data. The system must be able to collect the necessary data from the machine and calculate the OEE^131516 of the machine. The OEE must be available to be displayed by the system. The system must be able to estimate the error function associated with the different products.
+The documentation of the system must contain an illustration that defines the different components in the setup, in relation to the ISA88\^{}1213 Part 1 Physical Hierarchy model.
+The system must have a visualization that can be accessed and used to display the production data.
+The system must be able to collect the necessary data from the machine and calculate the OEE\^{}131516 of the machine. The OEE must be available to be displayed by the system.
+The system must be able to estimate the error function associated with the different products.
 The system must be able to find the optimal production speed for each product type, based on an error simulation and the appertaining graph upon which the error simulation is built.
 
 \subsection{List of requirements}
@@ -119,7 +122,7 @@ The group has decided that at the current state, every requirement is a must hav
 A further prioritization of requirements will occur, when we split the requirements into issues.
 
 \subsection{Use Case Diagram}
-\begin{figure}[ht]
+\begin{figure}[H]
 \centering 
 \includegraphics[scale=0.5]{images/ucdiagram.png}
 \label{figure:Use_Case_Diagram}
@@ -186,7 +189,7 @@ below.
 
 \begin{figure}[H]
 \centering 
-\includegraphics[scale=0.5]{images/sprint.png}
+\includegraphics[scale=0.3]{images/sprint.png}
 \label{figure:sprint}
 \caption{sprint} 
 \end{figure}
