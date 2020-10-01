@@ -1,18 +1,14 @@
-```
-NOTE: Rækkefølge
-0. Motivation todo
-1. Aim
-2. Solutions
-3. Objectives
-4. Initial Requirements TODO
-5. Stakeholders
-6. Project organisation
-7. Project Plan
-8. Kevin's Milestones TODO
-9. Risks
-9. Tentative outline
-```
+---
+fontsize: 12pt
+geometry: margin=1.8cm
+---
+
 ### Motivation
+As students, this semester project gives the group a great learning experience as well as a good idea of how such a project would progress.
+During the project, the group will learn how to create and setup a OPC-UA client, and how to make it communicate directly to a physical machine.
+The group will learn to host a webserver, from which the machine can be controlled, and access it as a website.
+The group will also have the chance to learn and use a new scripting language, JavaScript.
+The gained experience is the main motivation of this project.
 
 ### Aim
 This project aims to offer an interactive web interface for monitoring,
@@ -43,13 +39,17 @@ front-end to receive data via fetch calls in JavaScript it needs to talk with
 something that speaks HTTP and preferably delivers data in JSON.
 
 ### Objectives
+The group wants to create a dashboard solution, that gets the necessary
+information from the brewery machine to display information about current - and
+previous batches.
+
 The group wants to host the REST API and Website on a Linux based server on a
 fully-qualified domain name using the container technology Docker which should
 be configured via Docker Compose. Furthermore the group aims to setup a
-continuous integration pipeline for development and continuous delivery via 
-Watchtower.
+continuous integration pipeline for development via GitHub Actions and
+continuous delivery via Watchtower.
 
-#### Initial Requirement Analysis
+### Initial Requirement Analysis
 
 #### Summary of requirements
 The groups proposed solution will adhere to the requirements given by the brewery Refslevbæk Bryghus A/S.
@@ -106,15 +106,15 @@ Product Owner role (abbreviated to PO from here on out). The PO should under
 normal circumstances be one from the customers firm, and their job is to choose
 which features (user stories) that they would like developed next. Since such a
 person does not exist for this project, the group have instead pinpointed
-Kjako19 to fulfill this role.
+Kristian Nymann Jakobsen to fulfill this role.
 
 
 ### Project Organisation
 In this project, work is distributed from planning meetings. These planning
 meetings take place at the beginning of each sprint, where the workload is
-estimated and distributed across the team members. Kjako19 was chosen to be the
+estimated and distributed across the team members. Kristian Nymann Jakobsen was chosen to be the
 Product Owner, so he oversees the “what”, with a focus on value, time to market
-etc. Kechr19 was chosen to be Scrum Master, so he must ensure that the Scrum
+etc. Kenneth Munk Christiansen was chosen to be Scrum Master, so he must ensure that the Scrum
 framework is understood and is used correctly throughout this project. Like the
 rest of the group, they are also a part of the Development Team.
 
