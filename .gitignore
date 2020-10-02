@@ -1,0 +1,10 @@
+# this is latex generation clutter
+*.log
+*.aux
+*.out
+*.bbl
+*.blg
+*.dvi
+*.fdb_latexmk
+*.fls
+*.synctex.gz
