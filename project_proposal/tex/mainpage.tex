@@ -1,18 +1,34 @@
+\section{Background}
+The brewery Refslevbæk Bryghus A/S recently won the “best beer of the year” 
+award, which has led to a boost in demand for their products. However, their 
+current production line does not fulfil these demands, and so they have 
+purchased a new, bigger brewing machine. So far, the brewing has involved a lot 
+of manual processes. The brewery now needs a new brewing system developed, that 
+implements a large degree of automation, and enables it to produce beer most
+efficiently.
+
 \section{Motivation}
-As students,
-this semester project gives the group a great learning experience as well as a good idea of how such a project would progress.
-During the project, the group will learn how to create and setup an Open Platform Communications Unified Architecture, OPC-UA, client,
-and how to make it communicate directly to a physical machine.
-The group will learn to host a webserver, from which the machine can be controlled,
-and access it as a website.
-The group will also have the chance to learn and use a new scripting language, JavaScript.
-The gained experience is the main motivation of this project.
+As students, this semester project gives the group great learning experience as
+well as a good idea of how such a project would progress. During the project,
+the group will learn how to create and set up an Open Platform Communications
+Unified Architecture, OPC-UA, client, and how to make it communicate directly
+to a physical machine. The group will learn to host a web server, from which the
+machine can be controlled, and access it as a website. The group will also have
+the chance to learn and use a new scripting language, JavaScript. The gained
+experience is the main motivation of this project.
 
 \section{Aim}
-This project aims to offer an interactive web interface for monitoring,
-controlling and adjusting the brewery machine. 
-This is done by having the web interface interact with a REST API that connects to a client. 
-This client controls the machine through an OPC-UA servre connection and stores relevant data in a database.
+This project aims to improve the beer machine by increasing quantity while 
+maintaining quality. To accomplish this the project will offer an interactive 
+web interface for monitoring, controlling and adjusting the brewery machine. 
+This is done by having the web interface interact with a REST API that connects 
+to a client. This client controls the machine through an OPC-UA server 
+connection and stores relevant data in a database.
+
+% group 7: The section “Aim”could be specified with more details.
+% France: I think the ultimate goal is to improve the beer machine: increase the 
+% quantity while maintaining the quality? thats why you are doing these automation and remote control
+
 
 \section{Solutions}
 \begin{figure}[h]
@@ -27,39 +43,46 @@ of them.
 
 \subsection{OPC-UA Client}
 The OPC-UA client is responsible for communicating with the brewing machine via
-the OPC-UA server. This is needed in order to send and receive data via
+the OPC-UA server. This is needed to send and receive data via
 commands.
 
 \subsection{Website}
-The website user interface is where the client will be able to interface with
-our system.
+The website user interface is where the client will be able to interact with
+our system. The website will enable the user to control, monitor and adjust
+the brewing machine. Live relevant data will also be collected, displayed and
+can be downloaded as a report.
+
+% The subsection 3.2: Website is not very detailed. It would be nice to know how 
+% a user wouldinteract with the system. What kind of “functionality” will the 
+% remote interface contain?
 
 \subsection{REST API}
-The REST API functions primarily as a gateway in this design. In order for the
-front-end to receive data via fetch calls in JavaScript it needs to talk with
-something that speaks HTTP and preferably delivers data in JSON.
+The REST API functions primarily as a gateway in this design. For the
+front-end to receive data via fetch calls in JavaScript, it needs to communicate 
+with something that uses HTTP and preferably delivers data in JSON.
 
 \section{Objectives}
 The group wants to create a dashboard solution, that gets the necessary
-information from the brewery machine to display information about current - and
-previous batches.
+information from the brewery machine to display information about the current
+- and previous batches.
 
 The group wants to host the REST API and Website on a Linux based server on a
 fully qualified domain name using the container technology Docker which should
-be configured via Docker Compose. Furthermore the group aims to setup a
-continuous integration pipeline for development via GitHub Actions and
-continuous delivery via Watchtower.
+be configured via Docker Compose. Furthermore, the group aims to set up a
+continuous integration pipeline for development via GitHub Actions (makes it
+easy to automate software workflows) and continuous delivery via Watchtower (an
+automatic deployment tool).
 
 \section{Methods}
-To keep track of the group work the Scrum framework, with a few buts, is used.
-Scrum consist of multiple artifacts and ceremonies, and in this project product
+To keep track of the group work, the Scrum framework, with a few buts, is used.
+Scrum consists of multiple artefacts and ceremonies, and in this project product
 roadmap, Scrum meetings, product and sprint backlogs and burndown charts will
 be used. Each sprint will have a duration of two weeks and the issues for the
 sprint backlog will be chosen at the beginning of each sprint, at the Scrum
 meeting. The Scrum meeting will take place each Friday and will be a mixture of
 sprint planning, daily Scrum, and sprint review. To manage Scrum, ZenHub, a
 management solution that can be integrated with GitHub, is used. On ZenHub the
-group will create the roadmap, that acts as a time schedule for the project and
+group will create the roadmap, that acts as a schedule for the project and
 board, which is where the issues will be handled. A burndown chart for each
 sprint is automatically generated and kept up to date by ZenHub. The board will
 consist of five columns, as seen below.
@@ -67,7 +90,7 @@ consist of five columns, as seen below.
 \begin{table}[H]
     \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|}
         \hline                             
-        Product Baklog & Sprint Backlog & In Progress & Review/QA & Closed \\
+        Product Backlog & Sprint Backlog & In Progress & Review/QA & Closed \\
         \hline
         Issues & Issues for the given sprint & Issues that is currently being worked on & Issues that are pending (or in) review & Approved issues that have been merged    \\
         \hline
@@ -78,9 +101,31 @@ consist of five columns, as seen below.
 
 \section{Initial Requirement Analysis}
 
+\subsection{Problem Statement}
+In the table \ref{table:problem-statement}, the finished problem, the problem statement and related questions are listed.
+\begin{table}[ht]
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{4cm}|>{\RaggedRight}X|}
+        \hline
+        \textbf{Problem} & The current production line is not effecient enough to keep up with the demand of the beer, while still maintaining a quality product\\
+        \hline
+        \textbf{Problem Statement} & How to control and optimise the brewing machine, to maximise the production of high quality beer\\
+        \hline
+        \textbf{Related questions} & 
+            \begin{itemize}
+                \item How can we optimise the production?
+                \item How can we utilise calculus and linear algebra to provide a meaningful overview of the production line, based on statistics?
+                \item How can we create a web based frontend for the MES?
+                \item How can we separate the different aspects of the system (separation of concerns)
+            \end{itemize}
+        \\ 
+        \hline
+    \end{tabularx}
+    \caption{Problem statement showcase} 
+    \label{table:problem-statement}
+\end{table} 
 
 \subsection{Summary of requirements}
-The groups proposed solution will adhere to the requirements given by the brewery Refslevbæk Bryghus A/S.
+The group's proposed solution will adhere to the requirements given by the brewery Refslevbæk Bryghus A/S.
 
 The manufacturing execution system, MES, must be able to control the brewery’s production.
 It must be able to start and stop the production line,
@@ -102,51 +147,62 @@ The report must contain the following.
 
 The MES/SCADA (Supervisory control and data acquisition) system must be able to monitor the production and display live relevant data from the machine.
 The documentation of the system must contain an illustration that defines the different components in the setup, in relation to the ISA88\^{}1213 Part 1 Physical Hierarchy model.
-The system must have a visualization that can be accessed and used to display the production data.
+The system must have a visualisation that can be accessed and used to display production data.
 The system must be able to collect the necessary data from the machine and calculate the overall equipment effectiveness, OEE\^{}131516, of the machine. The OEE must be available to be displayed by the system.
 The system must be able to estimate the error function associated with the different products.
 The system must be able to find the optimal production speed for each product type, based on an error simulation and the appertaining graph upon which the error simulation is built.
 
 \subsection{List of requirements}
+Below is a list of the above requirements. These requirements have been
+prioritised using the MoSCoW method, where M is for Must have, S is for
+Should have, C is for could have, and W is for Won't have. 
+
 \begin{table}[H]
-    \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{1cm}|>{\RaggedRight}p{4cm}|>{\RaggedRight}X|}
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{1cm}|>{\RaggedRight}p{4cm}|>{\RaggedRight}X|>{\RaggedRight}p{1cm}|}
         \hline
-        \textbf{ID} & \textbf{Name} & \textbf{Description} \\
+        \textbf{ID} & \textbf{Name} & \textbf{Description} & \textbf{Priority} \\
         \hline
-        R01 & Control production line & Start/stop production line \\
+        R01 & Control production line & Control the brewery's production & M \\
         \hline
-        R02 & Monitor production & Monitor production (collect data and store said data) \\
+        R02 & Control production line & Start/stop production line & M \\
         \hline
-        R03 & Administer batches & Keep track of batches (batch ID) \\
+        R03 & Monitor production & Monitor data from the production line & M \\
         \hline
-        R04 & Store batch info & Collect various data associated with current batch number from the machine \\
+        R04 & Monitor production & Store the collected data for further analysis & M \\
         \hline
-        R05 & Batch ID &Collect various data associated with current batch number from the machine \\
+        R05 & Administer batches & Keep track of produced batches (batch ID) & M \\
         \hline
-        R06 & Live data & Monitor and display live relevant data from the machine \\
+        R06 & Store batch info & Collect various data associated with current batch number from the machine & M \\
         \hline
-        R07 & Batch report & Produce a batch report (PDF/dashboard style format) \\
+        R07 & Batch report & Produce a batch report (PDF/dashboard style format) & M \\
         \hline
-        R08 & Documentation & Documentation must contain an illustration that defines the different components in the setup in relation to the ISA88\^{}1213 Part 1 Physical Hierarchy model 	\\
+        R08 & Live data & Monitor and display live relevant data from the machine & M \\
         \hline
-        R09 & Visualization & Visualization that can be accessed and used to display the production data                                                                                  	\\
+        R09 & Documentation & Documentation must contain an illustration that defines the different components in the setup in relation to the ISA88\^{}1213 Part 1 Physical Hierarchy model & M \\
         \hline
-        R10 & OEE & Collect necessary data from the machine and calculate the OEE. OEE must be available to be displayed by the system                                          	\\
+        R10 & Visualisation & Visualisation that can be accessed and used to display the production data & M \\
         \hline
-        R11 & Estimate error function  	& Estimate the error function associated with the products                                                                                                    	\\
+        R11 & OEE & Collect necessary data from the machine and calculate the OEE. OEE must be available to be displayed by the system & M \\
         \hline
-        R12 & Optimal Production speed 	& Estimate the optimal production speed for each product type                                                                                                 	\\
+        R12 & Estimate error function & Estimate the error function associated with the products & S \\
+        \hline
+        R13 & Optimal Production speed & Estimate the optimal production speed for each product type & M \\
         \hline
     \end{tabularx}
     \caption{List of requirements} 
     \label{table:Requirements}
-\end{table} 
-
-\subsection{Prioritization of requirements}
-The group has decided that at the current state, every requirement is a must have.
-A further prioritization of requirements will occur, when the group splits the requirements into issues.
+\end{table}  
 
 \subsection{Use Case Diagram}
+As seen below, the user (primary actor) of the system can interact with the MES.
+The green ellipses represent the different use cases in the system, e.g.
+Start/Stop production line, which enables the user to start or stop the
+production. \\
+
+On the left side of the diagram, the SCADA actor is shown, which is a secondary
+actor in Bierproductie. The SCADA actor is responsible for making the beer
+production machines endpoints available for the MES. 
+
 \begin{figure}[H]
 \centering 
 \includegraphics[scale=0.5]{images/ucdiagram.png}
@@ -155,10 +211,14 @@ A further prioritization of requirements will occur, when the group splits the r
 \end{figure}
 
 \subsection{Supplementary Requirements}
+FURPS is a model for classifying functional and non-functional requirements. The
+acronym stands for functionality, usability, reliability, performance, and
+supportability. The group have used FURPS to classify the following: 
+
 \begin{table}[ht]
     \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{4cm}|>{\RaggedRight}X|}
         \hline
-        \textbf{FURPS}          	& \textbf{Demands} \\
+        \textbf{FURPS}  & \textbf{Demands} \\
         \hline
         Functionality  	&  \\
         \hline
@@ -176,25 +236,33 @@ A further prioritization of requirements will occur, when the group splits the r
 \end{table} 
 
 \section{Stakeholders}
-For this project the group does not have any external stakeholders, which is a
-problem when developing using SCRUM, since this role is usually filled by a
-Product Owner role (abbreviated to PO from here on out). The PO should under
-normal circumstances be one from the customers firm, and their job is to choose
-which features (user stories) that they would like developed next. Since such a
-person does not exist for this project, the group have instead pinpointed
-Kristian Nymann Jakobsen to fulfill this role.
+For this project, there is no stakeholder, as the group does not have the
+opportunity to communicate with Reflevsbæk. This is a problem when developing
+using Scrum, since this role is usually filled by a Product owner (abbreviated
+to PO from here on out). Instead, the group has elected Kristian Nymann 
+Jakobsen as an internal PO. The PO should under normal circumstances be one
+from the customers firm, and their job is to choose which features (user
+stories) that they would like developed next.
 
 \section{Project Organisation}
 In this project, work is distributed from planning meetings. These planning
 meetings take place at the beginning of each sprint, where the workload is
-estimated and distributed across the team members. Kristian Nymann Jakobsen was chosen to be the
-Product Owner, so he oversees the “what”, with a focus on value, time to market
-etc. Kenneth Munk Christiansen was chosen to be Scrum Master, so he ensures that the Scrum
-framework is understood and is used correctly throughout the project. Like the
-rest of the group, they are also a part of the Development Team.
+estimated and distributed across the team members. Kristian Nymann Jakobsen was
+chosen to be the Product Owner, so he oversees the “what”, with a focus on
+value, time to market etc. Kenneth Munk Christiansen was chosen to be the Scrum
+Master, so he ensures that the Scrum framework is understood and is used 
+correctly throughout the project. Like the rest of the group, they are also a 
+part of the Development Team. For easy version control and collaboration,
+GitHub will be used. GitHub is a hosting service with a centralised repository,
+built around git, a version control system that allows each team member to
+download the code, modify it and upload the new version. For each issue is
+created, a corresponding branch will automatically be made. When development
+is deemed finished, the developer opens a merge request, where the code in
+questions will be subject to review. The goal of this process is to improve
+the quality and readability of the source code.
 
 \section{Project Plan}
-To be sure that it is feasible to complete the project within the designated
+To ensure that it is feasible to complete the project within the designated
 time frame, a project plan has been made with inspiration from the
 \href{https://docs.google.com/spreadsheets/d/1mZXxgDiwWwWpSyaQmMcafTjvXa2lQriszwTyt-Pf5BA/edit#gid=0}{project plan} supplied by the supervisor.
 
@@ -205,23 +273,14 @@ time frame, a project plan has been made with inspiration from the
 \caption{project plan} 
 \end{figure}
 
-In this it is shown when the different milestones must be completed to succeed
+In this, it is shown when the different milestones must be completed to succeed
 with the project. As mentioned above, sprints with a duration of two weeks will
 be used throughout this project. Each sprint consists of issues from the product
 backlog and is chosen at the beginning of each sprint, as described in section
-Methods. To keep track of these sprints, a burn down chart will be made, as seen
-below.
-
-\begin{figure}[H]
-\centering 
-\includegraphics[scale=0.3]{images/sprint.png}
-\label{figure:Sprint}
-\caption{sprint} 
-\end{figure}
-
-This ensures the group that each sprint is successfully completed, and if not,
-it is easy to see where it went wrong, and the remaining issues can be
-transferred to the next sprint.
+Methods. To keep track of these sprints, a burndown chart will be made. This 
+ensures the group that each sprint is completed, and if not, it is easy to see
+where it went wrong, and the remaining issues can be transferred to
+the next sprint.
 
 \section{Risk}
 The group foresees three risks with varying impact levels.
@@ -255,15 +314,14 @@ The group foresees three risks with varying impact levels.
 \end{table} 
 
 
-
 \section{Milestones}
 
 \subsection{About milestones}
 This is our milestones and activities.
 \textit{Activities} will include scrum planning and meeting.
-It will also show some key activities from the university, that are mandatory
-and at last it will also show when the project is need to be handed in.
-\textit{Milestones} is the overall structure of the project.
+It will also show some key activities from the university, that is mandatory
+and at last, it will also show when the project needs to be handed in.
+\textit{Milestones} are the overall structure of the project.
 Milestones show the different phases the group will go through.
 
 \begin{table}[H]
@@ -352,7 +410,7 @@ The estimated outline of the project report is as follows;
     \item Problem analysis
         \begin{enumerate}
             \item Use-case analysis
-            \item Use-case realization
+            \item Use-case realisation
         \end{enumerate}
     \item Theory and Methods
         \begin{enumerate}
