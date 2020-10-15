@@ -47,12 +47,13 @@ previous batches.
 The group wants to host the REST API and Website on a Linux based server on a
 fully qualified domain name using the container technology Docker which should
 be configured via Docker Compose. Furthermore the group aims to setup a
-continuous integration pipeline for development via GitHub Actions and
-continuous delivery via Watchtower.
+continuous integration pipeline for development via GitHub Actions (makes it
+easy to automate software workflows) and continuous delivery via Watchtower (an
+automatic deployment tool).
 
 \section{Methods}
 To keep track of the group work the Scrum framework, with a few buts, is used.
-Scrum consist of multiple artifacts and ceremonies, and in this project product
+Scrum consist of multiple artefacts and ceremonies, and in this project product
 roadmap, Scrum meetings, product and sprint backlogs and burndown charts will
 be used. Each sprint will have a duration of two weeks and the issues for the
 sprint backlog will be chosen at the beginning of each sprint, at the Scrum
@@ -105,7 +106,6 @@ In the table \ref{table:problem-statement}, the finished problem, the problem st
     \label{table:problem-statement}
 \end{table} 
 
-
 \subsection{Summary of requirements}
 The groups proposed solution will adhere to the requirements given by the brewery Refslevbæk Bryghus A/S.
 
@@ -135,45 +135,56 @@ The system must be able to estimate the error function associated with the diffe
 The system must be able to find the optimal production speed for each product type, based on an error simulation and the appertaining graph upon which the error simulation is built.
 
 \subsection{List of requirements}
+Below is a list of the above requirements. These requirements have been
+prioritised using the MoSCoW method, where M is for Must have, S is for
+Should have, C is for could have, and W is for Won't have. 
+
 \begin{table}[H]
-    \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{1cm}|>{\RaggedRight}p{4cm}|>{\RaggedRight}X|}
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{1cm}|>{\RaggedRight}p{4cm}|>{\RaggedRight}X|>{\RaggedRight}p{1cm}|}
         \hline
-        \textbf{ID} & \textbf{Name} & \textbf{Description} \\
+        \textbf{ID} & \textbf{Name} & \textbf{Description} & \textbf{Priority} \\
         \hline
-        R01 & Control production line & Start/stop production line \\
+        R01 & Control production line & Control the brewery's production & M \\
         \hline
-        R02 & Monitor production & Monitor production (collect data and store said data) \\
+        R02 & Control production line & Start/stop production line & M \\
         \hline
-        R03 & Administer batches & Keep track of batches (batch ID) \\
+        R03 & Monitor production & Monitor data from the production line & M \\
         \hline
-        R04 & Store batch info & Collect various data associated with current batch number from the machine \\
+        R04 & Monitor production & Store the collected data for further analysis & M \\
         \hline
-        R05 & Batch ID &Collect various data associated with current batch number from the machine \\
+        R05 & Administer batches & Keep track of produced batches (batch ID) & M \\
         \hline
-        R06 & Live data & Monitor and display live relevant data from the machine \\
+        R06 & Store batch info & Collect various data associated with current batch number from the machine & M \\
         \hline
-        R07 & Batch report & Produce a batch report (PDF/dashboard style format) \\
+        R07 & Batch report & Produce a batch report (PDF/dashboard style format) & M \\
         \hline
-        R08 & Documentation & Documentation must contain an illustration that defines the different components in the setup in relation to the ISA88\^{}1213 Part 1 Physical Hierarchy model 	\\
+        R08 & Live data & Monitor and display live relevant data from the machine & M \\
         \hline
-        R09 & Visualization & Visualization that can be accessed and used to display the production data                                                                                  	\\
+        R09 & Documentation & Documentation must contain an illustration that defines the different components in the setup in relation to the ISA88\^{}1213 Part 1 Physical Hierarchy model & M \\
         \hline
-        R10 & OEE & Collect necessary data from the machine and calculate the OEE. OEE must be available to be displayed by the system                                          	\\
+        R10 & Visualization & Visualization that can be accessed and used to display the production data & M \\
         \hline
-        R11 & Estimate error function  	& Estimate the error function associated with the products                                                                                                    	\\
+        R11 & OEE & Collect necessary data from the machine and calculate the OEE. OEE must be available to be displayed by the system & M \\
         \hline
-        R12 & Optimal Production speed 	& Estimate the optimal production speed for each product type                                                                                                 	\\
+        R12 & Estimate error function & Estimate the error function associated with the products & S \\
+        \hline
+        R13 & Optimal Production speed & Estimate the optimal production speed for each product type & M \\
         \hline
     \end{tabularx}
     \caption{List of requirements} 
     \label{table:Requirements}
-\end{table} 
-
-\subsection{Prioritization of requirements}
-The group has decided that at the current state, every requirement is a must have.
-A further prioritization of requirements will occur, when the group splits the requirements into issues.
+\end{table}  
 
 \subsection{Use Case Diagram}
+As seen below, the user (primary actor) of the system can interact with the MES.
+The green ellipses represent the different use cases in the system, e.g.
+Start/Stop production line, which enables the user to start or stop the
+production. \\
+
+On the left side of the diagram the SCADA actor is shown, which is a secondary
+actor in Bierproductie. The SCADA actor is responsible for making the beer
+production machines endpoints available for the MES. 
+
 \begin{figure}[H]
 \centering 
 \includegraphics[scale=0.5]{images/ucdiagram.png}
@@ -182,10 +193,14 @@ A further prioritization of requirements will occur, when the group splits the r
 \end{figure}
 
 \subsection{Supplementary Requirements}
+FURPS is a model for classifying functional and non-functional requirements. The
+acronym stand for functionality, usability, reliability, performance, and
+supportability. The group have used FURPS to classify the following: 
+
 \begin{table}[ht]
     \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{4cm}|>{\RaggedRight}X|}
         \hline
-        \textbf{FURPS}          	& \textbf{Demands} \\
+        \textbf{FURPS}  & \textbf{Demands} \\
         \hline
         Functionality  	&  \\
         \hline
@@ -219,6 +234,11 @@ Product Owner, so he oversees the “what”, with a focus on value, time to mar
 etc. Kenneth Munk Christiansen was chosen to be Scrum Master, so he ensures that the Scrum
 framework is understood and is used correctly throughout the project. Like the
 rest of the group, they are also a part of the Development Team.
+For easy version control and collaboration github will be used. Github is a hosting service with a centralized
+repository, built around git, a version control system that allows each teammember to download the code, 
+modify it and upload the new version. Each issue will have its own branch that will be reviewed 
+after it has been modified, before it's merged with the main branch. This ensures that the 
+quality of content is up to standard.
 
 \section{Project Plan}
 To be sure that it is feasible to complete the project within the designated
@@ -236,19 +256,10 @@ In this it is shown when the different milestones must be completed to succeed
 with the project. As mentioned above, sprints with a duration of two weeks will
 be used throughout this project. Each sprint consists of issues from the product
 backlog and is chosen at the beginning of each sprint, as described in section
-Methods. To keep track of these sprints, a burn down chart will be made, as seen
-below.
-
-\begin{figure}[H]
-\centering 
-\includegraphics[scale=0.3]{images/sprint.png}
-\label{figure:Sprint}
-\caption{sprint} 
-\end{figure}
-
-This ensures the group that each sprint is successfully completed, and if not,
-it is easy to see where it went wrong, and the remaining issues can be
-transferred to the next sprint.
+Methods. To keep track of these sprints, a burn down chart will be made. This 
+ensures the group that each sprint is successfully completed, and if not, it is 
+easy to see where it went wrong, and the remaining issues can be transferred to
+the next sprint.
 
 \section{Risk}
 The group foresees three risks with varying impact levels.
@@ -280,7 +291,6 @@ The group foresees three risks with varying impact levels.
     \caption{Risks} 
     \label{table:Risks}
 \end{table} 
-
 
 
 \section{Milestones}
