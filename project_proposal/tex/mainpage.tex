@@ -57,18 +57,18 @@ can be downloaded as a report.
 % remote interface contain?
 
 \subsection{REST API}
-The REST API functions primarily as a gateway in this design. In order for the
+The REST API functions primarily as a gateway in this design. For the
 front-end to receive data via fetch calls in JavaScript, it needs to communicate 
 with something that uses HTTP and preferably delivers data in JSON.
 
 \section{Objectives}
 The group wants to create a dashboard solution, that gets the necessary
-information from the brewery machine to display information about current - and
-previous batches.
+information from the brewery machine to display information about the current
+- and previous batches.
 
 The group wants to host the REST API and Website on a Linux based server on a
 fully qualified domain name using the container technology Docker which should
-be configured via Docker Compose. Furthermore the group aims to setup a
+be configured via Docker Compose. Furthermore, the group aims to set up a
 continuous integration pipeline for development via GitHub Actions (makes it
 easy to automate software workflows) and continuous delivery via Watchtower (an
 automatic deployment tool).
@@ -214,7 +214,7 @@ The green ellipses represent the different use cases in the system, e.g.
 Start/Stop production line, which enables the user to start or stop the
 production. \\
 
-On the left side of the diagram the SCADA actor is shown, which is a secondary
+On the left side of the diagram, the SCADA actor is shown, which is a secondary
 actor in Bierproductie. The SCADA actor is responsible for making the beer
 production machines endpoints available for the MES. 
 
@@ -227,7 +227,7 @@ production machines endpoints available for the MES.
 
 \subsection{Supplementary Requirements}
 FURPS is a model for classifying functional and non-functional requirements. The
-acronym stand for functionality, usability, reliability, performance, and
+acronym stands for functionality, usability, reliability, performance, and
 supportability. The group have used FURPS to classify the following: 
 
 \begin{table}[ht]
@@ -251,10 +251,10 @@ supportability. The group have used FURPS to classify the following:
 \end{table} 
 
 \section{Stakeholders}
-For this project there are no stakeholder, as the group does not have the
+For this project, there is no stakeholder, as the group does not have the
 opportunity to communicate with Reflevsbæk. This is a problem when developing
-using scrum, since this role is usually filled by a Product owner (abbrivated
-to PO from here on our). Instead, the group has elected Kristian Nymann 
+using Scrum, since this role is usually filled by a Product owner (abbreviated
+to PO from here on out). Instead, the group has elected Kristian Nymann 
 Jakobsen as an internal PO. The PO should under normal circumstances be one
 from the customers firm, and their job is to choose which features (user
 stories) that they would like developed next.
