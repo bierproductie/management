@@ -1,7 +1,16 @@
+\section{Background}
+The brewery Refslevbæk Bryghus A/S recently won the “best beer of the year” 
+award, which has led to a boost in demand of their products. However, their 
+current production line does not fulfil these demands, and so they have 
+purchased a new, bigger brewing machine. So far, the brewing has involved a lot 
+of manual processes. The brewery now needs a new brewing system developed, that 
+implements a large degree of automation, and enables it to produce beer in the 
+most efficient way.
+
 \section{Motivation}
 As students,
-this semester project gives the group a great learning experience as well as a good idea of how such a project would progress.
-During the project, the group will learn how to create and setup an Open Platform Communications Unified Architecture, OPC-UA, client,
+this semester project gives the group a great learning experience as well as a
+good idea of how such a project would progress. During the project, the group will learn how to create and setup an Open Platform Communications Unified Architecture, OPC-UA, client,
 and how to make it communicate directly to a physical machine.
 The group will learn to host a webserver, from which the machine can be controlled,
 and access it as a website.
@@ -9,10 +18,17 @@ The group will also have the chance to learn and use a new scripting language, J
 The gained experience is the main motivation of this project.
 
 \section{Aim}
-This project aims to offer an interactive web interface for monitoring,
-controlling and adjusting the brewery machine. 
-This is done by having the web interface interact with a REST API that connects to a client. 
-This client controls the machine through an OPC-UA servre connection and stores relevant data in a database.
+This project aims to improve the beer machine by increasing quantity while 
+maintaining quality. To accomplish this the project will offer an interactive 
+web interface for monitoring, controlling and adjusting the brewery machine. 
+This is done by having the web interface interact with a REST API that connects 
+to a client. This client controls the machine through an OPC-UA server 
+connection and stores relevant data in a database.
+
+% group 7: The section “Aim”could be specified with more details.
+% France: I think the ultimate goal is to improve the beer machine: increase the 
+% quantity while maintaining the quality? thats why you are doing these automation and remote control
+
 
 \section{Solutions}
 \begin{figure}[h]
@@ -31,13 +47,19 @@ the OPC-UA server. This is needed in order to send and receive data via
 commands.
 
 \subsection{Website}
-The website user interface is where the client will be able to interface with
-our system.
+The website user interface is where the client will be able to interact with
+our system. The website will enable the user to control, monitor and adjust
+the brewing machine. Live relevant data will also be collected, displayed and
+can be downloaded as a report.
+
+% The subsection 3.2: Website is not very detailed. It would be nice to know how 
+% a user wouldinteract with the system. What kind of “functionality” will the 
+% remote interface contain?
 
 \subsection{REST API}
 The REST API functions primarily as a gateway in this design. In order for the
-front-end to receive data via fetch calls in JavaScript it needs to talk with
-something that speaks HTTP and preferably delivers data in JSON.
+front-end to receive data via fetch calls in JavaScript, it needs to communicate 
+with something that uses HTTP and preferably delivers data in JSON.
 
 \section{Objectives}
 The group wants to create a dashboard solution, that gets the necessary
@@ -214,13 +236,13 @@ supportability. The group have used FURPS to classify the following:
 \end{table} 
 
 \section{Stakeholders}
-For this project the group does not have any external stakeholders, which is a
-problem when developing using SCRUM, since this role is usually filled by a
-Product Owner role (abbreviated to PO from here on out). The PO should under
-normal circumstances be one from the customers firm, and their job is to choose
-which features (user stories) that they would like developed next. Since such a
-person does not exist for this project, the group have instead pinpointed
-Kristian Nymann Jakobsen to fulfill this role.
+For this project there are no stakeholder, as the group does not have the
+opportunity to communicate with Reflevsbæk. This is a problem when developing
+using scrum, since this role is usually filled by a Product owner (abbrivated
+to PO from here on our). Instead, the group has elected Kristian Nymann 
+Jakobsen as an internal PO. The PO should under normal circumstances be one
+from the customers firm, and their job is to choose which features (user
+stories) that they would like developed next.
 
 \section{Project Organisation}
 In this project, work is distributed from planning meetings. These planning
