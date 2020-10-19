@@ -48,7 +48,7 @@
     numberstyle=\small,                     % the style that is used for the line-numbers
     commentstyle=\color{mygreen},           % comment style
     captionpos=b,                           % sets the caption-position to bottom
-    showstringspaces=false,                  % removes spaces in string
+    showstringspaces=false,                 % removes spaces in string
     inputencoding=utf8,
     extendedchars=true,
 }
@@ -107,37 +107,29 @@
 \setlength\parindent{0pt} % Removes indent
 
 \begin{document}
-    % Fjerner side tal
+    % Removes page numbers
     \pagenumbering{gobble}
     \renewcommand{\thesection}{\Roman{section}} 
     \renewcommand{\thesubsection}{\thesection.\Roman{subsection}}
-    % Forside
-    \input{tex/front_page.tex}
+
+    \input{tex/cover.tex}
     \newpage
     
-    % Titelblad 
     \input{tex/signatures.tex}
     \newpage
 
-    % % Resume
-    % \input{tex/iii_resume}
-    % \newpage
-    
-    % % Forord
-    % \input{tex/iv_forord}
-    % \newpage
+    \input{tex/summary.tex}
+    \newpage
 
-    % % Indholdsfortegnelse
-    % \setcounter{tocdepth}{2} % anything below subsection will not be added
-    % \input{tex/v_indholdsfortegnelse}
-    % \newpage
+    \setcounter{tocdepth}{2} % anything below subsection will not be added
+    \input{tex/table_of_contents}
+    \newpage
+
+    \input{tex/editorial.tex}
+    \newpage
     
-    % % Læsevejledning
-    % \input{tex/vi_læsevejledning}
-    % \newpage
-    
-    % \input{tex/vii_redaktionelt}
-    % \newpage
+    \input{tex/list_of_figures.tex}
+    \newpage
     
     % Start counting from this line
     \pagenumbering{arabic}
@@ -147,47 +139,41 @@
     \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
     \setcounter{section}{0}
 
+    \input{tex/introduction.tex}
+    \newpage
+
+    \input{tex/background.tex}
+    \newpage
+
     \input{tex/problem_analysis.tex}
+    \newpage
+
+    \input{tex/theory_and_methods.tex}
     \newpage
     
     \input{tex/requirements.tex}
-    %\newpage
+    \newpage
 
-    % Introduktion
-    % \input{tex/1_indledning}
-    % \newpage
-    
-    % % Metoder & Værktøjer
-    % \input{tex/2_1_metoder_og_værktøjer}
-    % \newpage
-    
-    % % Planlægning
-    % \input{tex/2_2_planlægning}
-    % \newpage
-    
-    % % Faglige vidensgrundlag
-    % \input{tex/3_faglige_vidensgrundlag}
-    % \newpage
-   
-    % % Hovedtekst
-    % \input{tex/4_0_hovedtekst}
-    % \newpage
-    
-    % % Diskussion
-    % \input{tex/5_diskussion}
-    % \newpage
-    
-    % % Konklusion
-    % \input{tex/6_konklusion}
-    % \newpage
-    
-    % % Perspektivering
-    % \input{tex/7_perspektivering}
-    % \newpage
-    
-    % % Procesevaluering
-    % \input{tex/8_procesevaluering}
-    % \newpage
+    \input{tex/analysis.tex}
+    \newpage
+
+    \input{tex/architecture.tex}
+    \newpage
+
+    \input{tex/design.tex}
+    \newpage
+
+    \input{tex/implementation.tex}
+    \newpage
+
+    \input{tex/verification_and_validation.tex}
+    \newpage
+
+    \input{tex/evaluation.tex}
+    \newpage
+
+    \input{tex/conclusion.tex}
+    %\newpage
 
     % % bibliography empty
     % \bibliographystyle{apalike}
