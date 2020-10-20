@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Buld_LaTeX
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -21,3 +21,5 @@ jobs:
         run: git lfs pull
       - name: make LaTeX document
         run: make
+      - name: add LaTeX document to the Git-repository
+        run: git commit -am "Updated the PDF" && git push
