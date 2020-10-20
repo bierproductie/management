@@ -12,16 +12,17 @@ a single class and is therefore not added to the list of class candidates.
 
 The final list of classes, as well as a description of them, can be seen in table (x).
 
-\begin{table}[]
-\begin{tabular}{lll}
-\textbf{Class Candidate} & \textbf{Attributes}                                                                                                     & \textbf{Definition}                                                                    \\
-Batch                    & Id, type, product\_amount (total, defect, acceptable), amount (time), state (current, history), OEE, production\_speed, & A batch refers to a specific batch of products the brewery has made                    \\
-Product                  & Id, type, Ingredients,                                                                                                  & Product refers to the different options of beer to be produced                         \\
-Ingredient               & Name, id                                                                                                                & An ingredient refers to a specific ingredient. Products contain a list of ingredients.
-\end{tabular}
-\caption{Potential class candidates}
-\label{table:class_candidates}
-\end{table}
+\begin{table}[ht]
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{3cm}|>{\RaggedRight}p{6cm}|>{\RaggedRight}X|}
+    \hline
+    \textbf{Class Candidate} & \textbf{Attributes}                                                                                                     & \textbf{Definition}                                                                    \\ \hline
+    Batch                    & Id, type, product\_amount (total, defect, acceptable), amount (time), state (current, history), OEE, production\_speed, & A batch refers to a specific batch of products the brewery has made                    \\ \hline
+    Product                  & Id, type, Ingredients,                                                                                                  & Product refers to the different options of beer to be produced                         \\ \hline
+    Ingredient               & Name, id                                                                                                                & An ingredient refers to a specific ingredient. Products contain a list of ingredients. \\ \hline
+    \end{tabularx}
+    \caption{Potential class candidates}
+    \label{table:class_candidates}
+    \end{table}
 
 \subsubsection{UML Analysis Diagram}
 
