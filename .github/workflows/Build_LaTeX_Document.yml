@@ -16,6 +16,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name:
-        run: apt update && apt install latexmk
+        run: sudo apt update && sudo apt install latexmk
       - name: make LaTeX document
         run: make
