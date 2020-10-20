@@ -1,2 +1,2 @@
 project-proposal:
-	@cd project_proposal && latexmk -pdf report.tex
+	@cd project_proposal && latexmk -interaction=nonstopmode -pdf report.tex
