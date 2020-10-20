@@ -3,8 +3,25 @@
 \subsection{Use Case analysis}
 
 \subsubsection{Class Candidates}
+In order to find potential class candidates, every noun of the detailed Use Cases are found.
+These are potential candidates, and can be sorted to avoid duplicates and candidates that 
+won’t be turned into classes. Naturally, every potential class for the entire system will 
+not be found, as this only reflects use cases. A potential class candidate such as MES 
+(where Start and Stop functionality would otherwise be implemented) will not be reduced to 
+a single class and is therefore not added to the list of class candidates.
 
-\subsubsection{Description of Classes}
+The final list of classes, as well as a description of them, can be seen in table (x).
+
+\begin{table}[]
+\begin{tabular}{lll}
+\textbf{Class Candidate} & \textbf{Attributes}                                                                                                     & \textbf{Definition}                                                                    \\
+Batch                    & Id, type, product\_amount (total, defect, acceptable), amount (time), state (current, history), OEE, production\_speed, & A batch refers to a specific batch of products the brewery has made                    \\
+Product                  & Id, type, Ingredients,                                                                                                  & Product refers to the different options of beer to be produced                         \\
+Ingredient               & Name, id                                                                                                                & An ingredient refers to a specific ingredient. Products contain a list of ingredients.
+\end{tabular}
+\caption{Potential class candidates}
+\label{table:class_candidates}
+\end{table}
 
 \subsubsection{UML Analysis Diagram}
 
