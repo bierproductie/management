@@ -22,7 +22,7 @@
 \begin{table}[ht]
     \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|}
         \hline
-        \textbf{ID:} someID  \\
+        \textbf{ID:} UC01  \\
         \hline
         \textbf{Primary actor:} The MES \\
         \hline
@@ -34,7 +34,7 @@
         \textbf{Pre conditions:} The beer production machine needs to be off \\
         \hline
         \textbf{Main flow:} \\
-        	1. This use case start when an actor wants to start the beer
+        	1. This use case starts when an actor wants to start the beer
         	production machine. \\
         	2. The actor chooses what kind of beer to be produced. \\
         	3. The actor presses the start button. \\
@@ -42,8 +42,8 @@
         \textbf{post conditions:} The beer production machine is turned on \\
         \hline
         \textbf{Alternative flow:} \\
-        	Step 3: If there is not enough ingredients, the actor gets an error
-        	message. \\
+        	Step 3: If there is not enough ingredients, the actor receives an
+        	error message. \\
         \hline
     \end{tabularx}
     \caption{Production Control: Start production}
@@ -54,7 +54,7 @@
 \begin{table}[ht]
     \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|}
         \hline
-        \textbf{ID:} someID  \\
+        \textbf{ID:} UC02  \\
         \hline
         \textbf{Primary actor:} The MES \\
         \hline
@@ -66,7 +66,7 @@
         \textbf{Pre conditions:} The beer production machine needs to be on \\
         \hline
         \textbf{Main flow:} \\
-        	1. This use case start when an actor wants to shut down the beer
+        	1. This use case starts when an actor wants to shut down the beer
         	production machine. \\
 			2. The actor presses the stop button \\
 		\hline
@@ -83,7 +83,7 @@
 \begin{table}[ht]
     \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|}
         \hline
-        \textbf{ID:} someID  \\
+        \textbf{ID:} UC03  \\
         \hline
         \textbf{Primary actor:} The MES \\
         \hline
@@ -115,7 +115,7 @@
 \begin{table}[ht]
     \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|}
         \hline
-        \textbf{ID:} someID  \\
+        \textbf{ID:} UC04  \\
         \hline
         \textbf{Primary actor:} The MES \\
         \hline
@@ -147,7 +147,7 @@
 \begin{table}[ht]
     \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|}
         \hline
-        \textbf{ID:} someID  \\
+        \textbf{ID:} UC05  \\
         \hline
         \textbf{Primary actor:} The MES \\
         \hline
@@ -160,10 +160,11 @@
         produced a batch. \\
         \hline
         \textbf{Main flow:} \\
-        	1. This use case start when the beer production machine is finished
-        	producing a batch of beer. \\
+        	1. This use case starts when the beer production machine has
+        	finished producing a batch of beer. \\
 			2. The MES retrieves the data it stored during production. \\
 			3. The MES produces a batch report with the retrieved data. \\
+			4. The MES exports the batch report to an easily readable format \\
 		\hline
         \textbf{post conditions:} A batch report has been produced. \\
         \hline
@@ -178,22 +179,22 @@
 \begin{table}[ht]
     \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|}
         \hline
-        \textbf{ID:} someID  \\
+        \textbf{ID:} UC06  \\
         \hline
         \textbf{Primary actor:} The MES \\
         \hline
         \textbf{Secondary actor:} The beer production machine \\
         \hline
         \textbf{Short description:} The MES needs to collect the necessary data
-        from the machine and calculate the OEE of the machine, and store it for
+        from the machine and calculate the OEE, and store it for
         further references. \\
         \hline
         \textbf{Pre conditions:} The beer production machine needs to have
         produced a batch. \\
         \hline
         \textbf{Main flow:} \\
-        	1. This use case start when the beer production machine is finished
-        	producing a batch of beer. \\
+        	1. This use case starts when the beer production machine has
+        	finished producing a batch of beer. \\
 			2. The MES collects the necessary data from the beer production
 			machine \\
 			3. The MES calculates the OEE. \\
