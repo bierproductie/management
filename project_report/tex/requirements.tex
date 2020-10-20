@@ -1,0 +1,283 @@
+\section{Requirements}
+
+\subsection{Overall Requirements Specification}
+
+\subsection{Selected Detailed Requirements}
+
+\subsubsection{Functional \& Non-Functional Requirements}
+
+\subsubsection{The Physical Setup (The Brewery Machine)}
+
+\subsubsection{The Simulator}
+
+
+\subsection{Use Cases}
+
+\subsubsection{Actor List}
+
+\subsubsection{Detailed Use Cases}
+\textit{From project description section 3.2}
+
+% 3.2.1 start production
+\begin{table}[ht]
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|}
+        \hline
+        \textbf{ID:} UC01  \\
+        \hline
+        \textbf{Primary actor:} The MES \\
+        \hline
+        \textbf{Secondary actor:} Beer production machine \\
+        \hline
+        \textbf{Short description:} The MES must be able to start the brewery's
+        production \\
+        \hline
+        \textbf{Pre conditions:} The beer production machine needs to be off \\
+        \hline
+        \textbf{Main flow:} \\
+        	1. This use case starts when an actor wants to start the beer
+        	production machine. \\
+        	2. The actor chooses what kind of beer to be produced. \\
+        	3. The actor presses the start button. \\
+		\hline
+        \textbf{post conditions:} The beer production machine is turned on \\
+        \hline
+        \textbf{Alternative flow:} \\
+        	Step 3: If there is not enough ingredients, the actor receives an
+        	error message. \\
+        \hline
+    \end{tabularx}
+    \caption{Production Control: Start production}
+    \label{table:usecase_productionStart}
+\end{table}
+
+% 3.2.1 stop production
+\begin{table}[ht]
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|}
+        \hline
+        \textbf{ID:} UC02  \\
+        \hline
+        \textbf{Primary actor:} The MES \\
+        \hline
+        \textbf{Secondary actor:} Beer production machine \\
+        \hline
+        \textbf{Short description:} The MES must be able to stop the brewery's
+        production \\
+        \hline
+        \textbf{Pre conditions:} The beer production machine needs to be on \\
+        \hline
+        \textbf{Main flow:} \\
+        	1. This use case starts when an actor wants to shut down the beer
+        	production machine. \\
+			2. The actor presses the stop button \\
+		\hline
+        \textbf{post conditions:} The beer production machine is turned off \\
+        \hline
+        \textbf{Alternative flow:} \\
+        \hline
+    \end{tabularx}
+    \caption{Production Control: Stop production} 
+    \label{table:usecase_productionStop}
+\end{table}
+
+% 3.2.1 monitor and store production data
+\begin{table}[ht]
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|}
+        \hline
+        \textbf{ID:} UC03  \\
+        \hline
+        \textbf{Primary actor:} The MES \\
+        \hline
+        \textbf{Secondary actor:} Beer production machine \\
+        \hline
+        \textbf{Short description:} The MES must be able to monitor and store
+        the data from the production line. \\
+        \hline
+        \textbf{Pre conditions:} The production needs to be on and producing
+        beer. \\
+        \hline
+        \textbf{Main flow:} \\
+        	1. This use case starts when the beer production machine is turned
+        	on and starts producing beer. \\
+			2. The MES collects data from the beer production machine. \\
+			3. The MES stores the collected data. \\
+		\hline
+        \textbf{post conditions:} Data from the beer production machine has been
+        stored. \\
+        \hline
+        \textbf{Alternative flow:} \\
+        \hline
+    \end{tabularx}
+    \caption{Production Control: Monitor and store data} 
+    \label{table:usecase_productionStoreData}
+\end{table}
+
+% 3.2.3 production monitoring
+\begin{table}[ht]
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|}
+        \hline
+        \textbf{ID:} UC04  \\
+        \hline
+        \textbf{Primary actor:} The MES \\
+        \hline
+        \textbf{Secondary actor:} Beer production machine \\
+        \hline
+        \textbf{Short description:} The MES must be able to monitor the
+        production and display live relevant data. \\
+        \hline
+        \textbf{Pre conditions:} The production needs to be on and producing
+        beer. \\
+        \hline
+        \textbf{Main flow:} \\
+        	1. This use case starts when the beer production machine is turned
+        	on and starts producing beer. \\
+			2. The MES collects data from the beer production machine. \\
+			3. The MES displays the relevant data. \\
+		\hline
+        \textbf{post conditions:} Data from the beer production machine has been
+        displayed. \\
+        \hline
+        \textbf{Alternative flow:} \\
+        \hline
+    \end{tabularx}
+    \caption{Production Monitoring: Display live data}
+    \label{table:usecase_displayLiveRelevantData}
+\end{table}
+
+% 3.2.4 batch report
+\begin{table}[ht]
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|}
+        \hline
+        \textbf{ID:} UC05  \\
+        \hline
+        \textbf{Primary actor:} The MES \\
+        \hline
+        \textbf{Secondary actor:} The beer production machine \\
+        \hline
+        \textbf{Short description:} The MES must be able to produce a batch
+        report of the produced batch. \\
+        \hline
+        \textbf{Pre conditions:} The beer production machine needs to have
+        produced a batch. \\
+        \hline
+        \textbf{Main flow:} \\
+        	1. This use case starts when the beer production machine has
+        	finished producing a batch of beer. \\
+			2. The MES retrieves the data it stored during production. \\
+			3. The MES produces a batch report with the retrieved data. \\
+			4. The MES exports the batch report to an easily readable format \\
+		\hline
+        \textbf{post conditions:} A batch report has been produced. \\
+        \hline
+        \textbf{Alternative flow:} \\
+        \hline
+    \end{tabularx}
+    \caption{Batch report: producing a batch report}
+    \label{table:usecase_batchReport}
+\end{table}
+
+% 3.2.7 OEE
+\begin{table}[ht]
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|}
+        \hline
+        \textbf{ID:} UC06  \\
+        \hline
+        \textbf{Primary actor:} The MES \\
+        \hline
+        \textbf{Secondary actor:} The beer production machine \\
+        \hline
+        \textbf{Short description:} The MES needs to collect the necessary data
+        from the machine and calculate the OEE, and store it for
+        further references. \\
+        \hline
+        \textbf{Pre conditions:} The beer production machine needs to have
+        produced a batch. \\
+        \hline
+        \textbf{Main flow:} \\
+        	1. This use case starts when the beer production machine has
+        	finished producing a batch of beer. \\
+			2. The MES collects the necessary data from the beer production
+			machine \\
+			3. The MES calculates the OEE. \\
+			4. The MES stores the calculated OEE for further reference. \\ 
+		\hline
+        \textbf{post conditions:} The OEE has been calculated and is ready to
+        be displayed. \\
+        \hline
+        \textbf{Alternative flow:} \\
+        \hline
+    \end{tabularx}
+    \caption{OEE: Calculating the efficiency of the machine}
+    \label{table:usecase_oee}
+\end{table}
+
+% 3.2.8 estimate error function
+\begin{table}[ht]
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|}
+        \hline
+        \textbf{ID:} UC07  \\
+        \hline
+        \textbf{Primary actor:} The MES \\
+        \hline
+        \textbf{Secondary actor:} The beer production machine \\
+        \hline
+        \textbf{Short description:} The MES needs to estimate the error function
+        associated with the products. \\
+        \hline
+        \textbf{Pre conditions:} The beer production machine needs to have
+        produced a batch. \\
+        \hline
+        \textbf{Main flow:} \\
+        	1. This use case starts when the beer production machine has
+        	finished producing a batch of beer. \\
+			2. The MES collects the necessary data from the beer production
+			machine \\
+			3. The MES estimates the error function. \\
+			4. The MES stores the error function for the produced batch for
+			further reference. \\
+		\hline
+        \textbf{post conditions:} The error function has been estimated. \\
+        \hline
+        \textbf{Alternative flow:} \\
+        \hline
+    \end{tabularx}
+    \caption{Error function: Estimate error function}
+    \label{table:usecase_errorFunction}
+\end{table}
+
+% 3.2.9 optimal production speed
+\begin{table}[ht]
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|}
+        \hline
+        \textbf{ID:} UC08  \\
+        \hline
+        \textbf{Primary actor:} The MES \\
+        \hline
+        \textbf{Secondary actor:} The beer production machine \\
+        \hline
+        \textbf{Short description:} The optimal production speed must be
+        estimated for each product type. \\
+        \hline
+        \textbf{Pre conditions:} The beer production machine needs to have
+        produced a batch. \\
+        \hline
+        \textbf{Main flow:} \\
+        	1. This use case starts when the beer production machine has
+        	finished producing a batch of beer. \\
+			2. The MES collects the necessary data from the beer production
+			machine \\
+			3. The MES calculates the optimal production speed for the produced
+			product. \\
+			4. The MES stores the calculated production speed for further
+			reference. \\ 
+		\hline
+        \textbf{post conditions:} The optimal production speed for the batch
+        product type has been estimated. \\
+        \hline
+        \textbf{Alternative flow:} \\
+        \hline
+    \end{tabularx}
+    \caption{Optimal production speed: Calculating the efficiency of the machine}
+    \label{table:usecase_productionSpeed}
+\end{table}
+
+\subsubsection{Use Case Diagram}
