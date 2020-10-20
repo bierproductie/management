@@ -1,0 +1,77 @@
+\section{Requirements}
+
+\subsection{Overall Requirements Specification}
+
+\subsection{Selected Detailed Requirements}
+
+\subsubsection{Functional \& Non-Functional Requirements}
+In table \ref{table:Sup_requirements} you can see a description of Functional and
+Non-Functional requirements. 
+FURPS+ is a model for classifying functional and non-functional requirements.
+The acronym stands for functionality, usability, reliability, performance, and supportability.
+The '+' sign stands for design constraints, implementation requirements,
+interface requirements, and physical requirements.
+
+
+\begin{table}[ht]
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{3.3cm}|>{\RaggedRight}p{0.6cm}|>{\RaggedRight}X|}
+        \hline
+        \textbf{FURPS+}  & \textbf{\#} & \textbf{Demands} \\
+        \hline
+        Functionality  	& S01 & Improve the beer machine by increasing quantity while maintaining quality \\
+        \hline
+        Usability      	& S02 & Documentation on usage of the REST API \\
+        \hline
+        Reliability    	& S03 & On server reboot, the application will automatically restart \\
+        \hline
+        Performance    	& S04 & Max response time (API: 400 ms) \\
+        \hline
+        Supportability 	& S05 & Minimum browser versions (JavaScript version 6)\\
+        \hline
+        design constraints 	& S06 & Na \\
+        \hline
+        \multirow{5}{100}{implementation requirements} & S08 & Should be controlled via MES\\
+        \cline{2-3}
+                & S08 & MES should be able to keep track of Batches\\
+        \cline{2-3}
+                & S09 & Monitor production (Live data)\\
+        \cline{2-3}
+                & S10 & Estimate error function\\
+        \cline{2-3}
+                & S11 & Optimal production speed\\
+        \hline
+        \multirow{14}{100}{Interface requirements } & S12 & Show OEE \\
+        \cline{2-3}
+                & S13 & Show Batch Report that include:
+            \begin{itemize}
+                \item Batch ID
+                \item Product type
+                \item Amount of products (total, defect and acceptable)
+                \item Amount of time used in the different states
+                \item Logging of temperature over the production time
+                \item Logging of humidity over the production time
+            \end{itemize} \\
+        \cline{2-3}
+            & S14 & Visualization \\
+        \hline
+        Physical requirements & S14 & The group should work with the beer 
+        production machine provied by SDU \\
+        \hline
+    \end{tabularx}
+    \caption{Supplementary Requirements} 
+    \label{table:Sup_requirements}
+\end{table} 
+
+\subsubsection{The Physical Setup (The Brewery Machine)}
+
+\subsubsection{The Simulator}
+
+
+\subsection{Use Cases}
+
+\subsubsection{Actor List}
+
+\subsubsection{Detailed Use Cases}
+\textit{From project description}
+
+\subsubsection{Use Case Diagram}
