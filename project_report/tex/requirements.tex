@@ -210,4 +210,74 @@
     \label{table:usecase_oee}
 \end{table}
 
+% 3.2.8 estimate error function
+\begin{table}[ht]
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|}
+        \hline
+        \textbf{ID:} UC07  \\
+        \hline
+        \textbf{Primary actor:} The MES \\
+        \hline
+        \textbf{Secondary actor:} The beer production machine \\
+        \hline
+        \textbf{Short description:} The MES needs to estimate the error function
+        associated with the products. \\
+        \hline
+        \textbf{Pre conditions:} The beer production machine needs to have
+        produced a batch. \\
+        \hline
+        \textbf{Main flow:} \\
+        	1. This use case starts when the beer production machine has
+        	finished producing a batch of beer. \\
+			2. The MES collects the necessary data from the beer production
+			machine \\
+			3. The MES estimates the error function. \\
+			4. The MES stores the error function for the produced batch for
+			further reference. \\
+		\hline
+        \textbf{post conditions:} The error function has been estimated. \\
+        \hline
+        \textbf{Alternative flow:} \\
+        \hline
+    \end{tabularx}
+    \caption{Error function: Estimate error function}
+    \label{table:usecase_errorFunction}
+\end{table}
+
+% 3.2.9 optimal production speed
+\begin{table}[ht]
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|}
+        \hline
+        \textbf{ID:} UC08  \\
+        \hline
+        \textbf{Primary actor:} The MES \\
+        \hline
+        \textbf{Secondary actor:} The beer production machine \\
+        \hline
+        \textbf{Short description:} The optimal production speed must be
+        estimated for each product type. \\
+        \hline
+        \textbf{Pre conditions:} The beer production machine needs to have
+        produced a batch. \\
+        \hline
+        \textbf{Main flow:} \\
+        	1. This use case starts when the beer production machine has
+        	finished producing a batch of beer. \\
+			2. The MES collects the necessary data from the beer production
+			machine \\
+			3. The MES calculates the optimal production speed for the produced
+			product. \\
+			4. The MES stores the calculated production speed for further
+			reference. \\ 
+		\hline
+        \textbf{post conditions:} The optimal production speed for the batch
+        product type has been estimated. \\
+        \hline
+        \textbf{Alternative flow:} \\
+        \hline
+    \end{tabularx}
+    \caption{Optimal production speed: Calculating the efficiency of the machine}
+    \label{table:usecase_productionSpeed}
+\end{table}
+
 \subsubsection{Use Case Diagram}
