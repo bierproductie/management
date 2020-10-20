@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: install software
-        run: sudo apt update && sudo apt install latexmk texlive-latex-extra git-lfs
+        run: sudo apt update && sudo apt install latexmk texlive-latex-extra
       - name: check out with git lfs
         run: git lfs pull
       - name: make LaTeX document
