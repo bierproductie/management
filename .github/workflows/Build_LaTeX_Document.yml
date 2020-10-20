@@ -21,5 +21,3 @@ jobs:
         run: git lfs pull
       - name: make LaTeX document
         run: make
-      - name: add LaTeX document to the Git-repository
-        run: git commit -am "Updated the PDF" && git push
