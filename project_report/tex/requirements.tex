@@ -8,27 +8,32 @@
 
 \subsubsection{The Physical Setup (The Brewery Machine)}
 
-The machine is able to produce a different kind of beers depending on the recipe
+The machine is able to produce different kinds of beer depending on the recipe
 used. The beer is produced in batches which have their own batch id. When 
 producing a batch the quantity, speed and batch id can be configured by an 
-external system. When a batch is done the quality inspection system measures 
-the quality for future use. These values are all accessible in the machines 
-SCADA system that monitor and supervises both the machines PLC system and the 
-internal sensors PLC system as well as the quality inspection system.
+external system. When a batch has been produced the quality inspection system 
+measures the quality for future use. These values are accessible in the machines 
+SCADA system. The SCADA system monitors and supervises both the machines PLC 
+system and the internal sensors PLC system as well as the quality inspection 
+system.
 
 \myparagraph{Sensors}
-To ensure the most optimal environment the machine is equipped with three 
-sensors that measure while production is happening. This data is useful because 
-it gives insight into the internal environment of the machine while producing 
-products. Currently, it measures temperature, humidity and vibration. On that 
-note is important to remember the machine itself is not able to collect these 
-data and are collected by an external system.
+To ensure the most optimal environment beer production and machine longevity the 
+machine is equipped with three sensors that measure the environment while 
+production is happening. This data is useful because it gives insight into the 
+internal environment of the machine while producing products. Currently, it 
+measures temperature, humidity and vibration. The machine itself is not able to 
+collect these data and are collected by an external system.
 
 \myparagraph{Quality Inspection System}
 In order to make it possible to calculate an error function, the system is 
 equipped with a sophisticated quality inspection system. This system is key to 
-optimising the production by giving data about the different configurations 
-error functions so that they can be configured otherwise to maximise production.
+optimising the production by giving data about the different error functions of 
+the configurations so that they can be configured otherwise to maximise 
+production. Each produced product is inspected and if the quality is low enough
+the product will fail. When a batch is finished the QIS will output the amount 
+of failed and passed products. The result is then used to calculate the error
+function.
 
 
 \subsubsection{The Simulator}
