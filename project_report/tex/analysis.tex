@@ -12,6 +12,197 @@
 
 \subsubsection{Sequence Diagrams}
 
+            % \begin{enumerate}
+            %     \item A beer type should be selected
+            % \end{enumerate}
+
 \subsubsection{Operation Contracts}
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{3.7cm}|>{\RaggedRight}X|}
+        \hline
+        \multicolumn{2}{|c|}{\textbf{startProduction}}\\
+        \hline
+        \textbf{System operation} & startProduction\\
+        \hline
+        \textbf{Cross References} & Use case: Start the beer Machine\\
+        \hline
+        \textbf{Responsibility} & Starting the beer machine if the pre-conditions 
+        is met.
+            If the pre-conditions is not met, the beer machine will not start \\
+        \hline
+        \textbf{Output} & The beer machine started the production\\
+        \hline
+        \textbf{Pre-conditions} & 
+                1. A beer type should be selected
+            \\
+        \hline
+        \textbf{Post-conditions} & The beer machine started brewing\\
+        \hline
+    \end{tabularx}
+    \caption{Operation Contracts startProduction} 
+    \label{table:Operation_Contracts_startProduction}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{3.7cm}|>{\RaggedRight}X|}
+        \hline
+        \multicolumn{2}{|c|}{\textbf{stopProduction}}\\
+        \hline
+        \textbf{System operation} & stopProduction\\
+        \hline
+        \textbf{Cross References} & Use case: Stop the beer Machine\\
+        \hline
+        \textbf{Responsibility} & Stop's the beer machine if the pre-conditions is met.
+        If the pre-conditions is not met, the beer machine will not do anything\\
+        \hline
+        \textbf{Output} & The beer machine is stopped\\
+        \hline
+        \textbf{Pre-conditions} & The beer machine should be running\\
+        \hline
+        \textbf{Post-conditions} & The beer machine is stopped\\
+        \hline
+    \end{tabularx}
+    \caption{Operation Contracts stopProduction} 
+    \label{table:Operation_Contracts_stopProduction}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{3.7cm}|>{\RaggedRight}X|}
+        \hline
+        \multicolumn{2}{|c|}{\textbf{produceBatchReport}}\\
+        \hline
+        \textbf{System operation} & produceBatchReport\\
+        \hline
+        \textbf{Cross References} & Use case: make Batch report\\
+        \hline
+        \textbf{Responsibility} &  Made a report after the pre-conditions is met\\
+        \hline
+        \textbf{Output} & Produces a batch report and add it to the database\\
+        \hline
+        \textbf{Pre-conditions} & The beer Machine is done brewing\\
+        \hline
+        \textbf{Post-conditions} & There is a Batch Report produced\\
+        \hline
+    \end{tabularx}
+    \caption{Operation Contracts produceBatchReport} 
+    \label{table:Operation_Contracts_produceBatchReport}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{3.7cm}|>{\RaggedRight}X|}
+        \hline
+        \multicolumn{2}{|c|}{\textbf{calculatedOptimalProductionSpeed}}\\
+        \hline
+        \textbf{System operation} &calculatedOptimalProductionSpeed \\
+        \hline
+        \textbf{Cross References} & Use case: calculate optimal production speed\\
+        \hline
+        \textbf{Responsibility} & It is responsible for calculating the optimal 
+        production speed \\
+        \hline
+        \textbf{Output} & number \\
+        \hline
+        \textbf{Pre-conditions} & The beer machine should be running\\
+        \hline
+        \textbf{Post-conditions} & The number is giving to the whom requested 
+        the number \\
+        \hline
+    \end{tabularx}
+    \caption{Operation Contracts calculatedOptimalProductionSpeed} 
+    \label{table:Operation_Contracts_calculatedOptimalProductionSpeed}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{3.7cm}|>{\RaggedRight}X|}
+        \hline
+        \multicolumn{2}{|c|}{\textbf{monitorAndStoreData}}\\
+        \hline
+        \textbf{System operation} & monitorAndStoreData\\
+        \hline
+        \textbf{Cross References} & Use case: monitor and store data \\
+        \hline
+        \textbf{Responsibility} & It is responsible for posting data to the database \\
+        \hline
+        \textbf{Output} & Post data to the database \\
+        \hline
+        \textbf{Pre-conditions} & The beer machine should be on \\
+        \hline
+        \textbf{Post-conditions} & The database is update with new data \\
+        \hline
+    \end{tabularx}
+    \caption{Operation Contracts monitorAndStoreData} 
+    \label{table:Operation_Contracts_monitorAndStoreData}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{3.7cm}|>{\RaggedRight}X|}
+        \hline
+        \multicolumn{2}{|c|}{\textbf{monitorAndDisplayData}}\\
+        \hline
+        \textbf{System operation} & monitorAndDisplayData\\
+        \hline
+        \textbf{Cross References} & Use case: monitor and display data\\
+        \hline
+        \textbf{Responsibility} & It is responsible for posting data to the client \\ 
+        \hline
+        \textbf{Output} & Post data to the client  \\
+        \hline
+        \textbf{Pre-conditions} & The beer machine should be on\\
+        \hline
+        \textbf{Post-conditions} & The client is updated with the queried data\\
+        \hline
+    \end{tabularx}
+    \caption{Operation Contracts monitorAndDisplayData} 
+    \label{table:Operation_Contracts_monitorAndDisplayData}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{3.7cm}|>{\RaggedRight}X|}
+        \hline
+        \multicolumn{2}{|c|}{\textbf{estimateErrorFunction}}\\
+        \hline
+        \textbf{System operation} & estimateErrorFunction\\
+        \hline
+        \textbf{Cross References} & Use case: estimate error function\\
+        \hline
+        \textbf{Responsibility} & It is responsible for calculating the error rate\\
+        \hline
+        \textbf{Output} & number \\
+        \hline
+        \textbf{Pre-conditions} & The beer machine is running \\
+        \hline
+        \textbf{Post-conditions} & The number is giving to the whom requested 
+        the number \\
+        \hline
+    \end{tabularx}
+    \caption{Operation Contracts estimateErrorFunction} 
+    \label{table:Operation_Contracts_estimateErrorFunction}
+\end{table}
+
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{3.7cm}|>{\RaggedRight}X|}
+        \hline
+        \multicolumn{2}{|c|}{\textbf{calculatedOEE}}\\
+        \hline
+        \textbf{System operation} & calculatedOEE\\
+        \hline
+        \textbf{Cross References} & Use case: calculated OEE\\
+        \hline
+        \textbf{Responsibility} & It is responsible for calculating the machine
+        overall equipment effectiveness\\
+        \hline
+        \textbf{Output} & number\\
+        \hline
+        \textbf{Pre-conditions} & The beer machine is running and estimateErrorFunction
+        returned a number ready for consumption \\
+        \hline
+        \textbf{Post-conditions} & The number is giving to the whom requested 
+        the number \\
+        \hline
+    \end{tabularx}
+    \caption{Operation Contracts calculatedOEE} 
+    \label{table:Operation_Contracts_calculatedOEE}
+\end{table}
 
 \subsubsection{Updated UML Class Diagram}
