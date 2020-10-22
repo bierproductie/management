@@ -96,11 +96,102 @@ Should have, C is for could have, and W is for Won't have.
 \subsection{Selected Detailed Requirements}
 
 \subsubsection{Functional \& Non-Functional Requirements}
+In table \ref{table:sup_requirements} you can see a description of Functional and
+Non-Functional requirements. 
+FURPS+ is a model for classifying functional and non-functional requirements.
+The acronym stands for functionality, usability, reliability, performance, and supportability.
+The '+' sign stands for design constraints, implementation requirements,
+interface requirements, and physical requirements.
+
+
+\begin{table}[ht]
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{3.3cm}|>{\RaggedRight}p{0.6cm}|>{\RaggedRight}X|}
+        \hline
+        \textbf{FURPS+}  & \textbf{\#} & \textbf{Demands} \\
+        \hline
+        Functionality  	& S01 & Improve the beer machine by increasing quantity while maintaining quality \\
+        \hline
+        Usability      	& S02 & Documentation on usage of the REST API \\
+        \hline
+        Reliability    	& S03 & On server reboot, the application will automatically restart \\
+        \hline
+        Performance    	& S04 & Max response time (API: 400 ms) \\
+        \hline
+        Supportability 	& S05 & Minimum browser versions (JavaScript version 6)\\
+        \hline
+        Design constraints 	& S06 & Na \\
+        \hline
+        \multirow{5}{100}{Implementation requirements} & S08 & Should be controlled via MES\\
+        \cline{2-3}
+                & S08 & MES should be able to keep track of Batches\\
+        \cline{2-3}
+                & S09 & Monitor production (Live data)\\
+        \cline{2-3}
+                & S10 & Estimate error function\\
+        \cline{2-3}
+                & S11 & Optimal production speed\\
+        \hline
+        \multirow{14}{100}{Interface requirements } & S12 & Show OEE \\
+        \cline{2-3}
+                & S13 & Show Batch Report that include:
+            \begin{itemize}
+                \item Batch ID
+                \item Product type
+                \item Amount of products (total, defect and acceptable)
+                \item Amount of time used in the different states
+                \item Logging of temperature over the production time
+                \item Logging of humidity over the production time
+            \end{itemize} \\
+        \cline{2-3}
+            & S14 & Visualisation \\
+        \hline
+        Physical requirements & S14 & The group should work with the beer 
+        production machine provied by SDU \\
+        \hline
+    \end{tabularx}
+    \caption{Supplementary Requirements} 
+    \label{table:sup_requirements}
+\end{table} 
 
 \subsubsection{The Physical Setup (The Brewery Machine)}
 
-\subsubsection{The Simulator}
+The machine can produce different kinds of beer depending on the recipe
+used. The beer is produced in batches which have their own batch id. When 
+producing a batch the recipe, quantity, speed and batch id can be configured by 
+an external system. When a batch has been produced the quality inspection system 
+measures the quality for future use. These values are accessible in the machines 
+SCADA system. The SCADA system monitors and supervises both the machines PLC 
+system and the internal sensors PLC system as well as the quality inspection 
+system.
 
+\myparagraph{Sensors}
+To ensure the most optimal environment beer production the 
+machine is equipped with three sensors that measure the environment while 
+production is happening. This data is useful as it gives insight into the 
+internal environment of the machine while producing products. Currently, it 
+measures temperature, humidity and vibration. The machine itself is not able to 
+collect these data and are collected by an external system.
+
+\myparagraph{Quality Inspection System}
+To make it possible to calculate an error function, the system is 
+equipped with a sophisticated quality inspection system. This system is key to 
+optimising the production by giving data about the different error functions of 
+the configurations so that they can be configured otherwise to maximise 
+production. Each produced product is inspected and if the quality is low enough
+the product will fail. When a batch is finished the QIS will output the amount 
+of failed and passed products. The result is then used to calculate the error
+function.
+
+
+\subsubsection{The Simulator}
+The group is going to use the simulator software to test the software during the
+development cycle.
+It is important to note that the simulator is not a replacement of the machine
+since there is only so much randomness and correctness you can get from a 
+simulator. 
+It is still very important to have the simulator, when making prototypes and 
+performing multiple tests on it, so any regressions won't be pushed to 
+the production system(the beer machine).
 
 \subsection{Use Cases}
 Use cases are written descriptions of how a user will perform different tasks
