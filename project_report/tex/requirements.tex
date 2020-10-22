@@ -35,16 +35,15 @@
 \begin{table}[ht]
      \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{2.5cm}|>{\RaggedRight}p{8cm}|>{\RaggedRight}X|}
      \hline
-     \textbf{Actor} 				& \textbf{Description}                                                                                                              & \textbf{Goal} \\ \hline
-     \multirow{2}{*}{SCADA (p)}     & The SCADA system is responsible for saving data as well as acting as a communication link between the MES and the Hardware.       & 	\begin{itemize} 
-     																																											\item Collect and save data
-     																																											\item Communicate between hardware and MES 
-     																																									 	\end{itemize} \\ \hline
-
-     \multirow{2}{*}{User (p)}      & The user represents the worker of the machine. The user will use the GUI to control the machine.                                  & 	\begin{itemize}
-     																																											\item Control machine
-     																																											\item Start new batches
-     																																										\end{itemize} \\ \hline
+     \textbf{Actor} 				& \textbf{Description}                                                                                                              				& \textbf{Goal} \\ \hline
+     \multirow{2}{*}{User (p)}      & The user represents the worker of the machine. The user will use the control panel to control the machine.                                  		& 	\begin{itemize}
+     																																														\item Control machine
+     																																														\item Start new batches
+     																																													\end{itemize} \\ \hline
+     \multirow{2}{*}{BPM (s)}     	& The beer production machine is responsible for supplying data to the MES and producing the beer.       											& \begin{itemize} 
+     																																														\item Collect and save data
+     																																														\item Communicate between hardware and MES 
+     																																									 				\end{itemize} \\ \hline
     \end{tabularx}
     \caption{Actor list}
     \label{table:actor_list}
