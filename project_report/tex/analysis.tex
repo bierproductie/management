@@ -20,11 +20,11 @@
 \begin{table}[H]
     \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{3.7cm}|>{\RaggedRight}X|}
         \hline
-        \multicolumn{2}{|c|}{\textbf{startProduction}}\\
+        \multicolumn{2}{|c|}{\textbf{start}}\\
         \hline
-        \textbf{System operation} & startProduction\\
+        \textbf{System operation} & start\\
         \hline
-        \textbf{Cross References} & Use case: Start the beer Machine\\
+        \textbf{Cross References} & Use case: Start machine see table \ref{table:usecase_start} \\
         \hline
         \textbf{Responsibility} & Starting the beer machine if the pre-conditions 
         is met.
@@ -33,14 +33,14 @@
         \textbf{Output} & The beer machine started the production\\
         \hline
         \textbf{Pre-conditions} & 
-                1. A beer type should be selected
-            \\
+            The beer production machine needs to be in
+            ready mode, that is, not producing beer. \\
         \hline
         \textbf{Post-conditions} & The beer machine started brewing\\
         \hline
     \end{tabularx}
-    \caption{Operation Contracts startProduction} 
-    \label{table:Operation_Contracts_startProduction}
+    \caption{Operation Contracts start} 
+    \label{table:Operation_Contracts_start}
 \end{table}
 
 \begin{table}[H]
@@ -50,14 +50,14 @@
         \hline
         \textbf{System operation} & stopProduction\\
         \hline
-        \textbf{Cross References} & Use case: Stop the beer Machine\\
+        \textbf{Cross References} & Use case: Stop the beer Machine see table \ref{table:usecase_stop}\\
         \hline
         \textbf{Responsibility} & Stop's the beer machine if the pre-conditions is met.
         If the pre-conditions is not met, the beer machine will not do anything\\
         \hline
         \textbf{Output} & The beer machine is stopped\\
         \hline
-        \textbf{Pre-conditions} & The beer machine should be running\\
+        \textbf{Pre-conditions} & The beer machine needs to be running\\
         \hline
         \textbf{Post-conditions} & The beer machine is stopped\\
         \hline
@@ -66,90 +66,72 @@
     \label{table:Operation_Contracts_stopProduction}
 \end{table}
 
+
 \begin{table}[H]
     \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{3.7cm}|>{\RaggedRight}X|}
         \hline
-        \multicolumn{2}{|c|}{\textbf{produceBatchReport}}\\
+        \multicolumn{2}{|c|}{\textbf{reset}}\\
         \hline
-        \textbf{System operation} & produceBatchReport\\
+        \textbf{System operation} & reset \\
         \hline
-        \textbf{Cross References} & Use case: make Batch report\\
+        \textbf{Cross References} & Use case: reset see table \ref{table:usecase_reset} \\
         \hline
-        \textbf{Responsibility} &  Made a report after the pre-conditions is met\\
+        \textbf{Responsibility} & It is responsible for resetting the beer 
+                machine.\\
         \hline
-        \textbf{Output} & Produces a batch report and add it to the database\\
+        \textbf{Output} & reset the beer machine. \\
         \hline
-        \textbf{Pre-conditions} & The beer Machine is done brewing\\
+        \textbf{Pre-conditions} & The beer production machine needs to be in
+                ready mode, that is, not producing beer. \\
         \hline
-        \textbf{Post-conditions} & There is a Batch Report produced\\
+        \textbf{Post-conditions} & The beer production machine has been reset. \\
         \hline
     \end{tabularx}
-    \caption{Operation Contracts produceBatchReport} 
-    \label{table:Operation_Contracts_produceBatchReport}
+    \caption{Operation Contracts reset} 
+    \label{table:Operation_Contracts_reset}
 \end{table}
 
 \begin{table}[H]
     \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{3.7cm}|>{\RaggedRight}X|}
         \hline
-        \multicolumn{2}{|c|}{\textbf{calculatedOptimalProductionSpeed}}\\
+        \multicolumn{2}{|c|}{\textbf{clear}}\\
         \hline
-        \textbf{System operation} &calculatedOptimalProductionSpeed \\
+        \textbf{System operation} & clear\\
         \hline
-        \textbf{Cross References} & Use case: calculate optimal production speed\\
+        \textbf{Cross References} & Use case: clear see table \ref{table:usecase_reset} \\
         \hline
-        \textbf{Responsibility} & It is responsible for calculating the optimal 
-        production speed \\
+        \textbf{Responsibility} & It is responsible for clearing the beer 
+                machine. \\
         \hline
-        \textbf{Output} & number \\
+        \textbf{Output} & The beer machine has been cleared. \\
         \hline
-        \textbf{Pre-conditions} & The beer machine should be running\\
+        \textbf{Pre-conditions} & The beer production machine needs to be in
+                ready mode, that is, not producing beer. \\
         \hline
-        \textbf{Post-conditions} & The number is giving to the whom requested 
-        the number \\
+        \textbf{Post-conditions} & The beer production machine has been cleared.\\
         \hline
     \end{tabularx}
-    \caption{Operation Contracts calculatedOptimalProductionSpeed} 
-    \label{table:Operation_Contracts_calculatedOptimalProductionSpeed}
+    \caption{Operation Contracts clear} 
+    \label{table:Operation_Contracts_clear}
 \end{table}
 
 \begin{table}[H]
     \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{3.7cm}|>{\RaggedRight}X|}
         \hline
-        \multicolumn{2}{|c|}{\textbf{monitorAndStoreData}}\\
+        \multicolumn{2}{|c|}{\textbf{display live data}}\\
         \hline
-        \textbf{System operation} & monitorAndStoreData\\
+        \textbf{System operation} & displayLiveData\\
         \hline
-        \textbf{Cross References} & Use case: monitor and store data \\
+        \textbf{Cross References} & Use case: displayLiveData see table \ref{table:usecase_displayLiveData} \\
         \hline
-        \textbf{Responsibility} & It is responsible for posting data to the database \\
+        \textbf{Responsibility} & It is responsible for posting data to the client. \\ 
         \hline
-        \textbf{Output} & Post data to the database \\
+        \textbf{Output} & Post data to the client.  \\
         \hline
-        \textbf{Pre-conditions} & The beer machine should be on \\
+        \textbf{Pre-conditions} & The beer production machine needs to be on and
+                producing beer. \\
         \hline
-        \textbf{Post-conditions} & The database is update with new data \\
-        \hline
-    \end{tabularx}
-    \caption{Operation Contracts monitorAndStoreData} 
-    \label{table:Operation_Contracts_monitorAndStoreData}
-\end{table}
-
-\begin{table}[H]
-    \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{3.7cm}|>{\RaggedRight}X|}
-        \hline
-        \multicolumn{2}{|c|}{\textbf{monitorAndDisplayData}}\\
-        \hline
-        \textbf{System operation} & monitorAndDisplayData\\
-        \hline
-        \textbf{Cross References} & Use case: monitor and display data\\
-        \hline
-        \textbf{Responsibility} & It is responsible for posting data to the client \\ 
-        \hline
-        \textbf{Output} & Post data to the client  \\
-        \hline
-        \textbf{Pre-conditions} & The beer machine should be on\\
-        \hline
-        \textbf{Post-conditions} & The client is updated with the queried data\\
+        \textbf{Post-conditions} & Live data has been displayed for the user. \\
         \hline
     \end{tabularx}
     \caption{Operation Contracts monitorAndDisplayData} 
@@ -159,50 +141,25 @@
 \begin{table}[H]
     \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{3.7cm}|>{\RaggedRight}X|}
         \hline
-        \multicolumn{2}{|c|}{\textbf{estimateErrorFunction}}\\
+        \multicolumn{2}{|c|}{\textbf{batchReport}}\\
         \hline
-        \textbf{System operation} & estimateErrorFunction\\
+        \textbf{System operation} & batchReport\\
         \hline
-        \textbf{Cross References} & Use case: estimate error function\\
+        \textbf{Cross References} & Use case: batchReport see table \ref{table:usecase_batchReport} \\
         \hline
-        \textbf{Responsibility} & It is responsible for calculating the error rate\\
+        \textbf{Responsibility} &  Make a report after the pre-conditions is met
+                and adds the report to the database.\\
         \hline
-        \textbf{Output} & number \\
+        \textbf{Output} & Produces a batch report and display it for the user.\\
         \hline
-        \textbf{Pre-conditions} & The beer machine is running \\
+        \textbf{Pre-conditions} & The beer Machine needs to have produced a batch.\\
         \hline
-        \textbf{Post-conditions} & The number is giving to the whom requested 
-        the number \\
-        \hline
-    \end{tabularx}
-    \caption{Operation Contracts estimateErrorFunction} 
-    \label{table:Operation_Contracts_estimateErrorFunction}
-\end{table}
-
-
-\begin{table}[H]
-    \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{3.7cm}|>{\RaggedRight}X|}
-        \hline
-        \multicolumn{2}{|c|}{\textbf{calculatedOEE}}\\
-        \hline
-        \textbf{System operation} & calculatedOEE\\
-        \hline
-        \textbf{Cross References} & Use case: calculated OEE\\
-        \hline
-        \textbf{Responsibility} & It is responsible for calculating the machine
-        overall equipment effectiveness\\
-        \hline
-        \textbf{Output} & number\\
-        \hline
-        \textbf{Pre-conditions} & The beer machine is running and estimateErrorFunction
-        returned a number ready for consumption \\
-        \hline
-        \textbf{Post-conditions} & The number is giving to the whom requested 
-        the number \\
+        \textbf{Post-conditions} & A batch report has been displayed for the
+                user. \\
         \hline
     \end{tabularx}
-    \caption{Operation Contracts calculatedOEE} 
-    \label{table:Operation_Contracts_calculatedOEE}
+    \caption{Operation Contracts produceBatchReport} 
+    \label{table:Operation_Contracts_produceBatchReport}
 \end{table}
 
 \subsubsection{Updated UML Class Diagram}
