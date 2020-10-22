@@ -1,0 +1,11 @@
+actor User
+participant Control Panel
+participant OPC-UA Client
+participant Beer Production Machine
+
+
+User->Control Panel: Reset machine
+Control Panel->OPC-UA Client: resetMachine()
+OPC-UA Client->Beer Production Machine: command(Cmd.RESET)
+Beer Production Machine-->Control Panel:Machine state: Reset
+Control Panel-->User: Machine reset
