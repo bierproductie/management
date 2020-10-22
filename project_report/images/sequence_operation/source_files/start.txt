@@ -1,0 +1,40 @@
+actor User
+participant Control Panel
+participant OPC-UA Client
+participant Beer Production Machine
+participant REST API
+database DB
+
+User->Control Panel: Start machine
+Control Panel->OPC-UA Client:startMachine()
+OPC-UA Client->Beer Production Machine: command(Cmd.START)
+Beer Production Machine-->Control Panel:Machine state: started
+Control Panel-->User: Machine started
+
+note over OPC-UA Client:The OPC-UA Client\nsubscribes on a status\nflag from the machine,\nso it knows when the\nproduction has finished
+
+actor User
+participant OPC-UA Client
+participant Beer Production Machine
+participant REST API
+database DB
+==After x amount of time==
+
+note over Beer Production Machine: The status flag is\nset to 0, indicating\nthat the production\nis done
+
+OPC-UA Client->Beer Production Machine: getData()
+Beer Production Machine-->OPC-UA Client: batch data
+
+OPC-UA Client->OPC-UA Client: CalculateOPS()
+OPC-UA Client->OPC-UA Client: EstimateErrorFunction()
+OPC-UA Client->OPC-UA Client: CalculateOEE()
+
+
+OPC-UA Client->REST API:POST\n/batches/<batch_id>
+group POST with wrong data
+REST API-->OPC-UA Client: 400, Bad Request
+end
+REST API->DB:INSERT_query()
+
+DB-->REST API: result set
+REST API-->OPC-UA Client: 200, OK
