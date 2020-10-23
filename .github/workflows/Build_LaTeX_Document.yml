@@ -25,5 +25,6 @@ jobs:
       - uses: meeDamian/github-release@2.0
         with:
             token: ${{ secrets.GITHUB_TOKEN }}
+            tag: ${{ env.TAG }
             files: > 
               project_proposal/report.pdf
