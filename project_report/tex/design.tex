@@ -1,1 +1,41 @@
 \section{Design}
+\subsection{Subsystem Design}
+\subsubsection{OPC-UA Client}
+The group was in doubt about the system being a monolith application containing 
+the REST-api and OPC-UA Client in one program or split into two programs.
+
+Choosing to split the program into two separate entities aligns with the 
+separation of concerns principle fx. implementing authentication at a later 
+stage(in the api) wouldn't affect the core logic of the OPC-UA client. On the 
+other hand choosing to do so would add some overhead in the start of the 
+implementation phase. \\
+
+Another thing to consider when splitting the application into two separate 
+entities, is how they should interface with each other. To accomplish this the 
+group has two options 
+
+\begin{table}[ht]
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|}
+        \hline
+        \textbf{Option} & \textbf{Pros} & \textbf{Cons} \\
+        \hline
+        Console Application & Simplest to implement & Connection to the OPC-UA 
+        server is created for each request (Performance overhead)\\
+        \hline
+        HTTP server & Connection to OPC-UA server is made once and reused. HTTP
+        naturally talks JSON which is ideal as an interface & Takes longer to 
+        implement \\
+        \hline
+    \end{tabularx}
+    \caption{options}
+    \label{someLabel}
+\end{table}
+
+The group evaluated that the split up benefits, outweighed the negatives. This 
+decision demands that the client uses HTTP communication to communicate with the
+api over localhost. 
+
+
+
+\myparagraph{Results}
+\myworries[write last part after implementation ]{yep}
