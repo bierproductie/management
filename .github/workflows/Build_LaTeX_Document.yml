@@ -11,7 +11,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  draft:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -28,6 +28,29 @@ jobs:
           tag: v0.0.1:draft
           draft: true
           allow_override: true
+          name: Bierproductie report
+          body: >
+            This is the draft report release for our project
+          gzip: false
+          files: > 
+            report.pdf
+            
+  release:
+    if: github.event == 'merge'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: install software
+        run: sudo apt update && sudo apt install latexmk texlive-latex-extra
+      - name: check out with git lfs
+        run: git lfs pull
+      - name: make LaTeX document
+        run: make
+        
+      - uses: meeDamian/github-release@2.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: v1.0.1
           name: Bierproductie report
           body: >
             This is the report release for our project
