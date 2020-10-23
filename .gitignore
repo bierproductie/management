@@ -1,4 +1,5 @@
 # this is latex generation clutter
+# bare en random comment!
 *.log
 *.aux
 *.out
