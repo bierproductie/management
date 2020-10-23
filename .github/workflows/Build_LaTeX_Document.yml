@@ -21,3 +21,9 @@ jobs:
         run: git lfs pull
       - name: make LaTeX document
         run: make
+        
+      - uses: meeDamian/github-release@2.0
+        with:
+            token: ${{ secrets.GITHUB_TOKEN }}
+            files: > 
+              project_proposal/report.pdf
