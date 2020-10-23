@@ -26,6 +26,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: v1.0.0:prerelease
+          draft: true
           name: Bierproductie report
           body: >
             This is the report release for our project
