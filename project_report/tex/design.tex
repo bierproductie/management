@@ -11,14 +11,15 @@ concerns. The controller manages input from the user, and forwards it to either
 the model, to retrieve or store data, or the view, to present data to the user.
 
 The group has decided to use the MVC design pattern, thus making it possible to
-work on the different aspects of the system (GUI, database, logic) separately.
+work on the different elements of the system (GUI, database, logic) separately.
 To ensure that these different parts of the system can communicate, a
-'contract', in the form of an interface, should be created.
+'contract', in this case the controller, should be created.
 
 A visualisation of the MVC pattern can be seen in figure \ref{figure:MVC_model}
+
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=1]{images/MVC_model.jpg}
+    \includegraphics[scale=0.35]{images/MVC_model.jpg}
     \caption{MVC model}
     \label{figure:MVC_model}
 \end{figure}
