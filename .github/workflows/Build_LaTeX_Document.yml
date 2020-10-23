@@ -27,4 +27,4 @@ jobs:
             token: ${{ secrets.GITHUB_TOKEN }}
             tag: ${{ env.TAG }}
             files: > 
-              project_proposal/report.pdf
+              report.pdf
