@@ -13,8 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:  
       - uses: actions/checkout@v2
+      - name: check out with git lfs
+        run: git lfs pull
       - name: Install Dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
         uses: xu-cheng/texlive-action/full@v1
         with:
           run: |
@@ -29,7 +30,7 @@ jobs:
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v1
         with:
-          token: ${{ secrets.PAT1 }}
+          token: ${{ secrets.PAT_KEPET19 }}
           repository: kepet19/management
           event-type: upload-artifacts
           client-payload: '{"prnumber": "${{ github.event.number }}", "checkrunid": "${{ github.run_id }}"}'
