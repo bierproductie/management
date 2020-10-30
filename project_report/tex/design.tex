@@ -23,3 +23,42 @@ A visualisation of the MVC pattern can be seen in figure \ref{figure:MVC_model}
     \caption{MVC model}
     \label{figure:MVC_model}
 \end{figure}
+
+\subsection{Subsystem Design}
+\subsubsection{OPC-UA Client}
+The group was in doubt about the system being a monolith application containing 
+the REST-API and OPC-UA Client in one program or split into two programs.
+
+Choosing to split the program into two separate entities aligns with the 
+separation of concerns principle fx. implementing authentication at a later 
+stage(in the API) wouldn't affect the core logic of the OPC-UA client. On the 
+other hand choosing to do so would add some overhead at the start of the 
+implementation phase. \\
+
+Another thing to consider when splitting the application into two separate 
+entities is how they should interface with each other. To accomplish this the 
+group has two options: 
+
+\begin{table}[ht]
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|}
+        \hline
+        \textbf{Option} & \textbf{Pros} & \textbf{Cons} \\
+        \hline
+        Console Application & Simplest to implement & Connection to the OPC-UA 
+        server is created for each request (Performance overhead)\\
+        \hline
+        HTTP server & Connection to OPC-UA server is made once and reused. HTTP
+        naturally talks JSON which is ideal as an interface & Takes longer to 
+        implement \\
+        \hline
+    \end{tabularx}
+    \caption{Options}
+    \label{someLabel}
+\end{table}
+
+The group evaluated that the split up benefits outweighed the negatives. This 
+decision demands that the client uses HTTP communication to communicate with the
+API over localhost. 
+
+\myparagraph{Results}
+\myworries{Write after implementation}
