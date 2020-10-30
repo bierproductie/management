@@ -1,0 +1,11 @@
+actor User
+participant Control Panel
+participant OPC-UA Client
+participant Beer Production Machine
+
+
+User->Control Panel: Clear Machine
+Control Panel->OPC-UA Client: clearMachine()
+OPC-UA Client->Beer Production Machine: command(Cmd.CLEAR)
+Beer Production Machine-->Control Panel:Machine state: Cleared
+Control Panel-->User: Cleared
