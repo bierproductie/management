@@ -1,0 +1,11 @@
+actor User
+participant Control Panel
+participant OPC-UA Client
+participant Beer Production Machine
+
+
+User->Control Panel: Abort
+Control Panel->OPC-UA Client: abort()
+OPC-UA Client->Beer Production Machine: command(Cmd.ABORT)
+Beer Production Machine-->Control Panel:Machine state: Aborted
+Control Panel-->User: Aborted
