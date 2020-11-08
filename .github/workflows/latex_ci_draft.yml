@@ -3,7 +3,7 @@ name: LaTeX CI draft
 on:
   pull_request:
     branches: 
-      - master
+      - /*
   push:
     branches: 
       - master
