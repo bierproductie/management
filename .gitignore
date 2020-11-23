@@ -8,5 +8,6 @@
 *.fdb_latexmk
 *.fls
 *.synctex.gz
+*.toc
 .vscode/
 project_report/report.pdf
