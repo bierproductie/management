@@ -170,7 +170,7 @@
     \newpage
 
     \input{tex/conclusion.tex}
-    %\newpage
+    \newpage
 
     % % bibliography empty
     % \bibliographystyle{apalike}
@@ -181,10 +181,9 @@
     % % \printbibliography
     % \newpage
     
-    % % fjerner sidetal
-    % \pagenumbering{gobble}
-    % % Bilag
-    % \appendix % Bruges til bilag, så den laver bilag indholdfortegnelse og overskrifter
-    % \input{appendices/bilag.tex}
+    % Removes page numbering
+    \pagenumbering{gobble}
+    \appendix % Bruges til bilag, så den laver bilag indholdfortegnelse og overskrifter
+    \input{tex/appendix.tex}
 
 \end{document}
