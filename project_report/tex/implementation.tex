@@ -38,3 +38,37 @@ simulator.
 It is still very important to have the simulator, when making prototypes and 
 performing multiple tests on it, so any regressions won't be pushed to 
 the production system(the beer machine).
+
+
+\subsection{The dashboard}
+ref to the api
+
+\subsection{The api}
+ref to the database and opc-ua
+
+\subsection{The database}
+relational yayayada postgres
+
+
+\subsection{The OPC-UA-Client}
+The OPC-UA-client handles the data from the machine and sends it to the API. It 
+is written in java and uses the milo library to create a client that connects to 
+the machines OPC-UA-server. The OPC-UA-client is able to subscribe to 
+information on the server and send it to the API that stores it in the database. 
+The client is also necessary to control the machine while it collects data it is 
+also the client that creates and runs batches it gets from the dashboard through 
+the API. It also sends live data via subscriptions, this data gets sent to the 
+API every time a change appears and the API sends it to the dashboard. The 
+client creates 6 subscriptions when started, they monitor temperature, 
+vibration, humidity, machine-state,  current defective products and current 
+processed products. 
+
+The data gets both sent to the API and stored in an object called 
+Batch. The Batch class \myworries{ref to source code I guess} has properties corresponding 
+to the values the API uses as well as logic to process the data. This logic 
+includes OEE calculation and JSON exportation. When running a batch a Batch 
+object is created by using the data the dashboard provides. It is then run by 
+providing the Batch object to the BatchHandler class that then runs the Batch 
+object. While the batch is being processed the subscriptions will add data to 
+the object. When done the Batch Object will run through its logic and finally 
+export itself as a JSON so it can be sent to the API. 
