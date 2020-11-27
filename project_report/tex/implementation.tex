@@ -64,11 +64,11 @@ vibration, humidity, machine-state,  current defective products and current
 processed products. 
 
 The data gets both sent to the API and stored in an object called 
-Batch. The Batch class \myworries{ref to source code I guess} has properties corresponding 
-to the values the API uses as well as logic to process the data. This logic 
-includes OEE calculation and JSON exportation. When running a batch a Batch 
-object is created by using the data the dashboard provides. It is then run by 
-providing the Batch object to the BatchHandler class that then runs the Batch 
+Batch. The Batch class \myworries{ref to source code I guess} has properties 
+corresponding to the values the API uses as well as logic to process the data. 
+This logic includes OEE calculation and JSON exportation. When running a batch a 
+Batch object is created by using the data the dashboard provides. It is then run 
+by providing the Batch object to the BatchHandler class that then runs the Batch 
 object. While the batch is being processed the subscriptions will add data to 
 the object. When done the Batch Object will run through its logic and finally 
 export itself as a JSON so it can be sent to the API. 
