@@ -3,6 +3,42 @@
 \subsubsection{Mathematics}
 \textit{High level description (e.g. mathematical) of the simulation you are using}
 
+\subsection{Theory}
+
+\subsubsection{Error Function}
+The Error Function describes the probability that an observation lies within
+a given interval, and can be seen in equation \ref{eq:1}.
+\begin{equation} \label{eq:1}
+    Erf(x)=\frac{2}{\sqrt{\pi}} \int_{-\infty}^x e^{-t^2} dt
+\end{equation}
+
+Where \(t=\frac{x}{\sqrt{\pi}}\). The error function is found by integrating
+the normalised Gaussian distribution. The function is normalised by the
+coefficient in front of the integral, so that \(erf(\infty) = 1\).
+A visualisation of the error function from -3 $\leq$ x -3 $\leq$ 3 can be seen
+in figure \ref{figure:error_function}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.3]{images/error_function.png}
+    \caption{Error function}
+    \label{figure:error_function}
+\end{figure}
+
+\subsubsection{Overall Equipment Effectiveness}
+The \textbf{O}verall \textbf{E}quipment \textbf{E}ffectiveness, OEE, is a
+measurement of how effective a given production line is. It identifies what
+percentage of the manufacturing time that is truly productive. The formula for
+the OEE can be seen in equation \ref{eq:2}
+\begin{equation} \label{eq:2}
+    OEE = \frac{Good Count * Ideal Cycle Time}{Planned Produciton Time}
+\end{equation}
+
+Where \textit{GoodCount} is the amount of acceptable products produced and
+\textit{IdeaCycleTime} is the theoretical minimum time to produce a single
+product.
+
+
 \subsection{Methods}
 To keep track of the group work, the Scrum framework, with a few buts, is used.
 Scrum consists of multiple artefacts and ceremonies, and in this project product
