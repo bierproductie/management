@@ -38,3 +38,44 @@ simulator.
 It is still very important to have the simulator, when making prototypes and 
 performing multiple tests on it, so any regressions won't be pushed to 
 the production system(the beer machine).
+
+
+\subsection{Dashboard}
+The user interacts with the dashboard, and through it the user can see what the
+machine is producing and information about the production. The user can also
+interact with the dashboard, as they can start and stop the machine and press
+buttons to see live data represented in graphs. The user is able to query
+batches for the machine to produces, as well as see the batch history, to
+quickly get an overview over produced batches and its data.\\
+
+The dashboard is implemented using web based technology, so it can run on many
+machines without installing any software, apart from a modern browser that is
+running JavaScript. It is implemented using HTML, CSS and JavaScript, and it
+uses two separate libraries for making graphs and getting icons for the buttons.
+
+\subsection{REST API}
+
+\subsection{Database}
+
+\subsection{OPC-UA-Client}
+The OPC-UA-client handles the data from the machine and sends it to the API. It 
+is written in Java and uses the Milo library to create a client that connects to 
+the machines OPC-UA-server. The OPC-UA-client is able to subscribe to 
+information on the server and send it to the API that stores it in the database.
+The client also controls the machine while it collects data, as it creates and
+runs batches it gets from the dashboard through the API. The client sends live
+data to the dashboard via the API using subscriptions. These subscriptions sends
+data to the API every time a change appears and the API then forwards it to the
+dashboard. The client creates 6 subscriptions when started, they monitor
+temperature, vibration, humidity, machine-state,  current defective products and
+current processed products. \\
+
+The data is also stored in an object called Batch in the client. The Batch class
+has properties corresponding to the values the API uses as well as logic to
+process the data. This logic includes OEE calculation and JSON exportation. In
+the start of a batch, when the user has configured the desired production, the
+data is sent to the client to create a Batch object. The Batch object is then
+run with the BatchHandler class, and while the batch is being produced, the
+subscriptions will add data to the object. When done the Batch object will run
+through its logic and finally export itself as a JSON so it can be sent to the
+API. 
