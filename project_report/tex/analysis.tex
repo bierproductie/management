@@ -9,7 +9,7 @@ duplicates and candidates that won’t be turned into classes. Naturally, every
 potential class for the entire system will not be found, as this only reflects
 use cases. A potential class candidate such as MES (where Start and Stop
 functionality would otherwise be implemented) will not be reduced to a single
-class and is therefore not added to the list of class candidates.
+class and is therefore not added to the list of class candidates.\\
 
 The final list of classes, as well as a description of them, can be seen in
 table \ref{table:class_candidates}.
@@ -19,8 +19,7 @@ table \ref{table:class_candidates}.
     \hline
     \textbf{Class Candidate} & \textbf{Attributes}                                                                                                     & \textbf{Definition}                                                                    \\ \hline
     Batch                    & Id, type, product\_amount (total, defect, acceptable), amount (time), state (current, history), OEE, production\_speed, & A batch refers to a specific batch of products the brewery has made                    \\ \hline
-    Product                  & Id, type, Ingredients,                                                                                                  & Product refers to the different options of beer to be produced                         \\ \hline
-    Ingredient               & Name, id                                                                                                                & An ingredient refers to a specific ingredient. Products contain a list of ingredients. \\ \hline
+    Product                  & Id, type, Ingredients                                                                                                  & Product refers to the different options of beer to be produced                         \\ \hline
     \end{tabularx}
     \caption{Potential class candidates}
     \label{table:class_candidates}
@@ -41,50 +40,18 @@ description.
 
 \subsection{Use Case Realisation}
 
-\subsubsection{Sequence Diagrams}
-A sequence diagram shows the system events for a given scenario of a use case,
-and how the actor interacts with the system to solve the use case. There are two
-kinds of sequence diagrams, system and operation. The system sequence diagram
-displays the system as a 'black box', where the internal system events are not
-shown, but only the external. This means that the diagram displays how actors
-generate system events and what the system output is. Furthermore, the diagram
-functions as a timeline for the system events. \\
-
-The operation sequence diagram displays the system as a 'white box', where both
-the internal and external system events are described, as seen in figure
-\ref{figure:sequence_diagram}.
-
-\begin{figure}[H]
-\centering 
-\includegraphics[scale=0.3]{images/sequence_operation/start.png}
-\caption{Sequence diagram: start}
-\label{figure:sequence_diagram} 
-\end{figure}
-
-This sequence diagram is used to identify system functions, as the events shown
-in the diagram are the functions needed to complete the use case. In this
-specific use case, the actor, the user, wants to start the beer production
-machine. The user interacts with the control panel by pressing the start button,
-which then sends a command to the OPC-UA client. The OPC-UA client interprets
-the command as a start machine command, which triggers an event in the OPC-UA
-client to send a command to the beer production machine. The beer production
-machine interprets the command as a start command, which then turns on the 
-machine. As a response to the user, to beer production machine sets a flag
-which the control panel reacts to, and sends a message to the user. \\
-
-When the beer production has finished, the OPC-UA client collects all relevant
-data from the beer production machine. This data is used to calculate the
-optimal production speed, estimate the error function, and calculate the OEE.
-These calculations are used to optimise the beer production. The calculated data
-and the data collected from the machine is then stored in a database. This
-happens through a REST API which acts as a translator between the different 
-subsystems within the MES.
-
 \subsubsection{Operation Contracts}
-An operation contract describes the responsibility of the operation. 
+An operation contract describes the responsibility of an operation in the system.
+These operations are found by making system sequence diagrams that displays the
+system as a 'black box', where the internal system events are not shown, but
+only the external. This means that the diagram displays how actors generate
+system events and what the system output is. Furthermore, the diagram functions
+as a timeline for the system events. \\
+
 The contract focuses on what the operation can change, and not how it is changed. 
 It is also used to describes the state of the system before and after the 
-operation is called.
+operation is called. In table \ref{table:Operation_Contracts_start} the
+operation contract for the start operation can be seen.
 
 \begin{table}[H]
     \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{3.7cm}|>{\RaggedRight}X|}
@@ -111,6 +78,38 @@ operation is called.
     \caption{Operation Contracts start} 
     \label{table:Operation_Contracts_start}
 \end{table}
+
+\subsubsection{Operation Sequence Diagrams}
+From the operation contracts the operation sequence diagram can be made. The
+operation sequence diagram displays the system as a 'white box', where both the
+internal and external system events are described, as seen in figure
+\ref{figure:sequence_diagram}.
+
+\begin{figure}[H]
+\centering 
+\includegraphics[scale=0.31]{images/sequence_operation/start.png}
+\caption{Sequence diagram: start}
+\label{figure:sequence_diagram} 
+\end{figure}
+
+This sequence diagram is used to identify system functions, as the events shown
+in the diagram are the functions needed to complete the use case. In this
+specific use case, the actor, the user, wants to start the beer production
+machine. The user interacts with the dashboard by pressing the start button,
+which then sends a command to the OPC-UA client. The OPC-UA client interprets
+the command as a start machine command, which triggers an event in the OPC-UA
+client to send a command to the beer production machine. The beer production
+machine interprets the command as a start command, which then turns on the 
+machine. As a response to the user, to beer production machine sets a flag
+which the dashboard reacts to, and sends a message to the user. \\
+
+When the beer production has finished, the OPC-UA client collects all relevant
+data from the beer production machine. This data is used to calculate the
+optimal production speed, estimate the error function, and calculate the OEE.
+These calculations are used to optimise the beer production. The calculated data
+and the data collected from the machine is then stored in a database. This
+happens through a REST API which acts as a translator between the different 
+subsystems within the MES.
 
 \subsubsection{Updated UML Class Diagram}
 \begin{figure}[ht]
