@@ -1,31 +1,9 @@
 \section{Requirements}
 
 \subsection{Overall Requirements Specification}
-\subsubsection{Problem Statement}
-In the table \ref{table:problem-statement}, the finished problem, the problem statement and related questions are listed.
-\begin{table}[ht]
-    \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{4cm}|>{\RaggedRight}X|}
-        \hline
-        \textbf{Problem} & The current production line is not efficient enough to keep up with the demand of the beer, while still maintaining a quality product\\
-        \hline
-        \textbf{Problem Statement} & How to control and optimise the brewing machine, to maximise the production of high quality beer\\
-        \hline
-        \textbf{Related questions} & 
-            \begin{itemize}
-                \item How can we optimise the production?
-                \item How can we utilise calculus and linear algebra to provide a meaningful overview of the production line, based on statistics?
-                \item How can we create a web based front end for the MES?
-                \item How can we separate the different aspects of the system (separation of concerns)
-            \end{itemize}
-        \\ 
-        \hline
-    \end{tabularx}
-    \caption{Problem statement showcase} 
-    \label{table:problem-statement}
-\end{table} 
-
 \subsubsection{Summary of requirements}
-The group's proposed solution will adhere to the requirements given by the brewery Refslevbæk Bryghus A/S.
+The group's proposed solution will adhere to the requirements given by the
+brewery Refslevbæk Bryghus A/S, which can be seen in the project description.
 
 The manufacturing execution system, MES, must be able to control the brewery’s production.
 It must be able to start and stop the production line,
@@ -45,15 +23,21 @@ The report must contain the following.
     \item Logging of humidity over the production time
 \end{itemize}
 
-The MES/SCADA (Supervisory control and data acquisition) system must be able to monitor the production and display live relevant data from the machine.
-The documentation of the system must contain an illustration that defines the different components in the setup, in relation to the ISA88\^{}1213 Part 1 Physical Hierarchy model.
-The system must have a visualisation that can be accessed and used to display production data.
-The system must be able to collect the necessary data from the machine and calculate the overall equipment effectiveness, OEE\^{}131516, of the machine. The OEE must be available to be displayed by the system.
-The system must be able to estimate the error function associated with the different products.
-The system must be able to find the optimal production speed for each product type, based on an error simulation and the appertaining graph upon which the error simulation is built.
+The MES must be able to monitor the production and display live relevant data
+from the machine. The documentation of the system must contain an illustration
+that defines the different components in the setup, in relation to the
+ISA88\^{}1213 Part 1 Physical Hierarchy model. The system must have a
+visualisation that can be accessed and used to display production data. The
+system must be able to collect the necessary data from the machine and calculate
+the overall equipment effectiveness, OEE\^{}131516, of the machine. The OEE must
+be available to be displayed by the system. The system must be able to estimate
+the error function associated with the different products. The system must be
+able to find the optimal production speed for each product type, based on an
+error simulation and the appertaining graph upon which the error simulation is
+built.
 
 \subsubsection{List of requirements}
-Below is a list of the above requirements. These requirements have been
+Below, in table \ref{table:Requirements}, is a list of the above requirements. These requirements have been
 prioritised using the MoSCoW method, where M is for Must have, S is for
 Should have, C is for could have, and W is for Won't have. 
 
@@ -97,14 +81,10 @@ Should have, C is for could have, and W is for Won't have.
 
 \subsubsection{Functional \& Non-Functional Requirements}
 In table \ref{table:sup_requirements} you can see a description of Functional and
-Non-Functional requirements. 
-FURPS+ is a model for classifying functional and non-functional requirements.
-The acronym stands for functionality, usability, reliability, performance, and supportability.
-The '+' sign stands for design constraints, implementation requirements,
-interface requirements, and physical requirements.
+Non-Functional requirements. These requirements have been classified by using
+the FURPS+ method.
 
-
-\begin{table}[ht]
+\begin{table}[H]
     \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{5.25cm}|>{\RaggedRight}p{0.6cm}|>{\RaggedRight}X|}
         \hline
         \textbf{FURPS+}  & \textbf{\#} & \textbf{Demands} \\
@@ -189,7 +169,7 @@ The identified actors can be seen in table \ref{table:actor_list}. With these
 actors, a visualisation can be made, depicting how the different actors
 communicate with the system.
 
-\begin{table}[ht]
+\begin{table}[H]
      \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{2.5cm}|>{\RaggedRight}p{8cm}|>{\RaggedRight}X|}
      \hline
      \textbf{Actor} 				& \textbf{Description}                                                                                                              				& \textbf{Goal} \\ \hline
@@ -213,9 +193,10 @@ functions to include when developing the system. As seen below, in table
 \ref{table:usecase_start}, which represents the sequence of steps happening
 when a user wants to start the beer production machine. This use case clarifies
 the functions needed to fulfil the users goal, to start the production machine.
+The remaining detailed use cases can be seen in appendix \ref{app:usecases}.
 
 % start production
-\begin{table}[ht]
+\begin{table}[H]
     \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|}
         \hline
         \textbf{ID:} UC01  \\
