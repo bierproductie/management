@@ -24,7 +24,7 @@ GET /batches/data_over_time/current # Returns ALL historic information data for 
 ```
 
 ```
-POST /batches/{identifier} # Post new (used from settings page to starg batch) 
+POST /batches/ # Post new (used from settings page to starg batch) 
 PUT /inventory_status/
 PUT /maintenance/
 POST /batches/data_over_time/{batch_identifier} # Post new info (humidity, temp. and so on) NO INVENTORY STATUS, NO MAINTENANCE
