@@ -37,40 +37,38 @@ error simulation and the appertaining graph upon which the error simulation is
 built.
 
 \subsubsection{List of requirements}
-Below, in table \ref{table:Requirements}, is a list of the above requirements. These requirements have been
-prioritised using the MoSCoW method, where M is for Must have, S is for
-Should have, C is for could have, and W is for Won't have. 
+Below, in table \ref{table:Requirements}, is a list of the above requirements.
+These requirements have been prioritised using the MoSCoW method, where M is for
+Must have, S is for Should have, C is for could have, and W is for Won't have. 
 
 \begin{table}[H]
-    \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{1cm}|>{\RaggedRight}p{4cm}|>{\RaggedRight}X|>{\RaggedRight}p{1cm}|}
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{1cm}|>{\RaggedRight}p{4cm}|>{\RaggedRight}X|>{\RaggedRight}c|}
         \hline
-        \textbf{ID} & \textbf{Name} & \textbf{Description} & \textbf{Prio} \\
+        \textbf{ID} & \textbf{Name} & \textbf{Description} & \textbf{Priority} \\
         \hline
         R01 & Control production line & Control the brewery's production & M \\
         \hline
-        R02 & Control production line & Start/stop production line & M \\
+        R02 & Monitor production & Monitor data from the production line & M \\
         \hline
-        R03 & Monitor production & Monitor data from the production line & M \\
+        R03 & Monitor production & Store the collected data for further analysis & M \\
         \hline
-        R04 & Monitor production & Store the collected data for further analysis & M \\
+        R04 & Administer batches & Keep track of produced batches (batch ID) & M \\
         \hline
-        R05 & Administer batches & Keep track of produced batches (batch ID) & M \\
+        R05 & Store batch info & Collect various data associated with current batch number from the machine & M \\
         \hline
-        R06 & Store batch info & Collect various data associated with current batch number from the machine & M \\
+        R06 & Batch report & Produce a batch report (PDF/dashboard style format) & M \\
         \hline
-        R07 & Batch report & Produce a batch report (PDF/dashboard style format) & M \\
+        R07 & Live data & Monitor and display live relevant data from the machine & M \\
         \hline
-        R08 & Live data & Monitor and display live relevant data from the machine & M \\
+        R08 & Documentation & Documentation must contain an illustration that defines the different components in the setup in relation to the ISA88\^{}1213 Part 1 Physical Hierarchy model & M \\
         \hline
-        R09 & Documentation & Documentation must contain an illustration that defines the different components in the setup in relation to the ISA88\^{}1213 Part 1 Physical Hierarchy model & M \\
+        R09 & Visualisation & Visualisation that can be accessed and used to display the production data & M \\
         \hline
-        R10 & Visualisation & Visualisation that can be accessed and used to display the production data & M \\
+        R10 & OEE & Collect necessary data from the machine and calculate the OEE. OEE must be available to be displayed by the system & M \\
         \hline
-        R11 & OEE & Collect necessary data from the machine and calculate the OEE. OEE must be available to be displayed by the system & M \\
+        R11 & Estimate error function & Estimate the error function associated with the products & S \\
         \hline
-        R12 & Estimate error function & Estimate the error function associated with the products & S \\
-        \hline
-        R13 & Optimal Production speed & Estimate the optimal production speed for each product type & M \\
+        R12 & Optimal Production speed & Estimate the optimal production speed for each product type & M \\
         \hline
     \end{tabularx}
     \caption{List of requirements} 
@@ -79,10 +77,11 @@ Should have, C is for could have, and W is for Won't have.
 
 \subsection{Selected Detailed Requirements}
 
-\subsubsection{Functional \& Non-Functional Requirements}
-In table \ref{table:sup_requirements} you can see a description of Functional and
-Non-Functional requirements. These requirements have been classified by using
-the FURPS+ method.
+\subsubsection{Supplementary Requirements}
+In addition to the requirements in Table \ref{table:Requirements}, FURPS+ method
+has been used to identify supplementary requirements in order to measure the
+quality of the software. The table contains a description of Functional and
+Non-Functional requirements.
 
 \begin{table}[H]
     \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{5.25cm}|>{\RaggedRight}p{0.6cm}|>{\RaggedRight}X|}
@@ -129,15 +128,16 @@ the FURPS+ method.
         production machine provied by SDU \\
         \hline
     \end{tabularx}
-    \caption{Supplementary Requirements} 
+    \caption{Functional \& Non-functional Requirements}
     \label{table:sup_requirements}
 \end{table} 
 
 \subsection{Use Cases}
-Use cases are written descriptions of how a user will perform different tasks
-on a system. They outline a systems behaviour as it responds to a request from
-the user. Each use case is represented as a sequence of steps, beginning with
-the users goal and ending when it that goal is fulfilled. \\
+Based on the found requirements, the system's use cases can be found. Use cases
+are written descriptions of how a user will perform different tasks on a system.
+They outline a systems behaviour as it responds to a request from the user. Each
+use case is represented as a sequence of steps, beginning with the users goal
+and ending when it that goal is fulfilled. \\
 
 The first step in developing use cases is to determine the actors.
 
@@ -224,7 +224,7 @@ The remaining detailed use cases can be seen in appendix \ref{app:usecases}.
         	production. \\
 
 		\hline
-        \textbf{post conditions:} The beer production machine is turned on \\
+        \textbf{post conditions:} The beer production process has been started \\
         \hline
         \textbf{Alternative flow:} \\
         	Step 8: If the machine does not complete the production (for various
@@ -237,8 +237,10 @@ The remaining detailed use cases can be seen in appendix \ref{app:usecases}.
 \end{table}
 
 \subsubsection{Use Case Diagram}
-Below, in figure \ref{figure:ucdiagram}, an overview of the use cases for the
-MES can be seen.
+In order to visualise the use cases, a use case diagram can be made. The diagram
+can be seen in Figure \ref{figure:ucdiagram}. The diagram shows the outline of
+the MES (the box), as well as which use cases each of the external actors can
+interact with.
 
 \begin{figure}[ht]
 	\centering 
