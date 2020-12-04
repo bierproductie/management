@@ -1,18 +1,22 @@
 \section{Analysis}
+In this section the the use cases from the requirements section will be analysed
+to provide the foundation for the design phase.
 
 \subsection{Use Case analysis}
+The first thing to do is to analyse the detailed use cases. This is done to find
+the potential class candidates and to make an initial analyses class diagram.
 
 \subsubsection{Class Candidates}
 In order to find potential class candidates, every noun of the detailed Use
 Cases are found. These are potential candidates, and can be sorted to avoid
-duplicates and candidates that won’t be turned into classes. Naturally, every
+duplicates and candidates that will not be turned into classes. Naturally, every
 potential class for the entire system will not be found, as this only reflects
 use cases. A potential class candidate such as MES (where Start and Stop
 functionality would otherwise be implemented) will not be reduced to a single
 class and is therefore not added to the list of class candidates.\\
 
 The final list of classes, as well as a description of them, can be seen in
-table \ref{table:class_candidates}.
+Table \ref{table:class_candidates}.
 
 \begin{table}[ht]
     \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{4cm}|>{\RaggedRight}p{6cm}|>{\RaggedRight}X|}
@@ -26,19 +30,22 @@ table \ref{table:class_candidates}.
     \end{table}
 
 \subsubsection{UML Analysis Diagram}
-From the verb/noun analysis from the previous chapter, the UML analysis diagram
-seen in figure \ref{figure:analysis_diagram}, can be generated. This diagram
-shows the classes and attributes found in the requirements from the project
-description.
+From the verb/noun analysis from the previous chapter, the UML analysis class
+diagram seen in Figure \ref{figure:analysis_diagram}, can be generated. This
+diagram shows the classes and attributes found in the requirements from the
+project description.
 
 \begin{figure}[ht]
 	\centering 
 	\includegraphics[scale=0.6]{images/diagrams/UML_Analysis_Diagram.drawio.png}
-	\caption{UML Analysis diagram}
+	\caption{UML Analysis class diagram}
 	\label{figure:analysis_diagram} 
 \end{figure}
 
 \subsection{Use Case Realisation}
+To realise the scenarios in the use cases, use case realisation is used. Here,
+it can be described how a scenario in the system should be designed. The first
+step is to make operation contracts.
 
 \subsubsection{Operation Contracts}
 An operation contract describes the responsibility of an operation in the system.
@@ -50,7 +57,7 @@ as a timeline for the system events. \\
 
 The contract focuses on what the operation can change, and not how it is changed. 
 It is also used to describes the state of the system before and after the 
-operation is called. In table \ref{table:Operation_Contracts_start} the
+operation is called. In Table \ref{table:Operation_Contracts_start} the
 operation contract for the start operation can be seen.
 
 \begin{table}[H]
@@ -60,7 +67,7 @@ operation contract for the start operation can be seen.
         \hline
         \textbf{System operation} & start\\
         \hline
-        \textbf{Cross References} & Use case: Start machine see table \ref{table:usecase_start} \\
+        \textbf{Cross References} & Use case: Start machine see Table \ref{table:usecase_start} \\
         \hline
         \textbf{Responsibility} & Starting the beer machine if the pre-conditions 
         is met.
@@ -82,7 +89,7 @@ operation contract for the start operation can be seen.
 \subsubsection{Operation Sequence Diagrams}
 From the operation contracts the operation sequence diagram can be made. The
 operation sequence diagram displays the system as a 'white box', where both the
-internal and external system events are described, as seen in figure
+internal and external system events are described, as seen in Figure
 \ref{figure:sequence_diagram}.
 
 \begin{figure}[H]
@@ -112,18 +119,18 @@ happens through a REST API which acts as a translator between the different
 subsystems within the MES.
 
 \subsubsection{Updated UML Class Diagram}
+The updated UML class diagram seen in Figure
+\ref{figure:updated_UML_class_diagram} illustrates the current system idea based
+on the analysis of the system. Although this diagram only shows the 
+OPC-UA client, it still gives a good idea of how this part of the system is going
+to be, once implemented.
+
 \begin{figure}[ht]
 \centering 
 \includegraphics[scale=0.3]{images/diagrams/updated_UML_Class_Diagram.drawio.png}
 \caption{Updated UML Class Diagram}
 \label{figure:updated_UML_class_diagram} 
 \end{figure}
-
-
-The updated UML class diagram illustrates the current system idea based on the 
-analysis of the system. Although this diagram only shows the 
-OPC-UA client, it still gives a good idea of how this part of the system is going
-to be, once implemented. \\
 
 By using the diagram in the implementation phase, the group has a good starting 
 point to expand on. The classes in the UML class diagram have a chance of not 
