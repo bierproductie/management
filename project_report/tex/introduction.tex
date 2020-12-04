@@ -1,11 +1,12 @@
 \section{Introduction}
 The brewery Refslevbæk Bryghus A/S recently won the “best beer of the year” 
-award, which has led to a boost in demand for their products. Before this boost,
-every product was made in smaller batches, however, their current production
-line does not fulfil these demands. This has led them to purchase a new, bigger
-brewing machine. So far, the brewing has involved a lot of manual processes.
-The brewery now needs a new brewing system developed, that implements a large
-degree of automation, and enables it to produce beer most efficiently.\\
+award, which has led to an increase in demand for their products. Before this
+increase, every product was made in smaller batches, however, their current
+production line does not fulfil these demands. This has led them to purchase a
+new, bigger brewing machine. So far, the brewing has involved a lot of manual
+processes. The brewery now needs a Manufacturing Execution System (MES)
+developed that implements a large degree of automation and enables it to produce
+beer more efficiently.\\
 
 % maybe just f****** delete this sh*t
 As students, this project gives the group great learning experience as
@@ -18,20 +19,20 @@ The group will also have the chance to learn and use a new scripting language,
 JavaScript.
 
 \subsection{Problem Statement}
-In the table \ref{table:problem-statement-report}, the finished problem, the problem statement and related questions are listed.
+In Table \ref{table:problem-statement-report}, the finished problem, the problem statement and related questions are listed.
 \begin{table}[ht]
     \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{4cm}|>{\RaggedRight}X|}
         \hline
-        \textbf{Problem} & The current production line is not efficient enough to keep up with the demand of the beer, while still maintaining a quality product\\
+        \textbf{Problem} & The current production line is not efficient enough to keep up with the demand of the beer, while still maintaining a high-quality product\\
         \hline
-        \textbf{Problem Statement} & How to control and optimise the brewing machine, to maximise the production of high quality beer\\
+        \textbf{Problem Statement} & How to apply an MES to control and optimise the brewing process at Refslevbæk Bryghus A/S, to maximise the production of high-quality beer\\
         \hline
         \textbf{Related questions} & 
             \begin{itemize}
-                \item How can we optimise the production?
-                \item How can we utilise calculus and linear algebra to provide a meaningful overview of the production line, based on statistics?
-                \item How can we create a web based frontend for the MES?
-                \item How can we separate the different aspects of the system (separation of concerns)
+                \item How the production be optimised?
+                \item How can calculus and linear algebra be utilised, to provide a meaningful overview of the production line, based on statistics?
+                \item How can a web based frontend for the MES be created?
+                \item How can the different aspects of the system be separated? (separation of concerns)
             \end{itemize} \\
             \hline
     \end{tabularx}
@@ -40,12 +41,12 @@ In the table \ref{table:problem-statement-report}, the finished problem, the pro
 \end{table} 
 
 \subsection{Overview of project}
-This project aims to improve the beer machine by increasing quantity while 
-maintaining quality. To accomplish this the proposed solution will offer an
-interactive web interface for monitoring, controlling and adjusting the brewery
-machine. This is done by having the web interface interact with a REST API that
-connects to a client. This client controls the machine through an OPC-UA server 
-connection and stores relevant data in a database.
+This project aims to improve the beer production line by increasing quantity
+while maintaining quality. To accomplish this the proposed solution will offer
+an interactive web interface for monitoring, controlling and adjusting the
+brewery machine. This is done by having the web interface interact with a REST
+API that connects to a client. This client controls the machine through an
+OPC-UA server connection and stores relevant data in a database.
 
 \subsection{Objectives}
 The group wants to create a dashboard solution, that gets the necessary
@@ -67,8 +68,12 @@ automatic deployment tool).
 \caption{System drawing} 
 \end{figure}
 
-The distributed system consists of five sub-systems, where the group are writing three
-of them.
+The distributed system consists of five sub-systems as seen in Figure
+\ref{figure:System_drawing}, \textit{OPC-Server}, \textit{APC-Client},
+\textit{REST API}, \textit{Frontend} and the Client Computer. The Bierproductie
+project consists of three of these systems, namely: \textit{OPC-Client},
+\textit{REST API} and \textit{Frontend}. The group will be developing these
+three.
 
 \subsubsection{OPC-UA Client}
 The OPC-UA client is responsible for communicating with the brewing machine via
