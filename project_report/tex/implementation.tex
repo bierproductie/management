@@ -130,3 +130,37 @@ The OEE for this specific batch would be 97\%, which means that the production
 line is optimised to the point where it would be hard to optimise it further.
 
 \subsection{Error Function}
+The error function associated with each product type is to be estimated. For
+this several batches should be produced to have some data to calculate on. The
+values used to estimate the error function is the amount of products to produce,
+the machine speed and the amount of rejected products. These values are used to
+make a function expression, that resembles the error function. 
+
+
+\subsection{Optimal Production Speed}
+Pilsner:\\
+\[y = -0,0003x3 + 0,0291x2 - 0,95x + 107,38\]
+\[R^2 = 0,9916\]
+
+Wheat:\\
+\[y = -5E-05x3 + 0,0077x2 - 1,3163x + 103,63\]
+\[R^2=0,9983\]
+
+IPA:\\
+\[y = 0,0001x3 - 0,0548x2 + 3,7529x + 28\]
+\[R^2=0,9981\]
+
+Stout:\\
+\[y = 0,0002x3 - 0,0319x2 + 1,551x + 32,929\]
+\[R^2=0,9331\]
+
+Ale:\\
+\[y = 2E-05x3 - 0,0099x2 + 0,5615x + 90,814\]
+\[R^2== 1\]
+
+Alcohol free:\\
+\[fy = -3E-05x3 + 0,0021x2 - 0,4464x + 90\]
+\[R^2=0,9935\]
+
+
+this can be used to find the optimal production speed for each product type. 
