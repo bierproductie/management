@@ -86,3 +86,47 @@ run with the BatchHandler class, and while the batch is being produced, the
 subscriptions will add data to the object. When done the Batch object will run
 through its logic and finally export itself as a JSON so it can be sent to the
 API. 
+
+
+\subsection{Overall Equipment Effectiveness}
+When a batch is complete, the calculation of the OEE takes place, and the data
+stored in the batch class is used for this.\\
+
+For this project, the planned production time can not be estimated properly, as
+too many variables are unknown (shift lengths,the time it takes to refill
+ingredients, the time it takes to do maintenance work etc.). Therefore, it has
+been chosen to use the time it takes to produce a batch. The calculation can be
+seen below.
+
+\[PlannedProductionTime = \left(\frac{AmountToProduce}{MachineSpeed}\right)\cdot60\]\\
+
+Where the amount to produce divided by the machine speed gives us the production
+time in minutes, as the machine speed is products per minute. This can be
+multiplied by 60 to give the production time in seconds. The production time
+divided by the amount to produce then gives the ideal cycle time.
+
+\[IdealCycleTime = \frac{PlannedProductionTime}{AmountToProduce}\]\\
+
+When these two have been calculated, it is possible to calculate the OEE using
+Equation \ref{eq:OEE}.
+
+\[OEE = \left(\frac{AcceptedProducts\cdot{IdealCycleTime}}{PlannedProductionTime}\right)\cdot100\]\\
+
+This gives the overall equipment effectiveness in percentage, which is used to
+evaluate if the production can be optimised further. It should be noted that
+the result from this calculation is only indicative, as neither quality,
+performance or availability can be assessed from this.
+
+To give an example on how a calculation with real values would look like, take
+the values: amount to produce = 100, machine speed = 200, accepted products = 97.
+
+\[PlannedProductionTime = \left(\frac{100}{200}\right)\cdot60 = 30\]
+
+\[IdealCycleTime = \frac{30}{100}=0,30\]
+
+\[OEE = \left(\frac{97\cdot0,30}{30}\right)\cdot100 = 97\%\]\\
+
+The OEE for this specific batch would be 97\%, which means that the production
+line is optimised to the point where it would be hard to optimise it further.
+
+\subsection{Error Function}
