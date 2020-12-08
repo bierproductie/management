@@ -136,31 +136,75 @@ values used to estimate the error function is the amount of products to produce,
 the machine speed and the amount of rejected products. These values are used to
 make a function expression, that resembles the error function. 
 
-
-\subsection{Optimal Production Speed}
 Pilsner:\\
-\[y = -0,0003x3 + 0,0291x2 - 0,95x + 107,38\]
+\[y = 0,0003x^3 - 0,0291x^2 + 0,95x - 7,3838\]
 \[R^2 = 0,9916\]
 
+\[y' = \frac{9x^2-582x+9500}{10000}\]
+\[y'' = \frac{18x-582}{10000}\]
+
 Wheat:\\
-\[y = -5E-05x3 + 0,0077x2 - 1,3163x + 103,63\]
-\[R^2=0,9983\]
+\[y = 5E-05x^3 - 0,0077x^2 + 1,3163x - 3,6317\]
+\[R^2 = 0,9983\]
+
+\[y' = \frac{3x^2-308x+26326}{20000}\]
+\[y'' = \frac{6x-308}{20000}\]
 
 IPA:\\
-\[y = 0,0001x3 - 0,0548x2 + 3,7529x + 28\]
-\[R^2=0,9981\]
+\[y = -0,0001x^3 + 0,0548x^2 - 3,7529x + 72\]
+\[R^2 = 0,9981\]
+
+\[y'=-\frac{3x^2-1096x+37529}{10000}\]
+\[y''=-\frac{6x-1096}{10000}\]
+
 
 Stout:\\
-\[y = 0,0002x3 - 0,0319x2 + 1,551x + 32,929\]
-\[R^2=0,9331\]
+\[y = -0,0002x^3 + 0,0329x^2 - 1,5687x + 67,071\]
+\[R^2 = 0,9331\]
+
+\[y'=-\frac{6x^2-658x+15687}{10000}\]
+\[y''=-\frac{12x-658}{10000}\]
 
 Ale:\\
-\[y = 2E-05x3 - 0,0099x2 + 0,5615x + 90,814\]
-\[R^2== 1\]
+\[y = -2E-05x^3 + 0,0099x^2 - 0,5615x + 9,1857\]
+\[R^2 = 1\]
+
+\[y'=-\frac{3x^2-990x+28075}{50000}\]
+\[y''=-\frac{6x-990}{50000}\]
 
 Alcohol free:\\
-\[fy = -3E-05x3 + 0,0021x2 - 0,4464x + 90\]
-\[R^2=0,9935\]
+\[y = 3E-05x^3 - 0,0021x^2 + 0,4464x + 10\]
+\[R^2 = 0,9935\]
+
+\[y'=\frac{9x^2-420x+44640}{100000}\]
+\[y''=\frac{18x-420}{100000}\]
+
+\subsection{Optimal Production Speed}
+% Functions where x=normalised machinespeed and y=oee
+% Pilsner:\\
+% \[y = -0,0003x^3 + 0,0291x^2 - 0,95x + 107,38\]
+% \[R^2 = 0,9916\]
+
+% Wheat:\\
+% \[y = -5E-05x^3 + 0,0077x^2 - 1,3163x + 103,63\]
+% \[R^2 = 0,9983\]
+
+% IPA:\\
+% \[y = 0,0001x^3 - 0,0548x^2 + 3,7529x + 28\]
+% \[R^2 = 0,9981\]
+
+% Stout:\\
+% \[y = 0,0002x^3 - 0,0319x^2 + 1,551x + 32,929\]
+% \[R^2 = 0,9331\]
+
+% Ale:\\
+% \[y = 2E-05x^3 - 0,0099x^2 + 0,5615x + 90,814\]
+% \[R^2 = 1\]
+
+% Alcohol free:\\
+% \[y = -3E-05x^3 + 0,0021x^2 - 0,4464x + 90\]
+% \[R^2 = 0,9935\]
 
 
 this can be used to find the optimal production speed for each product type. 
+Find the derivative
