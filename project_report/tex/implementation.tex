@@ -131,80 +131,94 @@ line is optimised to the point where it would be hard to optimise it further.
 
 \subsection{Error Function}
 The error function associated with each product type is to be estimated. For
-this several batches should be produced to have some data to calculate on. The
-values used to estimate the error function is the amount of products to produce,
-the machine speed and the amount of rejected products. These values are used to
-make a function expression, that resembles the error function. 
+this several batches should be produced to have some data to make the
+calculations with. The values used to estimate the error function is the amount
+of products to produce, the machine speed and the amount of rejected products.
+These values are used to make an expression, that resembles the error function. 
+
+% TODO: insert batch data in appendix
+% TODO: insert graph
 
 Pilsner:\\
 \[y = 0,0003x^3 - 0,0291x^2 + 0,95x - 7,3838\]
-\[R^2 = 0,9916\]
-
-\[y' = \frac{9x^2-582x+9500}{10000}\]
-\[y'' = \frac{18x-582}{10000}\]
+\[R^2 = 0,9905\]
 
 Wheat:\\
 \[y = 5E-05x^3 - 0,0077x^2 + 1,3163x - 3,6317\]
 \[R^2 = 0,9983\]
 
-\[y' = \frac{3x^2-308x+26326}{20000}\]
-\[y'' = \frac{6x-308}{20000}\]
-
 IPA:\\
 \[y = -0,0001x^3 + 0,0548x^2 - 3,7529x + 72\]
 \[R^2 = 0,9981\]
-
-\[y'=-\frac{3x^2-1096x+37529}{10000}\]
-\[y''=-\frac{6x-1096}{10000}\]
-
 
 Stout:\\
 \[y = -0,0002x^3 + 0,0329x^2 - 1,5687x + 67,071\]
 \[R^2 = 0,9331\]
 
-\[y'=-\frac{6x^2-658x+15687}{10000}\]
-\[y''=-\frac{12x-658}{10000}\]
-
 Ale:\\
 \[y = -2E-05x^3 + 0,0099x^2 - 0,5615x + 9,1857\]
 \[R^2 = 1\]
-
-\[y'=-\frac{3x^2-990x+28075}{50000}\]
-\[y''=-\frac{6x-990}{50000}\]
 
 Alcohol free:\\
 \[y = 3E-05x^3 - 0,0021x^2 + 0,4464x + 10\]
 \[R^2 = 0,9935\]
 
-\[y'=\frac{9x^2-420x+44640}{100000}\]
-\[y''=\frac{18x-420}{100000}\]
-
 \subsection{Optimal Production Speed}
-% Functions where x=normalised machinespeed and y=oee
-% Pilsner:\\
-% \[y = -0,0003x^3 + 0,0291x^2 - 0,95x + 107,38\]
-% \[R^2 = 0,9916\]
+% TODO: intro
 
+% TODO: insert graph
+
+\[& \]
+
+Pilsner:\\
+\[y = -0,0003x^3+0,0334x^2-0,1057x+9,0202\]
+\[R^2 = 0,9905\]
+
+\[y' = -\frac{9x^2-668x+1057}{10000}\]
+
+\[= 72,60463\]
+% CLA TA02 for explanation | y´ = 0 = extremum 
+
+\[y'' = -\frac{18x-668}{10000}\]
+
+\[= -0,06388833\]
+% CLA TA02 for explanation y´´ > 0 = local minimum
+
+% TODO: Insert table with other product types and their OEE
+
+% Consider if these should be a part of appendix or not
 % Wheat:\\
-% \[y = -5E-05x^3 + 0,0077x^2 - 1,3163x + 103,63\]
-% \[R^2 = 0,9983\]
+% \[\]
+% \[\]
+
+% \[y' = \frac{}{}\]
+% \[y'' = \frac{}{}\]
 
 % IPA:\\
-% \[y = 0,0001x^3 - 0,0548x^2 + 3,7529x + 28\]
-% \[R^2 = 0,9981\]
+% \[\]
+% \[\]
+
+% \[y' = \frac{}{}\]
+% \[y'' = \frac{}{}\]
+
 
 % Stout:\\
-% \[y = 0,0002x^3 - 0,0319x^2 + 1,551x + 32,929\]
-% \[R^2 = 0,9331\]
+% \[\]
+% \[\]
+
+% \[y' = \frac{}{}\]
+% \[y'' = \frac{}{}\]
 
 % Ale:\\
-% \[y = 2E-05x^3 - 0,0099x^2 + 0,5615x + 90,814\]
-% \[R^2 = 1\]
+% \[\]
+% \[\]
+
+% \[y' = \frac{}{}\]
+% \[y'' = \frac{}{}\]
 
 % Alcohol free:\\
-% \[y = -3E-05x^3 + 0,0021x^2 - 0,4464x + 90\]
-% \[R^2 = 0,9935\]
+% \[\]
+% \[\]
 
-
-this can be used to find the optimal production speed for each product type. 
-Find the derivative
+% \[y' = \frac{}{}\]
+% \[y'' = \frac{}{}\]
