@@ -93,7 +93,7 @@ When a batch is complete, the calculation of the OEE takes place, and the data
 stored in the batch class is used for this.\\
 
 For this project, the planned production time can not be estimated properly, as
-too many variables are unknown (shift lengths,the time it takes to refill
+too many variables are unknown (shift lengths, the time it takes to refill
 ingredients, the time it takes to do maintenance work etc.). Therefore, it has
 been chosen to use the time it takes to produce a batch. The calculation can be
 seen below.
@@ -102,10 +102,11 @@ seen below.
 
 Where the amount to produce divided by the machine speed gives us the production
 time in minutes, as the machine speed is products per minute. This can be
-multiplied by 60 to give the production time in seconds. The production time
-divided by the amount to produce then gives the ideal cycle time.
+multiplied by 60 to give the production time in seconds. To find the ideal cycle
+time the maximum machine speed is needed. 1 divided by this multiplied by 60
+then gives the theoretical minimum time it takes to produce one unit.
 
-\[IdealCycleTime = \frac{PlannedProductionTime}{AmountToProduce}\]\\
+\[IdealCycleTime = \frac{1}{maxMachineSpeed}\cdot60\]\\
 
 When these two have been calculated, it is possible to calculate the OEE using
 Equation \ref{eq:OEE}.
@@ -118,16 +119,17 @@ the result from this calculation is only indicative, as neither quality,
 performance or availability can be assessed from this.
 
 To give an example on how a calculation with real values would look like, take
-the values: amount to produce = 100, machine speed = 200, accepted products = 97.
+the values: amount to produce = 100, maximum machine speed = 300, batch machine
+speed = 200, accepted products = 97.
 
 \[PlannedProductionTime = \left(\frac{100}{200}\right)\cdot60 = 30\]
 
-\[IdealCycleTime = \frac{30}{100}=0,30\]
+\[IdealCycleTime = \frac{1}{300}\cdot60=0.2\]
 
-\[OEE = \left(\frac{97\cdot0,30}{30}\right)\cdot100 = 97\%\]\\
+\[OEE = \left(\frac{97\cdot0,2}{30}\right)\cdot100 = 64,67\%\]\\
 
-The OEE for this specific batch would be 97\%, which means that the production
-line is optimised to the point where it would be hard to optimise it further.
+The OEE for this specific batch would be 64,67\%, which means that the
+production line can be optimised further. \myworries{Add some more here}
 
 \subsection{Error Function}
 The error function associated with each product type is to be estimated. For
@@ -135,6 +137,7 @@ this several batches should be produced to have some data to make the
 calculations with. The values used to estimate the error function is the amount
 of products to produce, the machine speed and the amount of rejected products.
 These values are used to make an expression, that resembles the error function. 
+All data can be found in Appendix \myworries{??}.
 
 % TODO: insert batch data in appendix
 
@@ -145,6 +148,10 @@ These values are used to make an expression, that resembles the error function.
 	\label{figure:ef_pilsner}
 \end{figure}
 
+The estimated error function seen in Figure \ref{figure:ef_pilsner} gives an
+idea of when the beer production machine starts to produce many rejected
+products. All the estimated error functions for the products the machine can
+produce can be seen in Table \ref{table:eef}.
 % TODO: add text about the table below
 
 \begin{table}[ht]
@@ -169,9 +176,17 @@ These values are used to make an expression, that resembles the error function.
     \label{table:eef}
 \end{table}
 
-
 \subsection{Optimal Production Speed}
-% TODO: intro
+To find the optimal production speed the same data as when estimating the error
+function is used. As the error simulation in the machine is a function of the
+normalised machine speed and the selected product, the normalised machine speed
+must be calculated. This is done by taking 100 over the maximum machine speed.
+This multiplied by chosen machine speed will then give the percentage of the 
+maximum machine speed, which is used when plotting the graph for the optimal
+production speed. The normalised machine speed will be the \(x\)-values and the
+calculated OEE will be the \(y\)-values. An example can be seen in Figure
+\ref{figure:ops_pilsner}, where the graph for the optimal production speed for
+the product type pilsner can be seen.
 
 \begin{figure}[ht]
 	\centering
@@ -180,42 +195,63 @@ These values are used to make an expression, that resembles the error function.
 	\label{figure:ops_pilsner}
 \end{figure}
 
-Pilsner:\\
+This plot is generated using Microsoft Excel. When the OEE for each tested
+machine speed is plotted, a third degree polynomial trend line is made and an
+expression for the function generated is given. For the pilsner the function is
+given by:
+
 \[y = -0,0003x^3+0,0334x^2-0,1057x+9,0202\]
-\[R^2 = 0,9905\]
+
+
+With an \(R^2\) of \(0,9905\) which is used to see how close to the data points
+the polynomial is (the closer to 1 the more accurate).\\
+
+To find the maximum of the function, the derivative is calculated:
 
 \[y' = -\frac{9x^2-668x+1057}{10000}\]
 
-\[= 72,60463\]
-% CLA TA02 for explanation | y´ = 0 = extremum 
+To find the maximum this equation should be solved for \(x\) when \(y=0\). This
+gives \(72,60463\), which is percentage of the maximum machine speed which is
+the most optimal production speed for the pilsner product type. 
+
+To make sure that it is a local maximum at \(72,60463\), the second derivative
+is calculated:
 
 \[y'' = -\frac{18x-668}{10000}\]
 
-\[= -0,06388833\]
-% CLA TA02 for explanation y´´ > 0 = local minimum
+Then this equation is solved for \(y\) when \(x=72,60463\), which gives
+\(-0,06388833\). Since the result is less than 0, it can be confirmed that it is
+a maximum.\\
 
-% TODO: Insert table with other product types and their OEE
+This is done for all product types, and the result can be seen in Table
+\ref{table:ops}.
+
 
 \begin{table}[ht]
      \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{3cm}|>{\RaggedRight}X|>{\RaggedRight}p{6cm}|}
      \hline
-     \textbf{Product type} & \textbf{Normalised Machine Speed} & \textbf{Optimal Production Speed}\\
+     \textbf{Product type} & \textbf{Maximum} & \textbf{Optimal Production Speed}\\
      \hline
-     Pilsner & 72,61\% of 600 & 435,63 products/min \\
+     Pilsner & 72,61\% of 600 & 435,63 products/minute \\
      \hline
-     Wheat & 51,58\% of 300 & 154,75 products/min \\
+     Wheat & 51,58\% of 300 & 154,75 products/minute \\
      \hline
-     IPA & 62,55\% of 150 & 93,83 products/min \\
+     IPA & 62,55\% of 150 & 93,83 products/minute \\
      \hline
-     Stout & The equation has no solution in ${\rm I\!R}$ for \(x\) & 200 products/min (max) \\
+     Stout & The equation has no solution for \(x\) in ${\rm I\!R}$ & 200 products/minute (max) \\
      \hline
-     Ale & 91,82\% of 100 & 91,82 products/min \\
+     Ale & 91,82\% of 100 & 91,82 products/minute \\
      \hline
-     Alcohol Free & 76,35\% of 125 & 95,44 products/min \\
+     Alcohol Free & 76,35\% of 125 & 95,44 products/minute \\
      \hline
     \end{tabularx}
     \caption{Optimal Production Speed}
     \label{table:ops}
 \end{table}
 
-% TODO: write about stout -> optimal speed is max speed - refer to graph in appendix
+
+The reason for the result of the stout is, that the function has no local maxima
+in the range (0 to 200) but it keeps increasing, as seen in the graph for the
+stout in Appendix \myworries{??}. This means that the faster the machine speed
+the better, which is why the optimal production speed is the maximal machine
+speed.
