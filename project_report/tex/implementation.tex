@@ -137,7 +137,7 @@ of products to produce, the machine speed and the amount of rejected products.
 These values are used to make an expression, that resembles the error function. 
 
 % TODO: insert batch data in appendix
-% TODO: insert graph
+
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=1\linewidth]{images/errorfunction/pilsner.png}
@@ -145,34 +145,34 @@ These values are used to make an expression, that resembles the error function.
 	\label{figure:ef_pilsner}
 \end{figure}
 
-Pilsner:\\
-\[y = 0,0003x^3 - 0,0291x^2 + 0,95x - 7,3838\]
-\[R^2 = 0,9905\]
+% TODO: add text about the table below
 
-Wheat:\\
-\[y = 5E-05x^3 - 0,0077x^2 + 1,3163x - 3,6317\]
-\[R^2 = 0,9983\]
+\begin{table}[ht]
+     \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{3cm}|>{\RaggedRight}X|>{\RaggedRight}p{3cm}|}
+     \hline
+     \textbf{Product type} & \textbf{Estimated Error Function} & \textbf{Accuracy} \\
+     \hline
+     Pilsner & \(y = 0,0003x^3 - 0,0291x^2 + 0,95x - 7,3838\) & \(R^2 = 0,9905\) \\
+     \hline
+     Wheat & \(y = 5E-05x^3 - 0,0077x^2 + 1,3163x - 3,6317\) & \(R^2 = 0,9983\) \\
+     \hline
+     IPA & \(y = -0,0001x^3 + 0,0548x^2 - 3,7529x + 72\) & \(R^2 = 0,9981\) \\
+     \hline
+     Stout & \(y = -0,0002x^3 + 0,0329x^2 - 1,5687x + 67,071\) & \(R^2 = 0,9331\) \\
+     \hline
+     Ale & \(y = -2E-05x^3 + 0,0099x^2 - 0,5615x + 9,1857\) & \(R^2 = 1\) \\
+     \hline
+     Alcohol Free & \(y = 3E-05x^3 - 0,0021x^2 + 0,4464x + 10\) & \(R^2 = 0,9935\) \\
+     \hline
+    \end{tabularx}
+    \caption{Estimated Error Functions}
+    \label{table:eef}
+\end{table}
 
-IPA:\\
-\[y = -0,0001x^3 + 0,0548x^2 - 3,7529x + 72\]
-\[R^2 = 0,9981\]
-
-Stout:\\
-\[y = -0,0002x^3 + 0,0329x^2 - 1,5687x + 67,071\]
-\[R^2 = 0,9331\]
-
-Ale:\\
-\[y = -2E-05x^3 + 0,0099x^2 - 0,5615x + 9,1857\]
-\[R^2 = 1\]
-
-Alcohol free:\\
-\[y = 3E-05x^3 - 0,0021x^2 + 0,4464x + 10\]
-\[R^2 = 0,9935\]
 
 \subsection{Optimal Production Speed}
 % TODO: intro
 
-% TODO: insert graph
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=1\linewidth]{images/ops/pilsner.png}
@@ -196,39 +196,26 @@ Pilsner:\\
 
 % TODO: Insert table with other product types and their OEE
 
-% Consider if these should be a part of appendix or not
-% Wheat:\\
-% \[\]
-% \[\]
+\begin{table}[ht]
+     \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{3cm}|>{\RaggedRight}X|>{\RaggedRight}p{6cm}|}
+     \hline
+     \textbf{Product type} & \textbf{Normalised Machine Speed} & \textbf{Optimal Production Speed}\\
+     \hline
+     Pilsner & 72,61\% of 600 & 435,63 products/min \\
+     \hline
+     Wheat & 51,58\% of 300 & 154,75 products/min \\
+     \hline
+     IPA & 62,55\% of 150 & 93,83 products/min \\
+     \hline
+     Stout & The equation has no solution in ${\rm I\!R}$ for \(x\) & 200 products/min (max) \\
+     \hline
+     Ale & 91,82\% of 100 & 91,82 products/min \\
+     \hline
+     Alcohol Free & 76,35\% of 125 & 95,44 products/min \\
+     \hline
+    \end{tabularx}
+    \caption{Optimal Production Speed}
+    \label{table:ops}
+\end{table}
 
-% \[y' = \frac{}{}\]
-% \[y'' = \frac{}{}\]
-
-% IPA:\\
-% \[\]
-% \[\]
-
-% \[y' = \frac{}{}\]
-% \[y'' = \frac{}{}\]
-
-
-% Stout:\\
-% \[\]
-% \[\]
-
-% \[y' = \frac{}{}\]
-% \[y'' = \frac{}{}\]
-
-% Ale:\\
-% \[\]
-% \[\]
-
-% \[y' = \frac{}{}\]
-% \[y'' = \frac{}{}\]
-
-% Alcohol free:\\
-% \[\]
-% \[\]
-
-% \[y' = \frac{}{}\]
-% \[y'' = \frac{}{}\]
+% TODO: write about stout -> optimal speed is max speed - refer to graph in appendix
