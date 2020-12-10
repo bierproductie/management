@@ -1,10 +1,22 @@
 \section{Verification \& Validation}
-introducting to section.
-\ref{table:Requirements}
+This section describes the verification and validation of the system. 
+Verification focusing on if the system meets the requirements and validation, 
+how well the solution handles the buinsess needs that led to the requirements.
+The requirements refer to table \ref{table:Requirements} where they are listed. \\
 
+To verify and validate the requirements, the system was tested. The test 
+consisted of testing every recipe and gathering data. The different recipes were 
+run with different speeds but the same amount. This meant it was possible to 
+calculate the OEE for every speed and then the error function for the recipe. 
 
 \subsection{Verification}
-\subsubsection{control production} 
+Below are the verifications that can be concluded based on the test. The 
+verifications were concluded during the test and list the features and the 
+requirements they fulfil. They also mention features that extend the basic need 
+of the requirements, these don't matter as much, as the ones on the list are the 
+primary focus. They, however, are a good addition for usability.
+
+\subsubsection{Control production} 
 The system allows control of the production line. The production line can be 
 started, stopped, cleared, reset and aborted through the dashboard. This fulfils 
 requirements R01-R02 in the list of requirements.
@@ -31,3 +43,61 @@ prioritised in the Overall Requirements Specification.
 
 \subsection{Validation}
 How well did we handle the implementation of the requirements.*
+
+% \begin{table}[ht]
+%     \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|}
+%         \hline
+%         \textbf{Buisness needs} & \textbf{Requirements} & \textbf{Need fulfillment} \\
+%         \hline
+%         Production control  
+%         The new MES must be able to control the brewery’s production. It must be 
+%         able to start and stop the pro-duction line. Furthermore it must also be 
+%         able to monitor the production and collect data from the produc-tion 
+%         line andstore themfor further analysis.
+%         & R01-R02
+%         & High \\
+%         \hline
+%         Batch control  
+%         The MES must have the functionality to keep track of the batches that the new machine is producing.Furthermore it must also be able to collect various data from the machine that is associated with the cur-rent batch number.
+%         & test
+%         & yep \\
+%         \hline
+%         Production monitoring  
+%         The MES / SCADA11system must be able to monitor the production and display live relevant data from the machine
+%         & reqs
+%         & ultra \\
+%         \hline
+%         Batch report  
+%         After a finished batch production the MES must be able to produce a batch report of the produced batch.The batch report must minimum contain the following.•Batch ID.•Producttype.•Amount of products (total, defect and acceptable).•Amount of time used in the different states.•Logging of temperature over the production time.•Logging of humidity over the production time.The batch report could be in PDF or dashboard style format. The data can be presented in various charts or in tables.
+%         & reqs
+%         & ultra \\
+%         \hline
+%         Physical hierarchy  
+%         The documentation of the system must contain an illustration that defines the different components in the setup in relation to the ISA881213Part 1 Physical hierarchy model.
+%         & reqs
+%         & ultra \\
+%         \hline
+%         Visualization  
+%         The system must have a visualization that can be access and used to display the production data.
+%         & reqs
+%         & ultra \\
+%         \hline
+%         OEE  
+%         The system must be able to collect the necessary data form the machine and calculate the OEE141516of the machine. The OEEmust be available to be displayed by the system.
+%         & reqs
+%         & ultra \\
+%         \hline
+%         Estimate error function  
+%         Estimate the error function associated with the produ
+%         & reqs
+%         & ultra \\
+%         \hline
+%         Optimal production speed  
+%         The optimal speed must be estimated for each product type.
+%         & reqs
+%         & ultra \\
+%         \hline
+%     \end{tabularx}
+%     \caption{Options}
+%     \label{someLabel}
+% \end{table}
