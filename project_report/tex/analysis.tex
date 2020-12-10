@@ -19,13 +19,13 @@ The final list of classes, as well as a description of them, can be seen in
 Table \ref{table:class_candidates}.
 
 \begin{table}[ht]
+    \captionof{table}{Potential class candidates}
     \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{4cm}|>{\RaggedRight}p{6cm}|>{\RaggedRight}X|}
     \hline
     \textbf{Class Candidate} & \textbf{Attributes}                                                                                                     & \textbf{Definition}                                                                    \\ \hline
     Batch                    & Id, type, product\_amount (total, defect, acceptable), amount (time), state (current, history), OEE, production\_speed, & A batch refers to a specific batch of products the brewery has made                    \\ \hline
     Product                  & Id, type, Ingredients                                                                                                  & Product refers to the different options of beer to be produced                         \\ \hline
     \end{tabularx}
-    \caption{Potential class candidates}
     \label{table:class_candidates}
     \end{table}
 
@@ -61,6 +61,7 @@ operation is called. In Table \ref{table:Operation_Contracts_start} the
 operation contract for the start operation can be seen.
 
 \begin{table}[H]
+    \captionof{table}{Operation Contracts start} 
     \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{3.7cm}|>{\RaggedRight}X|}
         \hline
         \multicolumn{2}{|c|}{\textbf{start}}\\
@@ -82,7 +83,6 @@ operation contract for the start operation can be seen.
         \textbf{Post-conditions} & The beer machine started brewing\\
         \hline
     \end{tabularx}
-    \caption{Operation Contracts start} 
     \label{table:Operation_Contracts_start}
 \end{table}
 
