@@ -1,1 +1,27 @@
 \section{Summary}
+The purpose of this project has been to develop an MES for the brewery
+Refslevbæk Bryghus A/S, to optimise the production line so the brewery
+can keep up with the demand. The brewery recently bought a new brewing machine,
+and a simulator of this has been made available to the group. An initial
+requirements analysis of the project case has been made and based on this, the
+group has narrowed the problem down to the following:\\
+
+\textit{"How to apply an MES to control and optimise the brewing process at
+Refslevbæk Bryghus A/S, to maximise the production of high-quality beer."}\\
+
+During the development phase, the group has made use of the framework Scrum, to
+organise the group work. A meeting has been held every week, to plan the next
+step in the development process as well as make issues for the planned tasks.
+These issues are assigned to a two-week sprint. To manage this, the management
+solution, ZenHub, has been used alongside GitHub. For each task, an issue has
+been created and a group member has been assigned. \\
+
+The group has managed to develop an MES consisting of a dashboard, an API and an
+OPC-UA Client. The dashboard acts as a control panel, from which a beer batch
+can be started and stopped, the machine can be cleared and reset. Real-time data
+is displayed, which the user can interact with in order to see detailed graphs.
+A history page can be accessed, containing data regarding past batches. The data
+is stored in a database and is used for batch reports and further analysis. The
+stored data is also used to further optimise the production line, for example by
+calculating the Overall Equipment Effectiveness (OEE). The REST API is used as a
+translator between the dashboard and the OPC-UA client.
