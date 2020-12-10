@@ -1,8 +1,9 @@
 \section{Design}
 
 \subsection{Database}
-The database is used to store batch data, and in the figure
-\ref{figure:eer_diagram} it can be seen how the data should be stored.
+The database is used to store all data regarding batches. Based on the
+Enhanced Entity-Relationship Diagram (EER) in Figure \ref{figure:eer_diagram}
+the SQL files can be written.
 
 \begin{figure}[ht]
 \centering 
@@ -10,6 +11,15 @@ The database is used to store batch data, and in the figure
 \caption{EER Diagram} 
 \label{figure:eer_diagram}
 \end{figure}
+
+The database will have 4 main tables; batches, TempAndTime, VibrationAndTime and
+HumidityAndTime. The batches table consists of all the data related to a
+specific batch, such as id, product\_type, amount\_to\_produce, etc. The three
+other tables will contain a timevalue and related data (temperature, vibration
+and humidity).
+Connecting the three tables to the batches table, are "subscription tables".
+These will link a batch to temperature, vibration and humidity respectively,
+using the ids.
 
 \subsection{Dashboard}
 A very important aspect the group has had to consider, is which design pattern
@@ -25,7 +35,7 @@ The group has decided to use the MVC design pattern, thus making it possible to
 work on the different aspects of the system (GUI, database, logic) separately. 
 A visualisation of the MVC pattern can be seen in figure \ref{figure:MVC_model}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.15]{images/MVC_model.png}
     \caption{MVC model}
@@ -47,6 +57,7 @@ entities is how they should interface with each other. To accomplish this the
 group has two options: 
 
 \begin{table}[ht]
+    \captionof{table}{Options}
     \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|}
         \hline
         \textbf{Option} & \textbf{Pros} & \textbf{Cons} \\
@@ -59,7 +70,6 @@ group has two options:
         implement \\
         \hline
     \end{tabularx}
-    \caption{Options}
     \label{someLabel}
 \end{table}
 

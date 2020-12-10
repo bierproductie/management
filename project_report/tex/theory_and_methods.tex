@@ -4,15 +4,41 @@
 \subsubsection{Overall Equipment Effectiveness}
 The \textbf{O}verall \textbf{E}quipment \textbf{E}ffectiveness, OEE, is a
 measurement of how effective a given production line is. It identifies what
-percentage of the manufacturing time that is truly productive. The formula for
-the OEE can be seen in equation \ref{eq:2}
-\begin{equation} \label{eq:2}
-    OEE = \frac{Good Count * Ideal Cycle Time}{Planned Produciton Time}
+percentage of the manufacturing time that is fully utilised. The formula for
+the OEE can be seen in Equation \ref{eq:OEE}
+\begin{equation} \label{eq:OEE}
+    OEE = \frac{Good Count \cdot Ideal Cycle Time}{Planned Produciton Time}
 \end{equation}
 
-Where \textit{GoodCount} is the amount of acceptable products produced and
-\textit{IdeaCycleTime} is the theoretical minimum time to produce a single
-product.
+Where \textit{Good Count} is the amount of acceptable products produced,
+\textit{Ideal Cycle Time} is the theoretical minimum time to produce a single
+product and \textit{Planned Production Time} is the total time that the
+manufacturing process is scheduled for production.
+
+\subsubsection{Optimal Production Speed}
+When finding the optimal production speed, several test batches need to have
+been produced. This is to have data points to plot. The values for the
+\(x\)-axis is the normalised machine speed and the values for the \(y\)-axis is
+the calculated OEE. When all data points have been plotted, a third-degree
+polynomial trend line, line of best fit, is applied. Polynomial trending
+describes a pattern in data that is curved to fit the points.\\
+
+To find the slope of the function, in this case, the trend line, the derivative
+is calculated. To find the extrema (minima and maxima) of the function, the
+expression is solved for \(x\) where \(y = 0\). This gives all the \(x\)-values
+for which the slope is zero. To check if it is a local minimum or local maximum
+that has been found (for the \(x\)-value), the second derivative needs to be
+calculated.\\
+
+The second derivative is then solved for \(y\) where \(x = found Value\). If the
+result is greater than zero, the extremum at the given \(x\)-value is a local
+minimum and if the result is less than zero, the extremum at the given 
+\(x\)-value is a local maximum.\\ 
+
+When optimising, the goal is to find the \(x\)-value with the greatest
+\(y\)-value, which is why the local maximum for the trend line is the optimal
+production speed for the machine.
+
 
 \subsection{Methods}
 \subsubsection{Scrum}
@@ -30,6 +56,7 @@ sprint is automatically generated and kept up to date by ZenHub. The board will
 consist of five columns, as seen below.
 
 \begin{table}[H]
+    \captionof{table}{Scrum Board}
     \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|}
         \hline                             
         \textbf{Product Backlog} & \textbf{Sprint Backlog} & \textbf{In Progress} & \textbf{Review/QA} & \textbf{Closed} \\
@@ -37,7 +64,6 @@ consist of five columns, as seen below.
         Issues & Issues for the given sprint & Issues that is currently being worked on & Issues that are pending (or in) review & Approved issues that have been merged    \\
         \hline
     \end{tabularx}
-    \caption{Scrum Board} 
     \label{table:scrum}
 \end{table} 
 
