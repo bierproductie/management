@@ -89,22 +89,22 @@ API.
 
 
 \subsection{Overall Equipment Effectiveness}
-When a batch is complete, the calculation of the OEE takes place, which the data
-stored in the batch class is used for.\\
+When a batch is complete, and the data is stored in the batch class, the
+calculation of the OEE takes place.\\
 
-For this project, the planned production time can not be estimated properly, as
-too many variables are unknown (shift lengths, the time it takes to refill
-ingredients, the time it takes to do maintenance work etc.). Therefore, it has
-been decided to only use the time it takes to produce a batch. The calculation
-can be seen below.
+The planned production time can not be estimated for this project, as too many
+variables are unknown (shift lengths, the time it takes to refill ingredients,
+the time it takes to do maintenance work etc.). Therefore, it has been decided
+to use the time it takes to produce a batch. The calculation can be seen
+below.
 
 \[PlannedProductionTime = \left(\frac{AmountToProduce}{MachineSpeed}\right)\cdot60\]\\
 
 Where the amount to produce divided by the machine speed gives us the production
-time in minutes, as the machine speed is products per minute. This can be
+time in minutes, as the machine speed is products per minute. This result can be
 multiplied by 60 to give the production time in seconds. To find the ideal cycle
 time the maximum machine speed is needed. 1 divided by this multiplied by 60
-then gives the theoretical minimum time it takes to produce one unit.
+then results in the theoretical minimum time it takes to produce one unit.
 
 \[IdealCycleTime = \frac{1}{maxMachineSpeed}\cdot60\]\\
 
@@ -113,9 +113,9 @@ Equation \ref{eq:OEE}.
 
 \[OEE = \left(\frac{AcceptedProducts\cdot{IdealCycleTime}}{PlannedProductionTime}\right)\cdot100\]\\
 
-This gives the overall equipment effectiveness in percentage, which is used to
-evaluate if the production can be optimised further. It should be noted that
-the result from this calculation is only indicative, as neither quality,
+This result gives the overall equipment effectiveness in percentage, which is
+used to evaluate if the production can be optimised further. It should be noted
+that the result from this calculation is only indicative, as neither quality,
 performance or availability can be assessed from this.
 
 To give an example on how a calculation with real values would look like, take
