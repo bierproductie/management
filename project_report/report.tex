@@ -178,6 +178,11 @@
     % % \printbibliography
     % \newpage
     
+    % Removes appendix tables and figures from lof/lot
+    \let\svaddcontentsline\addcontentsline
+    \renewcommand\addcontentsline[3]{%
+        \ifthenelse{\equal{#1}{lof}}{}%
+        {\ifthenelse{\equal{#1}{lot}}{}{\svaddcontentsline{#1}{#2}{#3}}}}
     % Removes page numbering
     \pagenumbering{gobble}
     \appendix % Bruges til bilag, så den laver bilag indholdfortegnelse og overskrifter

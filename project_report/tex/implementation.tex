@@ -129,7 +129,7 @@ speed = 200, accepted products = 97.
 \[OEE = \left(\frac{97\cdot0,2}{30}\right)\cdot100 = 64,67\%\]\\
 
 The OEE for this specific batch would be 64,67\%, which means that the
-production line can be optimised further. \myworries{Add some more here}
+production line can be optimised further if needed.
 
 \subsection{Error Function}
 The error function associated with each product type is to be estimated. For
@@ -137,9 +137,7 @@ this several batches should be produced to have some data to make the
 calculations with. The values used to estimate the error function is the amount
 of products to produce, the machine speed and the amount of rejected products.
 These values are used to make an expression, that resembles the error function. 
-All data can be found in Appendix \myworries{??}.
-
-% TODO: insert batch data in appendix
+The data used can be found in Appendix \ref{app:batch_data}.
 
 \begin{figure}[ht]
 	\centering
@@ -151,8 +149,8 @@ All data can be found in Appendix \myworries{??}.
 The estimated error function seen in Figure \ref{figure:ef_pilsner} gives an
 idea of when the beer production machine starts to produce many rejected
 products. All the estimated error functions for the products the machine can
-produce can be seen in Table \ref{table:eef}.
-% TODO: add text about the table below
+produce can be seen in Table \ref{table:eef} and the graphs can be found in
+Appendix \ref{app:error_function_graphs}.
 
 \begin{table}[ht]
      \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{3cm}|>{\RaggedRight}X|>{\RaggedRight}p{3cm}|}
@@ -165,7 +163,7 @@ produce can be seen in Table \ref{table:eef}.
      \hline
      IPA & \(y = -0,0001x^3 + 0,0548x^2 - 3,7529x + 72\) & \(R^2 = 0,9981\) \\
      \hline
-     Stout & \(y = -0,0002x^3 + 0,0329x^2 - 1,5687x + 67,071\) & \(R^2 = 0,9331\) \\
+     Stout & \(y = -0,0002x^3 + 0,0319x^2 - 1,551x + 67,071\) & \(R^2 = 0,9331\) \\
      \hline
      Ale & \(y = -2E-05x^3 + 0,0099x^2 - 0,5615x + 9,1857\) & \(R^2 = 1\) \\
      \hline
@@ -252,6 +250,6 @@ This is done for all product types, and the result can be seen in Table
 
 The reason for the result of the stout is, that the function has no local maxima
 in the range (0 to 200) but it keeps increasing, as seen in the graph for the
-stout in Appendix \myworries{??}. This means that the faster the machine speed
+stout in Appendix \ref{app:ops_graphs}. This means that the faster the machine speed
 the better, which is why the optimal production speed is the maximal machine
 speed.
