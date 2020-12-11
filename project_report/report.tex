@@ -19,7 +19,8 @@
 \usepackage{comment}
 \usepackage{pdfpages}
 \usepackage{xcolor}
-\usepackage{amssymb} 
+\usepackage{amssymb}
+\usepackage{hyperref} 
 
 \usepackage{listings}
 
@@ -169,15 +170,16 @@
     \input{tex/conclusion.tex}
     \newpage
 
-    % % bibliography empty
-    % \bibliographystyle{apalike}
-    % % \bibliographystyle{alphabetic}
-    % % \bibliographystyle{unsrt}
-    % \bibliography{appendices/bibliography.bib}
-    % % \medskip
-    % % \printbibliography
-    % \newpage
-    
+    % bibliography empty
+    %\bibliographystyle{apalike}
+    % \bibliographystyle{alphabetic}
+    \bibliographystyle{IEEEtran}
+    \addcontentsline{toc}{section}{References}
+    \bibliography{tex/references}
+    %  
+    % \printbibliography
+    \newpage
+
     % Removes appendix tables and figures from lof/lot
     \let\svaddcontentsline\addcontentsline
     \renewcommand\addcontentsline[3]{%
