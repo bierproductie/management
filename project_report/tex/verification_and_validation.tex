@@ -7,6 +7,20 @@ Validation is testing if the developed system meets the brewery's requirements
 found in Table \ref{table:Requirements}.
 
 \subsection{Verification}
+The source code is compared to the results of the architecture and design
+sections to verify the developed system. \\
+
+When comparing, the focus is on ensuring that the system complies with the
+design principle separation of concerns. The database should follow the
+specified EER diagram, the dashboard should comply with the design pattern MVC,
+and the OPC-UA client should communicate via HTTP. \\
+
+The database can store relevant data, and the data corresponds with the tables
+specified in the EER diagram. The dashboard follows the MVC pattern, as the
+Model controls the data-related logic, the View controls the user interface
+logic, and the Controller controls the business logic. The OPC-UA and the REST
+API are separate subsystems that communicate through the HTTP protocol. 
+
 
 \subsection{Validation}
 The validation tests consisted of producing every product type at different
@@ -33,7 +47,7 @@ run. Thus fulfilling requirements R03-R06.
 
 \subsubsection{Data presentation}
 Having access to past batches and their data allows the dashboard to provide a
-visualisation of batch reports and live data: fulfilling requirement R07, R08
+visualisation of batch reports and live data: fulfilling requirement R07, R08,
 and R10.
 
 \subsubsection{Optimisation}
@@ -43,5 +57,5 @@ finding the optimal production speed, the brewery can optimise their production
 line. These features fulfil requirements R11-R13 completing the list of
 requirements. \\
 
-By looking at these features, the system fulfils the requirements from the
-Overall Requirements Specification.
+By looking at the implemented features, the system fulfils the requirements from
+the Overall Requirements Specification.
