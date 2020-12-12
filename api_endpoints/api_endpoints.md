@@ -19,8 +19,8 @@ GET /inventory_status/latest # Returns the latest ("live") inventory status
 GET /maintenance/latest # Returns the latest ("live") inventory status
 GET /batches/current    # Returns current batch (including identifier)
 GET /batches/{batch_identifier} # Returns a batch (used for historic data)
-GET /batches/data_over_time/{batch_identifier} # Returns ALL historic information data for the batch (fx. humidity over time)
-GET /batches/data_over_time/current # Returns ALL historic information data for the batch (fx. humidity over time)
+GET /data_over_time/{batch_identifier} # Returns ALL historic information data for the batch (fx. humidity over time)
+GET /data_over_time/current # Returns ALL historic information data for the batch (fx. humidity over time)
 ```
 
 ```
