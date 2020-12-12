@@ -1,7 +1,7 @@
 \section{Architecture}
-From the analysis of the of the project it was clear that an OPC-UA
+From the analysis of the project, it was clear that an OPC-UA
 client was needed, as this should connect to the beer production machine. This
-client should in some way store the collected data from the production machine,
+client should, in some way, store the collected data from the production machine,
 which means that some kind of database should be a part of the MES. As the data
 would only consist of simple data types, integers, strings, etc., it was decided
 to use a relational database. This way, data from different batches could easily
@@ -16,14 +16,15 @@ landed on a web client. A web client is a more simple solution for the dashboard
 as it can run in all supported web browsers. If the company then chooses to
 change hardware, the dashboard is still functional. \\
  
-To make the data from the database available to all subsystems in the MES, 
-it was decided to develop a REST API. This API acts as a translator
+ 
+It was decided to develop a REST API, to make the data from the database
+available to all subsystems in the MES. This API acts as a translator
 between the subsystems in the MES, therefore simplifying the data management.
 An example could be that the dashboard needs the data for a specific batch to
 generate a batch report. Instead of having the dashboard communicate directly
 with the database, a layer is added, the REST API, which both adds security and
-handles the queries in a uniform way. The database then sends a query result to
-the REST API which then translates the SQL to JSON for the dashboard to read
+handles the queries uniformly. The database then sends a query result to
+the REST API, which then translates the SQL to JSON for the dashboard to read
 and display to the user. \\
 
 An overview of the MES to be developed can seen in Figure
