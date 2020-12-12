@@ -41,7 +41,7 @@ the production system(the beer machine).
 
 
 \subsection{Dashboard}
-The user interacts with the dashboard, seen in Figure \ref{figure:dashboard}and
+The user interacts with the dashboard, seen in Figure \ref{figure:dashboard} and
 through it the user can see what the machine is producing and information about
 the production. The user can also interact with the dashboard, as they can start
 and stop the machine and press buttons to see live data represented in graphs.
@@ -63,6 +63,11 @@ uses two separate libraries for making graphs and getting icons for the buttons.
 \subsection{REST API}
 
 \subsection{Database}
+The Database implementation is just a database that comes from the premade software 
+shelf made by others. The database is a PostgreSQL relational database, it is
+tried and battle tested. The creating of tables and updates of those tables is 
+handle by the REST API. The REST API has been taking inspiration from the EER 
+Diagram see Figure \ref{figure:eer_diagram} for how the tables could be structured.
 
 \subsection{OPC-UA-Client}
 The OPC-UA-client handles the data from the machine and sends it to the API. It 
