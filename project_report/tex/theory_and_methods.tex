@@ -1,5 +1,35 @@
 \section{Theory \& Methods}
 \subsection{Theory}
+\subsubsection{Automation Pyramid}
+The automation pyramid is a graphical representation of the different levels of
+automation in a factory or industry, as seen in Figure \ref{figure:ap}.
+
+\begin{figure}[ht]
+	\centering 
+	\includegraphics[width=1\linewidth]{images/automation_pyramid}
+	\caption{Illustration of the Automation Pyramid}
+	\label{figure:ap}
+\end{figure}
+
+
+The first level, the field level, consists of the devices, actuators, and
+sensors that are used on the production floor. The control level is where PLC's
+(Programmable Logic Controller) and PID's (Proportional-Integral-Derivative
+controller) are located. These are used to control the devices in the field
+level. On the third layer, the supervisory level, which utilises SCADA. SCADA
+is an abbreviation of Supervisory Control And Data Acquisition. This level
+combines the previous level and makes it possible to control the system from
+a single location. Above the supervisory level is the planning level. It is on
+this level the computer management system MES, Manufacturing Execution System,
+is located. The MES makes it possible to monitor the manufacturing process in
+the factory from start to finish. The top layer of the pyramid is the management
+level. On this level, the ERP, Enterprise Resource Planning, a management system
+is located, making the company's management able to control their operations. \cite{ap}\\
+
+This project evolves around the fourth layer of the pyramid, the planning level,
+as the given task is to develop an MES for Refslevbæk Bryghus A/S, to control
+and optimise their brewery. 
+
 
 \subsubsection{Overall Equipment Effectiveness}
 The \textbf{O}verall \textbf{E}quipment \textbf{E}ffectiveness, OEE, is a
@@ -33,11 +63,11 @@ calculated.\\
 The second derivative is then solved for \(y\) where \(x = found Value\). If the
 result is greater than zero, the extremum at the given \(x\)-value is a local
 minimum and if the result is less than zero, the extremum at the given 
-\(x\)-value is a local maximum.\\ 
+\(x\)-value is a local maximum.\\ \cite{ops}
 
 When optimising, the goal is to find the \(x\)-value with the greatest
 \(y\)-value, which is why the local maximum for the trend line is the optimal
-production speed for the machine. \cite{ops}
+production speed for the machine. 
 
 
 \subsection{Methods}
