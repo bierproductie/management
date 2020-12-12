@@ -63,11 +63,14 @@ uses two separate libraries for making graphs and getting icons for the buttons.
 \subsection{REST API}
 
 \subsection{Database}
-The Database implementation is just a database that comes from the premade software 
-shelf made by others. The database is a PostgreSQL relational database, it is
-tried and battle tested. The creating of tables and updates of those tables is 
-handle by the REST API. The REST API has been taking inspiration from the EER 
-Diagram see Figure \ref{figure:eer_diagram} for how the tables could be structured.
+The database is implemented with PostgreSQL, which is a relational database.
+The PostgreSQL software is reliable and have been used for mange years in the
+industry. The table implementation in the database is derived from the EER
+Diagram see Figure \ref{figure:eer_diagram} for reference. The only thing
+that is allow to talk to the database is the REST API, so the prerequisite 
+still holds true with the separations of concerns and the database is not ended 
+up in a inconsistent state.
+
 
 \subsection{OPC-UA-Client}
 The OPC-UA-client handles the data from the machine and sends it to the API. It 
