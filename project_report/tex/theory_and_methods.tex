@@ -46,7 +46,7 @@ the OEE can be seen in Equation \ref{eq:OEE}
     OEE = \frac{Good Count \cdot Ideal Cycle Time}{Planned Produciton Time}
 \end{equation}
 
-Where \textit{Good Count} is the amount of acceptable products produced,
+Where \textit{Good Count} is the number of acceptable products produced,
 \textit{Ideal Cycle Time} is the theoretical minimum time to produce a single
 product and \textit{Planned Production Time} is the total time that the
 manufacturing process is scheduled for production. \cite{oee}
@@ -60,15 +60,17 @@ polynomial trend line, line of best fit, is applied. Polynomial trending
 describes a pattern in data that is curved to fit the points.\\
 
 To find the slope of the function, in this case, the trend line, the derivative
-is calculated. To find the extrema (minima and maxima) of the function, the
-expression is solved for \(x\) where \(y = 0\). This gives all the \(x\)-values
+is calculated. The expression is solved for \(x\) where \(y = 0\), to find the
+extrema (minima and maxima) of the function.
+
+This gives all the \(x\)-values
 for which the slope is zero. To check if it is a local minimum or local maximum
 that has been found (for the \(x\)-value), the second derivative needs to be
 calculated.\\
 
 The second derivative is then solved for \(y\) where \(x = found Value\). If the
 result is greater than zero, the extremum at the given \(x\)-value is a local
-minimum and if the result is less than zero, the extremum at the given 
+minimum, and if the result is less than zero, the extremum at the given 
 \(x\)-value is a local maximum.\\ \cite{ops}
 
 When optimising, the goal is to find the \(x\)-value with the greatest
@@ -79,31 +81,31 @@ production speed for the machine.
 \subsection{Methods}
 The methods used throughout the project are listed below. Just like with the
 theory section, the reader can benefit from reading this section, as it gives
-a shot explanation of the methods used.
+a short explanation of the methods used.
 
 \subsubsection{Unified Process}
-Unified Process, UP, is a an iterative and incremental software development
+Unified Process, UP, is an iterative and incremental software development
 process framework. UP consist of four phases \cite{up}: 
 
 \myparagraph{The Inception Phase}
 The inception phase is the first phase in UP, and it is in this phase that it
-is determined whether the system can be developed or not. In this phase it is
+is determined whether the system can be developed or not. In this phase, it is
 decided which responsibilities the system has and where important requirements
 and critical risks are identified. 
 
 \myparagraph{The Elaboration Phase}
 In the elaboration phase, iterative development is used to make the requirements,
 design, analysis, and test from the requirements specification and the priority
-that has been made. In this phase Scrum will be used to manage the iterations.
+that has been made. In this phase, Scrum will be used to manage the iterations.
 
 \myparagraph{The Construction Phase}
-In the construction phase, the development of the system takes place. Here, 
+In the construction phase, the development of the system takes place. Here, the 
 unified modelling language will be used to identify which classes and components
 the system will consist of. 
 
 \myparagraph{The Transition Phase}
-In the transition phase, it will be verified that all the agreed upon
-functions are implemented and the customer will answer if they are satisfied
+In the transition phase, it will be verified that all the agreed-upon
+functions are implemented, and the customer will answer if they are satisfied
 with the developed system.
 
 
@@ -150,7 +152,7 @@ board will consist of five columns, as seen in Table \ref{table:scrum}.
 MoSCoW is an important prioritising model used in software development, as it
 describes which parts of the system that constitute the minimal viable product,
 MVP. The use cases for the system to be developed are prioritised with the
-costumer as this makes it clear which parts of the system to develop first. \cite{moscow}
+customer as this makes it clear which parts of the system to develop first. \cite{moscow}
 These use cases are then presented in a table, to improve readability.\\
 
 MoSCoW is an acronym standing for:\\
@@ -165,7 +167,7 @@ MoSCoW is an acronym standing for:\\
     \item [Could have:] use cases the customer would like to have implemented if
     there is enough time for it.
 
-    \item [Won't have (this time):] use cases that is not to be prioritised in
+    \item [Won't have (this time):] use cases that are not to be prioritised in
     this iteration, but maybe in future releases.
 \end{description}
 
@@ -188,10 +190,10 @@ help giving a detailed description of the requirements. \cite{furps} The acronym
 
     \item [Supportability:] Can the system be tested? Is it possible to
     configure the system, expand it, install it, and provide service on the
-    system.
+    system?
 \end{description}
 
-The + sign stands for supplementary needs the customer could have, and includes:
+The + sign stands for supplementary needs the customer could have and includes:
 
 \begin{description}
     \item [Design constraints:] Do I/O devices or database management systems
