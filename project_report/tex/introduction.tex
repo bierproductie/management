@@ -96,3 +96,51 @@ communication between the client and the frontend. For the
 frontend to receive data via fetch calls in JavaScript, it needs to communicate 
 with something that uses HTTP and preferably delivers data in JSON.
 
+
+\subsection{Testing the solution}
+To validate the developed system, the group uses the brewery machine and the
+brewery simulator provided by SDU. A short description of the two will be given
+in the following subsections, including how the group uses them to run tests.
+
+\subsubsection{The Physical Setup (The Brewery Machine)}
+The machine can produce different kinds of beer, depending on the recipe used.
+The beer is produced in batches which have their own batch id. When producing a
+batch, the recipe, quantity, speed and batch id can be configured by an external
+system. When a batch has been produced, the quality inspection system measures
+the quality for future use. These values are accessible in the machines SCADA
+system. The SCADA system monitors and supervises both the machines PLC system
+and the internal sensors' PLC system, as well as the quality inspection system.\\
+
+The machine is equipped with three sensors that measure the environment while
+production is happening to ensure the most optimal environment for beer
+production. The data from the sensors is useful as it gives insight into the
+internal environment of the machine while producing products. Currently, it
+measures temperature, humidity, and vibration. The machine itself is not able to
+collect these data and are collected by an external system. The system is
+equipped with a sophisticated quality inspection system, QIS, to make it
+possible to calculate an error function. This system is key to optimising the
+production by giving data about the different error functions of the
+configurations so that they can be configured otherwise to maximise production.
+Each produced product is inspected, and if the quality is low enough, the
+product will fail. When a batch is finished, the QIS will output the amount of
+failed and passed products. The result is then used to calculate the error
+function. \\
+
+When testing, the group sets a batch id, the recipe to be produced, a number of
+products to be produced, and the machine speed. While the machine is "producing"
+beer, the group verifies the given output from the machine. If the output is as
+expected, the group considers the test complete. If not, the group makes the
+necessary changes for the test to be passed. 
+
+
+\subsubsection{The Simulator}
+The simulator is run by ARsim, making a few of the physical machine's endpoints
+available for testing. These include endpoints like the recipe to produce,
+number of products to produce, machine speed, and machine commands. The
+simulator comes with a dashboard, to visualise the production. \\
+
+When testing with the simulator, the group connects the developed OPC-UA client
+to the simulator, following the same procedure as when testing with the
+physical machine. Not all endpoints can be tested, as described earlier,
+therefore it is important to note that the simulator can not replace the machine
+when testing the developed system.
