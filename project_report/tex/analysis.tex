@@ -1,5 +1,5 @@
 \section{Analysis}
-In this section the the use cases from the requirements section will be analysed
+In this section, the use cases from the requirements section will be analysed
 to provide the foundation for the design phase.
 
 \subsection{Use Case analysis}
@@ -8,7 +8,7 @@ the potential class candidates and to make an initial analyses class diagram.
 
 \subsubsection{Class Candidates}
 In order to find potential class candidates, every noun of the detailed Use
-Cases are found. These are potential candidates, and can be sorted to avoid
+Cases are found. These are potential candidates and can be sorted to avoid
 duplicates and candidates that will not be turned into classes. Naturally, every
 potential class for the entire system will not be found, as this only reflects
 use cases. A potential class candidate such as MES (where Start and Stop
@@ -49,7 +49,7 @@ step is to make operation contracts.
 
 \subsubsection{Operation Contracts}
 An operation contract describes the responsibility of an operation in the system.
-These operations are found by making system sequence diagrams that displays the
+These operations are found by making system sequence diagrams that display the
 system as a 'black box', where the internal system events are not shown, but
 only the external. This means that the diagram displays how actors generate
 system events and what the system output is. Furthermore, the diagram functions
@@ -87,7 +87,7 @@ operation contract for the start operation can be seen.
 \end{table}
 
 \subsubsection{Operation Sequence Diagrams}
-From the operation contracts the operation sequence diagram can be made. The
+From the operation contracts, the operation sequence diagram can be made. The
 operation sequence diagram displays the system as a 'white box', where both the
 internal and external system events are described, as seen in Figure
 \ref{figure:sequence_diagram}.
@@ -104,7 +104,7 @@ in the diagram are the functions needed to complete the use case. In this
 specific use case, the actor, the user, wants to start the beer production
 machine. The user interacts with the dashboard by pressing the start button,
 which then sends a command to the OPC-UA client. The OPC-UA client interprets
-the command as a start machine command, which triggers an event in the OPC-UA
+the command as a 'start machine command', which triggers an event in the OPC-UA
 client to send a command to the beer production machine. The beer production
 machine interprets the command as a start command, which then turns on the 
 machine. As a response to the user, to beer production machine sets a flag
