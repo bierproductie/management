@@ -105,7 +105,7 @@ in the diagram are the functions needed to complete the use case. In this
 specific use case, the actor, the user, wants to start the beer production.
 The user interacts with the dashboard by pressing the start button,
 which then sends a command to the OPC-UA client via the API. The OPC-UA client
-interprets the command as a 'start machine command', which triggers an event in
+interprets the command as a 'start machine' command, which triggers an event in
 the OPC-UA client to send a command to the beer production machine. The beer
 production machine interprets the command as a start command, which then turns
 on the machine. As a response to the user, to batch id is set on the dashboard.\\
@@ -120,11 +120,11 @@ happens through a REST API which acts as a translator between the different
 subsystems within the MES.
 
 \subsubsection{Updated UML Class Diagram}
-The updated UML class diagram seen in Figure
-\ref{figure:updated_UML_class_diagram} illustrates the current system idea based
-on the analysis of the system. Although this diagram only shows the 
-OPC-UA client, it still gives a good idea of how this part of the system is going
-to be, once implemented.
+The updated UML class diagram seen in Figure 
+\ref{figure:updated_UML_class_diagram} (see Appendix \ref{app:uml} for a larger
+figure) illustrates the current system idea based on the analysis of the system.
+Although this diagram only shows the OPC-UA client, it still gives a good idea
+of how this part of the system is going to be, once implemented.
 
 \begin{figure}[ht]
 \centering 
@@ -136,4 +136,4 @@ to be, once implemented.
 By using the diagram in the implementation phase, the group has a good starting 
 point to expand on. The classes in the UML class diagram have a chance of not 
 being implemented if the group finds them unuseful or changed to adhere to the 
-program.
+program. 
