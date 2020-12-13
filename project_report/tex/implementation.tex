@@ -4,7 +4,7 @@ this section will focus on how the subsystem are implemented, using that
 knowledge.
 
 \subsection{Dashboard}
-The user interacts with the dashboard, seen in Figure \ref{figure:dashboard}and
+The user interacts with the dashboard, seen in Figure \ref{figure:dashboard} and
 through it the user can see what the machine is producing and information about
 the production. The user can also interact with the dashboard, as they can start
 and stop the machine and press buttons to see live data represented in graphs.
@@ -24,8 +24,44 @@ running JavaScript. It is implemented using HTML, CSS and JavaScript, and it
 uses two separate libraries for making graphs and getting icons for the buttons.
 
 \subsection{REST API}
+The REST API is responsible for providing the dashboard with live data, and the
+ability to start new batches from the dashboard. The API is able to provide
+live data due to the OPC-UA client posting it to the API as soon as a property
+changes, the data is then kept in the PostgreSQL database. The API is developed
+in Python3 via the popular FastAPI framework. For interacting with the database
+it is using the async ORM Gino. The source code structure is inspired from best
+practices in MVC, with separations between the different layers (router,
+service, schemas and database models (ORM)). This ensures that components can
+easily be swapped out, and thereby makes it easier to maintain in the long run.
+Another part of implementation is the development setup, via a continuous
+integration pipeline it is verified if the code is linted properly as well as
+unit tests and system tests are passing, if one of these steps are failing the
+pull request is not allowed to be merged to master. When new branches are merged
+to master, the last part of the pipeline is being run which builds a new docker
+image to a private registry which is then deployed automatically to 
+\url{https://api.bierproductie.nymann.dev/docs}, this can be verified via the
+version on the docs page matching the latest commit hash.
+
 
 \subsection{Database}
+The database is implemented with PostgreSQL, which is a relational database.
+The PostgreSQL software is reliable and have been used for mange years in the
+industry. The table implementation in the database is derived from the EER
+Diagram see Figure \ref{figure:eer_diagram} for reference. All communication to
+the database in the production setup is routed trough the REST API, this way
+we ensure data quality and easier error handling. But also from a security
+standpoint this is superior since we can make an internal docker network that
+is only shared with the REST API, which ensures that none other than the REST
+API can even connect to it. The database consists of the following tables
+\textt{data_over_time}, \texttt{recipes}, \texttt{batches} and
+\texttt{alembic_version}. The \texttt{data_over_time} table is where live data
+is posted to by the client, to improve performance this table is partioned on a
+monthly basis based on the measurement timestamp of each row. Given our system
+design, an interesting point to look at is the delay between the machine
+measurement timestamp and when the data is inserted in the database. This is
+implemented via a function that returns the current timestamp and is triggered
+when data is inserted on the \texttt{data_over_time} table.
+
 
 \subsection{OPC-UA-Client}
 The OPC-UA-client handles the data from the machine and sends it to the API. It 
