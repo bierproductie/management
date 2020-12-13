@@ -1,15 +1,15 @@
 \section{Implementation}
-From the design section it was clarified how the system was to be designed, and
-this section will focus on how the subsystem are implemented, using that
+From the design section, it was clarified how the system was to be designed, and
+this section will focus on how the subsystems are implemented, using that
 knowledge.
 
 \subsection{Dashboard}
-The user interacts with the dashboard, seen in Figure \ref{figure:dashboard} and
-through it the user can see what the machine is producing and information about
+The user interacts with the dashboard, seen in Figure \ref{figure:dashboard}, and
+through it, the user can see what the machine is producing and information about
 the production. The user can also interact with the dashboard, as they can start
 and stop the machine and press buttons to see live data represented in graphs.
-The user is able to query batches for the machine to produces, as well as see
-the batch history, to quickly get an overview over produced batches and its data.\\
+The user can start a new batch for the machine to produce, as well as see
+the batch history, to get an overview of produced batches and its data.\\
 
 \begin{figure}[ht]
 	\centering
@@ -18,49 +18,51 @@ the batch history, to quickly get an overview over produced batches and its data
 	\label{figure:dashboard}
 \end{figure}
 
-The dashboard is implemented using web based technology, so it can run on many
-machines without installing any software, apart from a modern browser that is
-running JavaScript. It is implemented using HTML, CSS and JavaScript, and it
-uses two separate libraries for making graphs and getting icons for the buttons.
+The dashboard is implemented using web-based technology, so it can run on
+multiple platforms without installing any software, apart from a modern browser
+that is running JavaScript. It is implemented using HTML, CSS and JavaScript,
+and it uses two separate libraries for making graphs and getting icons for the
+buttons.
 
 \subsection{REST API}
 The REST API is responsible for providing the dashboard with live data, and the
 ability to start new batches from the dashboard. The API is able to provide
 live data due to the OPC-UA client posting it to the API as soon as a property
-changes, the data is then kept in the PostgreSQL database. The API is developed
-in Python3 via the popular FastAPI framework. For interacting with the database
-it is using the async ORM Gino. The source code structure is inspired from best
+changes. The data is then kept in the PostgreSQL database. The API is developed
+in Python3 via the popular FastAPI framework. For interacting with the database,
+it is using the async ORM Gino. The source code structure is inspired by best
 practices in MVC, with separations between the different layers (router,
 service, schemas and database models (ORM)). This ensures that components can
-easily be swapped out, and thereby makes it easier to maintain in the long run.
-Another part of implementation is the development setup, via a continuous
-integration pipeline it is verified if the code is linted properly as well as
-unit tests and system tests are passing, if one of these steps are failing the
-pull request is not allowed to be merged to master. When new branches are merged
-to master, the last part of the pipeline is being run which builds a new docker
-image to a private registry which is then deployed automatically to 
-\url{https://api.bierproductie.nymann.dev/docs}, this can be verified via the
-version on the docs page matching the latest commit hash.
+easily be swapped out, and thereby makes it easier to maintain in the long run.\\
+
+Another part of implementation is the development setup via a continuous
+integration pipeline. In the pipeline it is verified if the code is linted
+properly, as well as verifying if unit tests and system tests are passing. If
+one of these steps fails, the pull request is not allowed to be merged to master.
+When new branches are merged to master, the last part of the pipeline is being
+run which builds a new docker image to a private registry, which is then deployed
+automatically to \url{https://api.bierproductie.nymann.dev/docs}. This can be
+verified via the version on the docs page matching the latest commit hash.
 
 
 \subsection{Database}
 The database is implemented with PostgreSQL, which is a relational database.
-The PostgreSQL software is reliable and have been used for mange years in the
+The PostgreSQL software is reliable and has been used for mange years in the
 industry. The table implementation in the database is derived from the EER
-Diagram see Figure \ref{figure:eer_diagram} for reference. All communication to
-the database in the production setup is routed trough the REST API, this way
-we ensure data quality and easier error handling. But also from a security
-standpoint this is superior since we can make an internal docker network that
-is only shared with the REST API, which ensures that none other than the REST
-API can even connect to it. The database consists of the following tables
-\textt{data_over_time}, \texttt{recipes}, \texttt{batches} and
-\texttt{alembic_version}. The \texttt{data_over_time} table is where live data
-is posted to by the client, to improve performance this table is partioned on a
-monthly basis based on the measurement timestamp of each row. Given our system
-design, an interesting point to look at is the delay between the machine
-measurement timestamp and when the data is inserted in the database. This is
+Diagram, see Figure \ref{figure:eer_diagram} for reference. All communication to
+the database in the production setup is routed through the REST API. This way,
+data quality and easier error handling is ensured. From a security
+standpoint, this is superior since it is possible to make an internal docker
+network. The network is only shared with the REST API, which ensures that none
+other than the REST API can connect to it. The database consists of the
+following tables \textt{data\_over\_time}, \texttt{recipes}, \texttt{batches} and
+\texttt{alembic\_version}. The \texttt{data\_over\_time} table is where live data
+is posted to by the client. To improve performance, this table is partitioned on a
+monthly basis based on the measurement timestamp of each row. Given the system
+design, an interesting point is the delay between the machine
+measurement timestamp, and when the data is inserted in the database. This is
 implemented via a function that returns the current timestamp and is triggered
-when data is inserted on the \texttt{data_over_time} table.
+when data is inserted on the \texttt{data\_over\_time} table.
 
 
 \subsection{OPC-UA-Client}
@@ -70,10 +72,10 @@ the machines OPC-UA-server. The OPC-UA-client is able to subscribe to
 information on the server and send it to the API that stores it in the database.
 The client also controls the machine while it collects data, as it creates and
 runs batches it gets from the dashboard through the API. The client sends live
-data to the dashboard via the API using subscriptions. These subscriptions sends
-data to the API every time a change appears and the API then forwards it to the
-dashboard. The client creates 6 subscriptions when started, they monitor
-temperature, vibration, humidity, machine-state,  current defective products and
+data to the dashboard via the API using subscriptions. These subscriptions send
+data to the API every time a change appears, and the API then forwards it to the
+dashboard. The client creates six subscriptions when started, and they monitor
+temperature, vibration, humidity, machine-state, current defective products and
 current processed products. \\
 
 The data is also stored in an object called Batch in the client. The Batch class
@@ -99,11 +101,11 @@ below.
 
 \[PlannedProductionTime = \left(\frac{AmountToProduce}{MachineSpeed}\right)\cdot60\]\\
 
-Where the amount to produce divided by the machine speed gives us the production
+Where the amount to produce divided by the machine speed gives the production
 time in minutes, as the machine speed is products per minute. This result can be
-multiplied by 60 to give the production time in seconds. To find the ideal cycle
-time the maximum machine speed is needed. 1 divided by this multiplied by 60
-then results in the theoretical minimum time it takes to produce one unit.
+multiplied by 60 to give the production time in seconds. The maximum machine
+speed is needed to find the ideal cycle time. 1 divided by this multiplied by
+60 then results in the theoretical minimum time it takes to produce one unit.
 
 \[IdealCycleTime = \frac{1}{maxMachineSpeed}\cdot60\]\\
 
@@ -148,7 +150,7 @@ function. The data used can be found in Appendix \ref{app:batch_data}.
 The estimated error function seen in Figure \ref{figure:ef_pilsner} gives an
 idea of when the beer production machine starts to produce many rejected
 products. All the estimated error functions for the products the machine can
-produce can be seen in Table \ref{table:eef} and the graphs can be found in
+produce can be seen in Table \ref{table:eef}, and the graphs can be found in
 Appendix \ref{app:error_function_graphs}.
 
 \begin{table}[ht]
@@ -178,7 +180,7 @@ To find the optimal production speed, the same data as when estimating the error
 function is used. As the error simulation in the machine is a function of the
 normalised machine speed and the selected product, the normalised machine speed
 must be calculated. This is done by taking 100 over the maximum machine speed.
-This, multiplied by the chosen machine speed will then give the percentage of
+This, multiplied by the chosen machine speed, will then give the percentage of
 the maximum machine speed, which is used when plotting the graph for the optimal
 production speed. The normalised machine speed will be the \(x\)-values and the
 calculated OEE will be the \(y\)-values. An example can be seen in Figure
@@ -193,7 +195,7 @@ the product type pilsner can be seen.
 \end{figure}
 
 This plot is generated using Microsoft Excel. When the OEE for each tested
-machine speed is plotted, a third-degree polynomial trend line is applied and an
+machine speed is plotted, a third-degree polynomial trend line is applied, and an
 expression for the function generated is given. For the pilsner, the function is
 given by:
 
@@ -206,7 +208,7 @@ the function, the derivative is calculated:
 
 \[y' = -\frac{9x^2-668x+1057}{10000}\]
 
-To find the maximum this equation should be solved for \(x\) when \(y=0\). This
+To find the maximum, this equation should be solved for \(x\) when \(y=0\). This
 gives \(72,61\), which is the optimal machine speed for the pilsner product type,
 measured in percentage of the maximum machine speed. To make sure the calculated
 \(x\)-value is a local maximum at \(72,61\), the second derivative is calculated:
@@ -217,7 +219,7 @@ Then, this equation is solved for \(y\) when \(x=72,61\), which gives a value of
 \(-0,06\). Since the result is less than 0, it can be confirmed that it is
 a maximum.\\
 
-This is done for all product types, and the result can be seen in Table
+This is done for all product types, and the results can be seen in Table
 \ref{table:ops}.
 
 
@@ -246,6 +248,6 @@ This is done for all product types, and the result can be seen in Table
 
 The reason for the result of the stout is that the function has no local maxima
 in the range (0 to 200). Instead, it keeps increasing, as seen in the graph for the
-stout in Appendix \ref{app:ops_graphs}. This means that the faster the machine speed
+stout in Appendix \ref{app:ops_graphs}. This means that the faster the machine speed,
 the better, which is why the optimal production speed is the maximal machine
 speed.
