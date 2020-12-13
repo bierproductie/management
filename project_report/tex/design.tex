@@ -16,21 +16,21 @@ the SQL files can be written.
 \end{figure}
 
 The database will have four main tables; batches, TempAndTime, VibrationAndTime and
-HumidityAndTime. The batches table consists of all the data related to a
+HumidityAndTime. The batch table consists of all the data related to a
 specific batch, such as id, product\_type, amount\_to\_produce, etc. The three
 other tables will contain a time value and related data (temperature, vibration
 and humidity).
-Connecting the three tables to the batches table, are "subscription tables".
+Connecting the three tables to the batch table are "subscription tables".
 These will link a batch to temperature, vibration, and humidity, respectively,
-using the ids.
+using the id.
 
 \subsection{Dashboard}
 A very important aspect the group has had to consider, is which design pattern
-to model the dashboard after. A design pattern is a form of a template, which in
+to model the dashboard after. A design pattern is a template, which in
 this case, dictates how the different classes communicate. A relevant design
 pattern is the MVC (Model - View - Controller). This pattern separates the
 data-related logic (model), the UI logic (View) and the business logic 
-(controller) into different layers, and thereby help keep separation of
+(controller) into different layers, and thereby helps keeping separation of
 concerns. The controller manages input from the user, and forwards it to either
 the model, to retrieve or store data, or the view, to present data to the user.\\
 
@@ -46,12 +46,13 @@ A visualisation of the MVC pattern can be seen in Figure \ref{figure:MVC_model}
 \end{figure}
 
 \subsection{OPC-UA Client}
-The group was in doubt about the system being a monolith application containing 
-the REST-API and OPC-UA Client in one program or split into two programs.
+The group discussed about the system being a monolith application containing 
+the REST-API and OPC-UA Client in one program or if it should be split into two
+programs.\\
 
 Choosing to split the program into two separate entities aligns with the 
 separation of concerns principle, e.g. implementing authentication at a later 
-stage(in the API) wouldn't affect the core logic of the OPC-UA client. On the 
+stage (in the API) wouldn't affect the core logic of the OPC-UA client. On the 
 other hand, choosing to do so would add some overhead at the start of the 
 implementation phase. \\
 
