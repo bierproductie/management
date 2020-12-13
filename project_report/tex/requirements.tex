@@ -1,27 +1,24 @@
 \section{Requirements}
-This section emphasises the requirements for the project, given by the customer
-Refslevbæk Bryghus A/S, as it aims to clarify what the customer wants and how
-the group is including those requirements in the system. 
+This section emphasises on the requirements for the project, given by the
+customer Refslevbæk Bryghus A/S, as it aims to clarify what the customer wants
+and how the group is including those requirements in the system. 
 
 \subsection{Overall Requirements Specification}
 To make sure all the requirements from the customer are included in the project,
-and to give a brief summary of the requirements, a summary of is made.
+a summary of the requirements is made.
 
 \subsubsection{Summary of requirements}
-The group's proposed solution will adhere to the requirements given by the
-brewery Refslevbæk Bryghus A/S, which can be seen in the project description.
-
-The manufacturing execution system, MES, must be able to control the brewery’s 
-production. It must be able to start and stop the production line, as well as
-monitor the production and collect data from the production line. The data must
-be stored for further analysis. The MES must be able to keep track of the
-batches that the new machine is producing, as well as collect various data from
-the machine that is associated with the current batch number. After a finished
-batch production, the MES must be able to produce a batch report. The report
-must contain the following.
+The MES must be able to control the brewery’s production. It must be able to
+start and stop the production line, as well as monitor the production and
+collect data from the production line. The data must be stored for further
+analysis. The MES must be able to keep track of the batches that the machine
+is producing, as well as collect various data from the machine that is
+associated with the current batch id. The MES must be able to produce a batch
+report after a batch has finished production, and the report must contain the
+following.
 
 \begin{itemize}
-    \item This Batch ID
+    \item Batch ID
     \item Product type
     \item Amount of products (total, defect and acceptable)
     \item Amount of time used in the different states
@@ -34,8 +31,8 @@ from the machine. The system must have a
 visualisation that can be accessed and used to display production data. The
 system must be able to collect the necessary data from the machine and calculate
 the overall equipment effectiveness, OEE, of the machine. The OEE must
-be available to be displayed by the system. The system must be able to estimate
-the error function associated with the different product types. The system must
+be available to be displayed by the system. The group must be able to estimate
+the error function associated with the different product types. The group must
 be able to find the optimal production speed for each product type, based on an
 error simulation and the appertaining graph upon which the error simulation is
 built.
@@ -43,7 +40,7 @@ built.
 \subsubsection{List of requirements}
 Below, in Table \ref{table:Requirements}, is a list of the above requirements.
 These requirements have been prioritised using the MoSCoW method, where M is for
-Must have, S is for Should have, C is for could have, and W is for Won't have. 
+Must have and S is for Should have. 
 
 \begin{table}[H]
     \captionof{table}{List of requirements} 
@@ -61,7 +58,7 @@ Must have, S is for Should have, C is for could have, and W is for Won't have.
         \hline
         R05 & Administer batches & Keep track of produced batches (batch ID) & M \\
         \hline
-        R06 & Store batch info & Collect various data associated with current batch number from the machine & M \\
+        R06 & Store batch info & Collect various data associated with current batch id from the machine & M \\
         \hline
         R07 & Batch report & Produce a batch report (PDF/dashboard style format) & M \\
         \hline
@@ -81,14 +78,14 @@ Must have, S is for Should have, C is for could have, and W is for Won't have.
 
 \subsection{Selected Detailed Requirements}
 Besides the overall requirements, some detailed requirements are also stated by
-the customer, which describes how the system should perform. The group made
+the customer, which describe how the system should perform. The group made
 additional requirements that were found to potentially add quality to the system
-to be developed.  
+to be developed.
 
 \subsubsection{Functional \& Non-Functional Requirements}
-In Table \ref{table:sup_requirements} you can see a description of Functional and
-Non-Functional requirements. These requirements have been classified by using
-the FURPS+ method.
+In Table \ref{table:sup_requirements} the description of Functional and
+Non-Functional requirements can be seen. These requirements have been classified
+by using the FURPS+ method.
 
 \begin{table}[H]
     \captionof{table}{Supplementary Requirements} 
@@ -106,9 +103,9 @@ the FURPS+ method.
         \hline
         Supportability 	& S05 & Minimum browser versions (JavaScript version 6)\\
         \hline
-        Design constraints 	& S06 & Na \\
+        Design constraints 	& S06 & Separation of concerns. \\
         \hline
-        \multirow{5}{*}{Implementation requirements} & S08 & Should be controlled via MES\\
+        \multirow{5}{*}{Implementation requirements} & S08 & The machine should be controlled via MES\\
         \cline{2-3}
                 & S08 & MES should be able to keep track of Batches\\
         \cline{2-3}
@@ -132,7 +129,7 @@ the FURPS+ method.
         \cline{2-3}
             & S14 & Visualisation \\
         \hline
-        Physical requirements & S14 & The group should work with the beer 
+        Physical requirements & S15 & The group should work with the beer 
         production machine provied by SDU \\
         \hline
     \end{tabularx}
@@ -140,10 +137,11 @@ the FURPS+ method.
 \end{table} 
 
 \subsection{Use Cases}
-Use cases are written descriptions of how a user will perform different tasks
-on a system. They outline the behaviour of a system as it responds to a request from
-the user. Each use case is represented as a sequence of steps, beginning with
-the user's goal and ending it when that goal is fulfilled. \\
+Using the specified requirements, use cases can be made. Use cases are written
+descriptions of how a user will perform different tasks on a system. They
+outline the behaviour of a system as it responds to a request from the user.
+Each use case is represented as a sequence of steps, beginning with the user's
+goal and ending it when that goal is fulfilled. \\
 
 The first step in developing use cases is to determine the actors.
 
@@ -166,10 +164,10 @@ The first step in developing use cases is to determine the actors.
 %     \end{table}
 
 \subsubsection{Actor List}
-In order to determine who will be able to access the system, the actors are
-found. An actor is defined as an external system or user that communicates
+The actors are found, in order to determine who will be able to access the
+system. An actor is defined as an external system or user that communicates
 with the system. Not every actor can necessarily be found at the given time,
-meaning other actors may be found later during development.
+meaning other actors may be found later during development.\\
 
 The identified actors can be seen in Table \ref{table:actor_list}. With these
 actors, a visualisation can be made, depicting how the different actors
@@ -180,7 +178,7 @@ communicate with the system.
      \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{2.5cm}|>{\RaggedRight}p{8cm}|>{\RaggedRight}X|}
      \hline
      \textbf{Actor} 				& \textbf{Description}                                                                                                              				& \textbf{Goal} \\ \hline
-     \multirow{2}{*}{User (p)}      & The user represents the worker of the machine. The user will use the control panel to control the machine.                                  		& 	\begin{itemize}
+     \multirow{2}{*}{User (p)}      & The user represents the worker of the machine. The user will use the dashboard to control the machine.                                  		& 	\begin{itemize}
      																																														\item Control machine
      																																														\item Start new batches
      																																													\end{itemize} \\ \hline
@@ -215,26 +213,25 @@ The remaining detailed use cases can be seen in appendix \ref{app:usecases}.
         \textbf{Short description:} The MES must be able to start the brewery's
         production \\
         \hline
-        \textbf{Pre conditions:} The beer production machine needs to be in
-        ready mode, that is, not producing beer. \\
+        \textbf{Preconditions:} The beer production machine needs to be in
+        ready mode, that is, not producing beer and the necessary resources
+        needs to be available. \\
         \hline
         \textbf{Main flow:} \\
         	1. This use case starts when a user wants to start the beer
         	production machine. \\
         	2. The user chooses what kind of beer to be produced. \\
         	3. The user sets production speed. \\
-        	4. The user sets batch id. \\
-        	5. The user sets amount of beers to be produced. \\
-        	6. The user presses the start button. \\
-        	7. The MES starts the machine. \\
-        	8. When the production has finished, the MES stores data from the
+        	4. The user sets amount of beers to be produced. \\
+        	5. The user presses the start button. \\
+        	6. The MES starts the machine. \\
+        	7. When the production has finished, the MES stores data from the
         	production. \\
-
 		\hline
-        \textbf{post conditions:} The beer production machine is turned on \\
+        \textbf{post conditions:} The beer production has started. \\
         \hline
         \textbf{Alternative flow:} \\
-        	Step 8: If the machine does not complete the production (for various
+        	Step 7: If the machine does not complete the production (for various
         	reasons) the production stops and stores the data from the machine
         	and the user receives an error message. \\
         \hline
@@ -243,12 +240,13 @@ The remaining detailed use cases can be seen in appendix \ref{app:usecases}.
 \end{table}
 
 \subsubsection{Use Case Diagram}
-Below, in Figure \ref{figure:ucdiagram}, an overview of the use cases for the
-MES can be seen.
+When all the use cases have been determined, a visualisation can be made in the
+form of a use case diagram. This gives an overview of the use cases and actors
+for the system, as seen in Figure \ref{figure:ucdiagram}.
 
 \begin{figure}[ht]
 	\centering 
-	\includegraphics[scale=0.3]{images/ucdiagram.png}
+	\includegraphics[width=1\textwidth]{images/ucdiagram.png}
 	\caption{Use case diagram}
 	\label{figure:ucdiagram} 
 \end{figure}
