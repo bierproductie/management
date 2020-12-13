@@ -2,9 +2,9 @@
 This section will focus on the theory and methods used in the project.
 
 \subsection{Theory}
-To be sure to understand the theory used throughout the project, the reader can
-benefit from reading this section, as it gives a short description of the most
-important theories.
+To ensure an understanding of the theory used throughout the project, the reader
+can benefit from reading this section, as it gives a short description of the
+most important theories.
 
 \subsubsection{Automation Pyramid}
 The automation pyramid is a graphical representation of the different levels of
@@ -24,24 +24,26 @@ sensors that are used on the production floor. The control level is where PLCs
 controller) are located. These are used to control the devices in the field
 level. The third layer, the supervisory level, utilises SCADA. SCADA
 is an abbreviation of Supervisory Control And Data Acquisition. This level
-combines the previous level and makes it possible to control the system from
+combines the previous levels and makes it possible to control the system from
 a single location. Above the supervisory level is the planning level. It is on
 this level the computer management system MES, Manufacturing Execution System,
 is located. The MES makes it possible to monitor the manufacturing process in
 the factory from start to finish. The top layer of the pyramid is the management
-level. On this level, the ERP, Enterprise Resource Planning, a management system
-is located, making the company's management able to control their operations. \cite{ap}\\
+level. On this level, the management system ERP, Enterprise Resource Planning, 
+is located, making the company's management able to control their operations.
+\cite{ap}\\
 
-This project evolves around the fourth layer of the pyramid, the planning level,
-as the given task is to develop an MES for Refslevbæk Bryghus A/S, to control
-and optimise their brewery. 
+This project revolves around the fourth layer of the pyramid, the planning
+level, as the given task is to develop an MES for Refslevbæk Bryghus A/S, to
+control and optimise their brewery. 
 
 
 \subsubsection{Overall Equipment Effectiveness}
-The \textbf{O}verall \textbf{E}quipment \textbf{E}ffectiveness, OEE, is a
-measurement of how effective a given production line is. It identifies what
-percentage of the manufacturing time that is fully utilised. The formula for
-the OEE can be seen in Equation \ref{eq:OEE}
+The Overall Equipment Effectiveness, OEE, is a measurement of how effective a
+given production line is. It identifies what percentage of the manufacturing
+time that is fully utilised. The formula for the OEE can be seen in Equation
+\ref{eq:OEE}.
+
 \begin{equation} \label{eq:OEE}
     OEE = \frac{Good Count \cdot Ideal Cycle Time}{Planned Produciton Time}
 \end{equation}
@@ -61,9 +63,7 @@ describes a pattern in data that is curved to fit the points.\\
 
 To find the slope of the function, in this case, the trend line, the derivative
 is calculated. The expression is solved for \(x\) where \(y = 0\), to find the
-extrema (minima and maxima) of the function.
-
-This gives all the \(x\)-values
+extrema (minima and maxima) of the function. This gives all the \(x\)-values
 for which the slope is zero. To check if it is a local minimum or local maximum
 that has been found (for the \(x\)-value), the second derivative needs to be
 calculated.\\
@@ -71,7 +71,7 @@ calculated.\\
 The second derivative is then solved for \(y\) where \(x = found Value\). If the
 result is greater than zero, the extremum at the given \(x\)-value is a local
 minimum, and if the result is less than zero, the extremum at the given 
-\(x\)-value is a local maximum.\\ \cite{ops}
+\(x\)-value is a local maximum. \cite{ops} \\ 
 
 When optimising, the goal is to find the \(x\)-value with the greatest
 \(y\)-value, which is why the local maximum for the trend line is the optimal
@@ -105,39 +105,39 @@ the system will consist of.
 
 \myparagraph{The Transition Phase}
 In the transition phase, it will be verified that all the agreed-upon
-functions are implemented, and the customer will answer if they are satisfied
-with the developed system.
+functions are implemented, and the customer will answer whether or not they are
+satisfied with the developed system.
 
 
 \subsubsection{Scrum}
-To keep track of the group work, the framework Scrum, with a few exceptions, is
-used. Scrum consists of multiple artefacts and ceremonies, and in this project,
-the product roadmap, Scrum meetings, product and sprint backlogs and burndown
-charts will be used.
-Scrum is an agile framework used to manage the development process. It splits
+The agile framework Scrum, with a few exceptions, is used in this project to
+keep track of the group work. Scrum consists of multiple artefacts and
+ceremonies, and in this project, the product roadmap, Scrum meetings, product
+and sprint backlogs, and burndown charts will be used.
+Scrum is used to manage the development process. It splits
 the work into tasks, called issues, which are distributed over a period of time,
 called sprints. Each sprint is typically between two weeks and one month long,
 with daily Scrum meetings, where the status of the project is tracked. At the
 end of each sprint, a review meeting is held to present the progress and to
-determine new tasks for the next sprint.
+determine new issues for the next sprint.
 To manage the issues, the project management platform, ZenHub, can be used. This
 provides a visualisation of the issues, in the form of a KanBan board. In
 addition to organising the issues, ZenHub provides the option to set up a
 Roadmap, to help visualise the schedule. An option for a Burndown chart is also
 provided, where each issue is allotted points, based on the difficulty of the
-task. The Burndown Chart offers an overview of the remaining points, needed to
+issue. The Burndown Chart offers an overview of the remaining points, needed to
 finish a given sprint. \cite{scrum} \\
 
-The group has decided to use a sprint duration of two weeks, where the issues
+The group has decided on a sprint duration of two weeks, where the issues
 for the backlog is determined, at the beginning of each sprint, at the Scrum
 meeting. Instead of daily Scrum meetings, a single Scrum meeting is held each
 week. The Scrum meeting will take place each Friday and will be a mixture of
 sprint planning, daily Scrum, and sprint review. Based on the meeting, new
-issues are created in ZenHub and assigned a sprint and story points. The KanBan
+issues are created on ZenHub and assigned a sprint and story points. The KanBan
 board will consist of five columns, as seen in Table \ref{table:scrum}.
 
 \begin{table}[H]
-    \captionof{table}{Scrum Board}
+    \captionof{table}{KanBan Board}
     \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|}
         \hline                             
         \textbf{Product Backlog} & \textbf{Sprint Backlog} & \textbf{In Progress} & \textbf{Review/QA} & \textbf{Closed} \\
@@ -149,31 +149,33 @@ board will consist of five columns, as seen in Table \ref{table:scrum}.
 \end{table} 
 
 \subsubsection{MoSCoW}
-MoSCoW is an important prioritising model used in software development, as it
-describes which parts of the system that constitute the minimal viable product,
-MVP. The use cases for the system to be developed are prioritised with the
-customer as this makes it clear which parts of the system to develop first. \cite{moscow}
-These use cases are then presented in a table, to improve readability.\\
+MoSCoW is an important prioritisation technique used in software development, as
+it describes which parts of the system that constitute the minimal viable
+product, MVP. The use cases for the system to be developed are prioritised with
+the customer, as this makes it clear which parts of the system to develop first.
+\cite{moscow} These use cases are then presented in a table, to improve
+readability.\\
 
 MoSCoW is an acronym standing for:\\
 
 \begin{description}
-    \item [Must have:] the use cases needed for the system to work and be
+    \item [Must have:] The use cases needed for the system to work and be
     accepted by the customer.
 
-    \item [Should have:] what use cases the customer would like to have
+    \item [Should have:] What use cases the customer would like to have
     implemented, but they are not necessarily important for the system to work.
 
-    \item [Could have:] use cases the customer would like to have implemented if
+    \item [Could have:] Use cases the customer would like to have implemented if
     there is enough time for it.
 
-    \item [Won't have (this time):] use cases that are not to be prioritised in
+    \item [Won't have (this time):] Use cases that are not to be prioritised in
     this iteration, but maybe in future releases.
 \end{description}
 
 \subsubsection{FURPS+}
 FURPS+ is a model for classifying functional and non-functional requirements and
-help giving a detailed description of the requirements. \cite{furps} The acronym stands for: 
+helps give a detailed description of the requirements. \cite{furps} The acronym
+stands for: 
 
 \begin{description}
     \item [Functionality:] What the customer wants, including security measures.
@@ -200,7 +202,7 @@ The + sign stands for supplementary needs the customer could have and includes:
     influence how the software should be built?
 
     \item [Implementation requirements:] Are there any standards the programmers
-    must adhere to? is test-driven development necessary?
+    must adhere to? Is test-driven development necessary?
 
     \item [Interface requirements:] What downstream feeds need to be made? What
     other systems should the system work with?
