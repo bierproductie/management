@@ -1,0 +1,253 @@
+\section{Implementation}
+From the design section, it was clarified how the system was to be designed, and
+this section will focus on how the subsystems are implemented, using that
+knowledge.
+
+\subsection{Dashboard}
+The user interacts with the dashboard, seen in Figure \ref{figure:dashboard}, and
+through it, the user can see what the machine is producing and information about
+the production. The user can also interact with the dashboard, as they can start
+and stop the machine and press buttons to see live data represented in graphs.
+The user can start a new batch for the machine to produce, as well as see
+the batch history, to get an overview of produced batches and its data.\\
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\linewidth]{images/dashboard.png}
+	\caption{Dashboard}
+	\label{figure:dashboard}
+\end{figure}
+
+The dashboard is implemented using web-based technology, so it can run on
+multiple platforms without installing any software, apart from a modern browser
+that is running JavaScript. It is implemented using HTML, CSS and JavaScript,
+and it uses two separate libraries for making graphs and getting icons for the
+buttons.
+
+\subsection{REST API}
+The REST API is responsible for providing the dashboard with live data, and the
+ability to start new batches from the dashboard. The API is able to provide
+live data due to the OPC-UA client posting it to the API as soon as a property
+changes. The data is then kept in the PostgreSQL database. The API is developed
+in Python3 via the popular FastAPI framework. For interacting with the database,
+it is using the async ORM Gino. The source code structure is inspired by best
+practices in MVC, with separations between the different layers (router,
+service, schemas and database models (ORM)). This ensures that components can
+easily be swapped out, and thereby makes it easier to maintain in the long run.\\
+
+Another part of implementation is the development setup via a continuous
+integration pipeline. In the pipeline it is verified if the code is linted
+properly, as well as verifying if unit tests and system tests are passing. If
+one of these steps fails, the pull request is not allowed to be merged to master.
+When new branches are merged to master, the last part of the pipeline is being
+run which builds a new docker image to a private registry, which is then deployed
+automatically to \url{https://api.bierproductie.nymann.dev/docs}. This can be
+verified via the version on the docs page matching the latest commit hash.
+
+
+\subsection{Database}
+The database is implemented with PostgreSQL, which is a relational database.
+The PostgreSQL software is reliable and has been used for mange years in the
+industry. The table implementation in the database is derived from the EER
+Diagram, see Figure \ref{figure:eer_diagram} for reference. All communication to
+the database in the production setup is routed through the REST API. This way,
+data quality and easier error handling is ensured. From a security
+standpoint, this is superior since it is possible to make an internal docker
+network. The network is only shared with the REST API, which ensures that none
+other than the REST API can connect to it. The database consists of the
+following tables \texttt{data\_over\_time}, \texttt{recipes}, \texttt{batches} and
+\texttt{alembic\_version}. The \texttt{data\_over\_time} table is where live data
+is posted to by the client. To improve performance, this table is partitioned on a
+monthly basis based on the measurement timestamp of each row. Given the system
+design, an interesting point is the delay between the machine
+measurement timestamp, and when the data is inserted in the database. This is
+implemented via a function that returns the current timestamp and is triggered
+when data is inserted on the \texttt{data\_over\_time} table.
+
+
+\subsection{OPC-UA Client}
+The OPC-UA client handles the data from the machine and sends it to the API. It 
+is written in Java and uses the Milo library to create a client that connects to 
+the machines OPC-UA-server. The OPC-UA client is able to subscribe to 
+information on the server and send it to the API that stores it in the database.
+The client also controls the machine while it collects data, as it creates and
+runs batches it gets from the dashboard through the API. The client sends live
+data to the dashboard via the API using subscriptions. These subscriptions send
+data to the API every time a change appears, and the API then forwards it to the
+dashboard. The client creates six subscriptions when started, and they monitor
+temperature, vibration, humidity, machine-state, current defective products and
+current processed products. \\
+
+The data is also stored in an object called Batch in the client. The Batch class
+has properties corresponding to the values the API uses as well as logic to
+process the data. This logic includes OEE calculation and JSON exportation. In
+the start of a batch, when the user has configured the desired production, the
+data is sent to the client to create a Batch object. The Batch object is then
+run with the BatchHandler class, and while the batch is being produced, the
+subscriptions will add data to the object. When done the Batch object will run
+through its logic and finally export itself as a JSON so it can be sent to the
+API. 
+
+
+\subsection{Overall Equipment Effectiveness}
+When a batch is complete, and the data is stored in the batch class, the
+calculation of the OEE takes place.\\
+
+The planned production time can not be estimated for this project, as too many
+variables are unknown (shift lengths, the time it takes to refill ingredients,
+the time it takes to do maintenance work etc.). Therefore, it has been decided
+to use the time it takes to produce a batch. The calculation can be seen
+below.
+
+\[PlannedProductionTime = \left(\frac{AmountToProduce}{MachineSpeed}\right)\cdot60\]\\
+
+Where the amount to produce divided by the machine speed gives the production
+time in minutes, as the machine speed is products per minute. This result can be
+multiplied by 60 to give the production time in seconds. The maximum machine
+speed is needed to find the ideal cycle time. 1 divided by this multiplied by
+60 then results in the theoretical minimum time it takes to produce one unit.
+
+\[IdealCycleTime = \frac{1}{maxMachineSpeed}\cdot60\]\\
+
+When these have been calculated, it is possible to calculate the OEE using
+Equation \ref{eq:OEE}.
+
+\[OEE = \left(\frac{AcceptedProducts\cdot{IdealCycleTime}}{PlannedProductionTime}\right)\cdot100\]\\
+
+This result gives the overall equipment effectiveness in percentage, which is
+used to evaluate if the production can be optimised further. It should be noted
+that the result from this calculation is only indicative, as neither quality,
+performance or availability can be assessed from this.
+
+To give an example on how a calculation with real values would look like, take
+the values: amount to produce = 100, maximum machine speed = 300, batch machine
+speed = 200, accepted products = 97.
+
+\[PlannedProductionTime = \left(\frac{100}{200}\right)\cdot60 = 30\]
+
+\[IdealCycleTime = \frac{1}{300}\cdot60=0.2\]
+
+\[OEE = \left(\frac{97\cdot0,2}{30}\right)\cdot100 = 64,67\%\]\\
+
+The OEE for this specific batch would be 64,67\%, which means that the
+production line can be optimised further if needed.
+
+\subsection{Error Function}
+The error function associated with each product type is to be estimated. For
+this, several batches should be produced to have some data to do the
+calculations with. The variables used to estimate the error function is the
+amount of products to produce, the machine speed and the amount of rejected
+products. These values are used to make an expression, that resembles the error
+function. The data used can be found in Appendix \ref{app:batch_data}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\linewidth]{images/errorfunction/pilsner.png}
+	\caption{Estimated Error Function for Pilsner}
+	\label{figure:ef_pilsner}
+\end{figure}
+
+The estimated error function seen in Figure \ref{figure:ef_pilsner} gives an
+idea of when the beer production machine starts to produce many rejected
+products. All the estimated error functions for the products the machine can
+produce can be seen in Table \ref{table:eef}, and the graphs can be found in
+Appendix \ref{app:error_function_graphs}.
+
+\begin{table}[ht]
+    \captionof{table}{Estimated Error Functions}
+     \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{3cm}|>{\RaggedRight}X|>{\RaggedRight}p{3cm}|}
+     \hline
+     \textbf{Product type} & \textbf{Estimated Error Function} & \textbf{Accuracy} \\
+     \hline
+     Pilsner & \(y = 0,0003x^3 - 0,0291x^2 + 0,95x - 7,3838\) & \(R^2 = 0,9905\) \\
+     \hline
+     Wheat & \(y = 5E-05x^3 - 0,0077x^2 + 1,3163x - 3,6317\) & \(R^2 = 0,9983\) \\
+     \hline
+     IPA & \(y = -0,0001x^3 + 0,0548x^2 - 3,7529x + 72\) & \(R^2 = 0,9981\) \\
+     \hline
+     Stout & \(y = -0,0002x^3 + 0,0319x^2 - 1,551x + 67,071\) & \(R^2 = 0,9331\) \\
+     \hline
+     Ale & \(y = -2E-05x^3 + 0,0099x^2 - 0,5615x + 9,1857\) & \(R^2 = 1\) \\
+     \hline
+     Alcohol Free & \(y = 3E-05x^3 - 0,0021x^2 + 0,4464x + 10\) & \(R^2 = 0,9935\) \\
+     \hline
+    \end{tabularx}
+    \label{table:eef}
+\end{table}
+
+\subsection{Optimal Production Speed}
+To find the optimal production speed, the same data as when estimating the error
+function is used. As the error simulation in the machine is a function of the
+normalised machine speed and the selected product, the normalised machine speed
+must be calculated. This is done by taking 100 over the maximum machine speed.
+This, multiplied by the chosen machine speed, will then give the percentage of
+the maximum machine speed, which is used when plotting the graph for the optimal
+production speed. The normalised machine speed will be the \(x\)-values and the
+calculated OEE will be the \(y\)-values. An example can be seen in Figure
+\ref{figure:ops_pilsner}, where the graph for the optimal production speed for
+the product type pilsner can be seen.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\linewidth]{images/ops/pilsner.png}
+	\caption{Optimal Production Speed for Pilsner}
+	\label{figure:ops_pilsner}
+\end{figure}
+
+This plot is generated using Microsoft Excel. When the OEE for each tested
+machine speed is plotted, a third-degree polynomial trend line is applied, and an
+expression for the function generated is given. For the pilsner, the function is
+given by:
+
+\[y = -0,0003x^3+0,0334x^2-0,1057x+9,0202\]
+
+
+With an \(R^2\) of \(0,9905\) which is used to see how close to the data points
+the polynomial is (the closer to 1 the more accurate). To find the maximum of
+the function, the derivative is calculated:
+
+\[y' = -\frac{9x^2-668x+1057}{10000}\]
+
+To find the maximum, this equation should be solved for \(x\) when \(y=0\). This
+gives \(72,61\), which is the optimal machine speed for the pilsner product type,
+measured in percentage of the maximum machine speed. To make sure the calculated
+\(x\)-value is a local maximum at \(72,61\), the second derivative is calculated:
+
+\[y'' = -\frac{18x-668}{10000}\]
+
+Then, this equation is solved for \(y\) when \(x=72,61\), which gives a value of
+\(-0,06\). Since the result is less than 0, it can be confirmed that it is
+a maximum.\\
+
+This is done for all product types, and the results can be seen in Table
+\ref{table:ops}.
+
+
+\begin{table}[ht]
+    \captionof{table}{Optimal Production Speed}
+     \begin{tabularx}{\textwidth}{|>{\RaggedRight}p{3cm}|>{\RaggedRight}X|>{\RaggedRight}p{6cm}|}
+     \hline
+     \textbf{Product type} & \textbf{Maximum} & \textbf{Optimal Production Speed}\\
+     \hline
+     Pilsner & 72,61\% of 600 & 435,63 products/minute \\
+     \hline
+     Wheat & 51,58\% of 300 & 154,75 products/minute \\
+     \hline
+     IPA & 62,55\% of 150 & 93,83 products/minute \\
+     \hline
+     Stout & The equation has no solution for \(x\) in ${\rm I\!R}$ & 200 products/minute (max) \\
+     \hline
+     Ale & 91,82\% of 100 & 91,82 products/minute \\
+     \hline
+     Alcohol Free & 76,35\% of 125 & 95,44 products/minute \\
+     \hline
+    \end{tabularx}
+    \label{table:ops}
+\end{table}
+
+
+The reason for the result of the stout is that the function has no local maxima
+in the range (0 to 200). Instead, it keeps increasing, as seen in the graph for the
+stout in Appendix \ref{app:ops_graphs}. This means that the faster the machine speed,
+the better, which is why the optimal production speed is the maximal machine
+speed.

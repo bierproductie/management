@@ -1,0 +1,191 @@
+\subsection{Use Cases}\label{app:usecases}
+
+% stop production
+\begin{table}[ht]
+    \captionof{table}{Production Control: Stop production} 
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|}
+        \hline
+        \textbf{ID:} UC02  \\
+        \hline
+        \textbf{Primary actor:} The user \\
+        \hline
+        \textbf{Secondary actor:} Beer production machine \\
+        \hline
+        \textbf{Short description:} The MES must be able to stop the brewery's
+        production \\
+        \hline
+        \textbf{Pre conditions:} The beer production machine needs to be on \\
+        \hline
+        \textbf{Main flow:} \\
+        	1. This use case starts when a user wants to shut down the beer
+        	production machine. \\
+			2. The user presses the stop button \\
+			3. The MES stores the data from the beer production machine \\
+			4. The beer production machine stops \\
+		\hline
+        \textbf{post conditions:} The beer production machine is turned off \\
+        \hline
+        \textbf{Alternative flow:} \\
+        \hline
+    \end{tabularx}
+    \label{table:usecase_stop}
+\end{table}
+
+% abort
+\begin{table}[ht]
+    \captionof{table}{Production Control: Abort the current production} 
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|}
+        \hline
+        \textbf{ID:} UC03  \\
+        \hline
+        \textbf{Primary actor:} The user \\
+        \hline
+        \textbf{Secondary actor:} Beer production machine \\
+        \hline
+        \textbf{Short description:} The MES must be able to abort the current
+        production. \\
+        \hline
+        \textbf{Pre conditions:} The production needs to be on and producing
+        beer. \\
+        \hline
+        \textbf{Main flow:} \\
+        	1. This use case starts when a user wants to abort the current
+        	production. \\
+        	2. The user presses the abort button \\
+			3. The MES stores the data from the beer production machine \\
+			4. The beer production machine aborts \\
+		\hline
+        \textbf{post conditions:} The beer production machine aborted the
+        current production \\
+        \hline
+        \textbf{Alternative flow:} \\
+        \hline
+    \end{tabularx}
+    \label{table:usecase_abort}
+\end{table}
+
+% reset
+\begin{table}[ht]
+    \captionof{table}{Production control: Reset the machine}
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|}
+        \hline
+        \textbf{ID:} UC04  \\
+        \hline
+        \textbf{Primary actor:} The user \\
+        \hline
+        \textbf{Secondary actor:} Beer production machine \\
+        \hline
+        \textbf{Short description:} The MES must be able to reset the beer
+        production machine. \\
+        \hline
+        \textbf{Pre conditions:} The beer production machine needs to be in
+        ready mode, that is, not producing beer. \\
+        \hline
+        \textbf{Main flow:} \\
+        	1. This use case starts when a user wants to reset the beer
+        	production machine \\
+        	2. The user presses the reset button \\
+			3. The beer production machine resets \\
+		\hline
+        \textbf{post conditions:} The beer production machine has been reset \\
+        \hline
+        \textbf{Alternative flow:} \\
+        \hline
+    \end{tabularx}
+    \label{table:usecase_reset}
+\end{table}
+
+% clear
+\begin{table}[ht]
+    \captionof{table}{Production control: Clear the machine}
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|}
+        \hline
+        \textbf{ID:} UC05  \\
+        \hline
+        \textbf{Primary actor:} The user \\
+        \hline
+        \textbf{Secondary actor:} The beer production machine \\
+        \hline
+        \textbf{Short description:} The MES must be able to clear the beer
+        production machine. \\
+        \hline
+        \textbf{Pre conditions:} The beer production machine needs to be in
+        ready mode, that is, not producing beer. \\
+        \hline
+        \textbf{Main flow:} \\
+        	1. This use case starts when a user wants to clear the beer
+        	production machine \\
+        	2. The user presses the clear button \\
+			3. The beer production machine clears \\
+		\hline
+        \textbf{post conditions:} The beer production machine has been cleared \\
+        \hline
+        \textbf{Alternative flow:} \\
+        \hline
+    \end{tabularx}
+    \label{table:usecase_clear}
+\end{table}
+
+% display live data
+\begin{table}[ht]
+    \captionof{table}{Production monitoring: Display live data}
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|}
+        \hline
+        \textbf{ID:} UC06  \\
+        \hline
+        \textbf{Primary actor:} The user \\
+        \hline
+        \textbf{Secondary actor:} The beer production machine \\
+        \hline
+        \textbf{Short description:} The MES needs to display live data from the
+        production. \\
+        \hline
+        \textbf{Pre conditions:} The beer production machine needs to be on and
+        producing beer. \\
+        \hline
+        \textbf{Main flow:} \\
+        	1. This use case starts when the user wants to see data from the
+        	production. \\
+			2. The MES collects the necessary data from the beer production
+			machine. \\
+			3. The MES displays the relevant data for the user. \\
+		\hline
+        \textbf{post conditions:} Live data has been displayed for the user. \\
+        \hline
+        \textbf{Alternative flow:} \\
+        \hline
+    \end{tabularx}
+    \label{table:usecase_displayLiveData}
+\end{table}
+
+% generate batch report
+\begin{table}[ht]
+    \captionof{table}{Batch report: Generate batch report}
+    \begin{tabularx}{\textwidth}{|>{\RaggedRight}X|}
+        \hline
+        \textbf{ID:} UC07  \\
+        \hline
+        \textbf{Primary actor:} The user \\
+        \hline
+        \textbf{Secondary actor:} The beer production machine \\
+        \hline
+        \textbf{Short description:} The MES needs to be able to generate a batch
+        report from previous batches. \\
+        \hline
+        \textbf{Pre conditions:} The beer production machine needs to have
+        produced a batch. \\
+        \hline
+        \textbf{Main flow:} \\
+        	1. This use case starts when the user wants to see a batch report
+        	from previous productions. \\
+			2. The MES generates a batch report \\
+			3. The MES displays the batch report to the user. \\
+		\hline
+        \textbf{post conditions:} A batch report has been displayed for the
+        user. \\
+        \hline
+        \textbf{Alternative flow:} \\
+        \hline
+    \end{tabularx}
+    \label{table:usecase_batchReport}
+\end{table}

@@ -1,0 +1,43 @@
+actor User
+participant Dashboard
+
+participant REST API
+
+participant OPC-UA Client
+
+participant Beer Production Machine
+
+database Database
+
+User->Dashboard:Start production
+Dashboard->REST API:startProduction()
+REST API->OPC-UA Client:startProduction()
+OPC-UA Client->Beer Production Machine:command(Cmd.START)
+Beer Production Machine-->OPC-UA Client:Machine state: execute
+REST API-->User:Production started
+
+note over OPC-UA Client:The OPC-UA Client\nsubscribes on a status\nnode from the machine,\nso it knows when the\nproduction has finished
+
+actor User
+participant Beer Production Machine
+database Database
+==After x amount of time==
+
+note over Beer Production Machine: The status node is\nset to 17, indicating\nthat the production\nis done
+
+OPC-UA Client->Beer Production Machine: subscribe to data
+Beer Production Machine-->OPC-UA Client: batch data
+
+
+OPC-UA Client->REST API:POST/PUT\n/data_over_time/<batch_id>
+
+
+group POST with wrong data
+REST API-->OPC-UA Client:422, Unprocessable Entity
+end
+REST API->Database:INSERT_query()
+Database-->REST API:response
+Dashboard->REST API:REQUEST\n/data_over_time/<batch_id>
+REST API-->Dashboard:batch data
+
+OPC-UA Client->OPC-UA Client:CalculateOEE()

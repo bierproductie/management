@@ -1,0 +1,13 @@
+actor User
+participant Control Panel
+
+participant OPC-UA Client
+
+participant Beer Production Machine
+
+
+User->Control Panel: Stop machine
+Control Panel->OPC-UA Client: stopMachine()
+OPC-UA Client->Beer Production Machine: command(Cmd.STOP)
+Beer Production Machine-->Control Panel:Machine state: stopped
+Control Panel-->User: Machine stopped

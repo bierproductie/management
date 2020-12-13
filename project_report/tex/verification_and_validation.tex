@@ -1,0 +1,60 @@
+\section{Verification \& Validation}
+This section describes the verification and validation of the developed MES.\\
+
+Verification ensures the software quality, design, architecture and the like by
+checking if the software has been built, according to the plan. Validation is
+testing if the developed system meets the brewery's requirements found in Table
+\ref{table:Requirements}.
+
+\subsection{Verification}
+The source code is compared to the results of the architecture and design
+sections to verify the developed system. \\
+
+When comparing, the focus is on ensuring that the system complies with the
+design principle, separation of concerns. The database should follow the
+specified EER diagram, the dashboard should comply with the design pattern MVC,
+and the OPC-UA client should communicate via HTTP. \\
+
+The database can store relevant data, and the data corresponds with the tables
+specified in the EER diagram. The dashboard follows the MVC pattern, as the
+Model controls the data-related logic, the View controls the user interface
+logic, and the Controller controls the business logic. The OPC-UA and the REST
+API are separate subsystems that communicate through the HTTP protocol. 
+
+
+\subsection{Validation}
+The validation tests consists of producing every product type at different
+machine speeds with the same number of products to produce and gather the
+production data. These tests make it possible to calculate the OEE for every
+speed and then calculate the error function for the product types.\\
+
+The validations below are concluded during the tests and list the features and
+the requirements they fulfil. They also mention features that extend the basic
+need of the requirements. These do not matter as much, as the ones on the list
+are the primary focus. They, however, are a good addition for the overall
+usability.
+
+\subsubsection{Control production} 
+The system allows control of the production line. The production manager can
+start, stop, clear, reset, and abort the production through the dashboard. This
+functionality fulfils requirements R01-R02 in the list of requirements.
+
+\subsubsection{Data processing}
+The system monitors batch data from the production line. The batch data is
+stored in the database and kept track of, using the batch id. This functionality
+allows the data to be accessed in the history page on the dashboard after it has
+run, thus fulfilling requirements R03-R06.
+
+\subsubsection{Data presentation}
+Having access to past batches and their data allows the dashboard to provide a
+visualisation of batch reports and live data: fulfilling requirement R07, R08,
+and R9.
+
+\subsubsection{Optimisation}
+Based on past and present data, the production line can be optimised. By
+calculating OEE, estimating error function and finding the optimal production
+speed, the brewery can optimise their production line. These features fulfil
+requirements R10-R12 completing the list of requirements. \\
+
+By looking at the implemented features, the system fulfils the requirements from
+the Overall Requirements Specification.

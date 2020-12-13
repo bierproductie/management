@@ -1,0 +1,29 @@
+\section{Summary}
+The purpose of this project has been to develop an Manufacturing Execution
+System for the brewery Refslevbæk Bryghus A/S, to optimise the production line
+so the brewery can keep up with the demand for their products. The brewery
+recently bought a new brewing machine, and a simulator of this has been made
+available to the group. From analysing the given project description, the group
+has narrowed the problem down to the following:\\
+
+\textit{"How to apply an MES to control and optimise the brewing process at
+Refslevbæk Bryghus A/S, to maximise the production of high-quality beer."}\\
+
+The report contains an overview over the development of the MES, from initial
+requirements analysis through architecture, design, and implementation resulting
+in verification and validation of the developed system. Based on these sections
+the developed system can be evaluated and concluded upon, asserting if the
+group has successfully solved the problem.\\
+
+In the end, the group has managed to develop an MES consisting of a dashboard,
+an API and an OPC-UA client. The dashboard acts as a control panel, from which a
+production can be started and stopped. Real-time data from the production is
+displayed, and graphs can be viewed to give an overview over the production.
+Furthermore, a history page can be accessed, containing data regarding past
+batches. The data used to provide this functionality is stored in a database.
+The stored data is also used to optimise the production line by calculating the
+Overall Equipment Effectiveness and finding the optimal production speed for
+each product type. The data is made available by the OPC-UA client, which
+connects the beer production machine, and then posts the data to the API. The
+API then inserts the data in the database, and makes it available for the
+dashboard to consume.
