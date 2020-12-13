@@ -29,18 +29,18 @@ ability to start new batches from the dashboard. The API is able to provide
 live data due to the OPC-UA client posting it to the API as soon as a property
 changes, the data is then kept in the PostgreSQL database. The API is developed
 in Python3 via the popular FastAPI framework. For interacting with the database
-it's using the async ORM Gino. The source code structure is inspired from best
+it is using the async ORM Gino. The source code structure is inspired from best
 practices in MVC, with separations between the different layers (router,
 service, schemas and database models (ORM)). This ensures that components can
 easily be swapped out, and thereby makes it easier to maintain in the long run.
-Another part of implementation is the development setup, via our continous
-integration pipeline we check if the code is linted properly as well as unit
-and system tests are passing, if one of these steps are failing the pull request
-is not allowed to be merged to master. When new branches are merged to master,
-the last part of our pipeline is being run which builds a new docker image to
-our private registry which is then deployed automatically to 
-https://api.bierproductie.nymann.dev/docs, this can be verified via the version
-matching the latest commit hash.
+Another part of implementation is the development setup, via a continuous
+integration pipeline it is verified if the code is linted properly as well as
+unit tests and system tests are passing, if one of these steps are failing the
+pull request is not allowed to be merged to master. When new branches are merged
+to master, the last part of the pipeline is being run which builds a new docker
+image to a private registry which is then deployed automatically to 
+\url{https://api.bierproductie.nymann.dev/docs}, this can be verified via the
+version on the docs page matching the latest commit hash.
 
 
 \subsection{Database}
