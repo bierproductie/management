@@ -66,10 +66,20 @@ uses two separate libraries for making graphs and getting icons for the buttons.
 The database is implemented with PostgreSQL, which is a relational database.
 The PostgreSQL software is reliable and have been used for mange years in the
 industry. The table implementation in the database is derived from the EER
-Diagram see Figure \ref{figure:eer_diagram} for reference. The only thing
-that is allow to talk to the database is the REST API, so the prerequisite 
-still holds true with the separations of concerns and the database is not ended 
-up in a inconsistent state.
+Diagram see Figure \ref{figure:eer_diagram} for reference. All communication to
+the database in the production setup is routed trough the REST API, this way
+we ensure data quality and easier error handling. But also from a security
+standpoint this is superior since we can make an internal docker network that
+is only shared with the REST API, which ensures that none other than the REST
+API can even connect to it. The database consists of the following tables
+\textt{data_over_time}, \texttt{recipes}, \texttt{batches} and
+\texttt{alembic_version}. The \texttt{data_over_time} table is where live data
+is posted to by the client, to improve performance this table is partioned on a
+monthly basis based on the measurement timestamp of each row. Given our system
+design, an interesting point to look at is the delay between the machine
+measurement timestamp and when the data is inserted in the database. This is
+implemented via a function that returns the current timestamp and is triggered
+when data is inserted on the \texttt{data_over_time} table.
 
 
 \subsection{OPC-UA-Client}
